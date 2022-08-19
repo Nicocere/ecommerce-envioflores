@@ -23,9 +23,7 @@
 
 }
 .seccionLi:hover {
-  background: linear-gradient(to bottom, #f061d1, transparent);
-  background-position: top;
-  border-radius: 10px;
+
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
@@ -40,7 +38,7 @@
 .seccionLi a:hover {
   background: transparent;
   text-decoration: none;
-  color: white;
+  color: rgb(189, 8, 149);
 }
 
 /* CARRITO DE COMPRAS */
@@ -53,13 +51,31 @@
 }
 
 .boton-abrircarrito {
-  color: rgb(0, 0, 0);
-  font-size: 150%;
-  border: groove;
-  justify-content: space-between;
-  margin: 0%;
-  align-items: center;
-  border-radius: 4px;
+  display: inline-block;
+  padding: 0px 16px;
+  font-size: 23px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #c01a70;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px #626262;
+  transition: background-color 1s;
+}
+
+.boton-abrircarrito:hover {
+  
+  background-color: #6e063c
+
+}
+
+.boton-abrircarrito:active {
+  background-color: #7e0945;
+  box-shadow: 0 0px #666;
+  transform: translateY(4px);
 }
 
 .fa-shopping-cart {
@@ -81,9 +97,8 @@
 }
 
 .shopCart {
-  color: black;
+  color: white;
   margin: 0%;
-  background: rgba(255, 255, 255, 0.527);
   padding: 1.5px 7.5px;
   font-family: "Quintessential";
   font-size: medium
@@ -128,8 +143,12 @@
   text-decoration: none;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.623), rgb(255, 108, 189));
 }
-.product-item:hover .tituloProducto {
-  color: rgb(5, 18, 59);
+.tituloProducto{
+  margin: 2%;
+  font-family: "Quintessential";
+}
+.tituloProducto:hover {
+  color: rgb(163, 29, 141);
   transition: all 0.5s;
   font-size: 109%;
 }
@@ -142,6 +161,15 @@
 .product-item img:hover {
   transform: scale(1.01);
 }
+
+
+.elijaTamaño {
+  align-self: center;
+  font-family: "Quintessential";
+  font-size: medium;
+  margin: 1%;  
+}
+
 
 /* agregar productos */
 .button-add {

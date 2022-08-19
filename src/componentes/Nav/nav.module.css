@@ -1,9 +1,11 @@
 .navBar{
     display: flex;
     margin: 0%;
-    background: linear-gradient(rgb(211 56 100), rgb(205 33 83));
+    background: linear-gradient(rgb(255 255 255 / 50%), rgb(255 255 255 / 46%));
     align-items: center;
     width: 100%;
     text-align: center;
 }
+
+
 

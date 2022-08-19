@@ -1,6 +1,6 @@
 import React from 'react'
 import estilos from './nav.module.css'
-import Logo from '../../imagenes/EnvioFlores.jpg'
+import Logo from '../../imagenes/EnvioFlores2.jpg'
 import CartWidget from '../CartWidget/CartWidget'
 
 const NavBar = () => {
