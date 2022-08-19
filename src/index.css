@@ -1,13 +1,177 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* HEADER Y NAVBAR */
+
+/* BODY */
+#cuerpo {
+
+  background-image: url(./imagenes/fondo_pagina.jpg);
+  background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.seccion{
+  display: flex;
+  flex-direction: row;
+}
+
+.seccionLi {
+  padding: 8px;
+  list-style: none;
+  margin-right: 8%;
+  align-self: center;
+  background-position: top;
+  padding-top: 1.5%;
+  transition: background-position 2.5s;
+
+}
+.seccionLi:hover {
+  background: linear-gradient(to bottom, #f061d1, transparent);
+  background-position: top;
+  border-radius: 10px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.seccionLi a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  background: rgba(255, 255, 255, 0);
+  font-family: "Lato", sans-serif;
+  font-size: 130%;
+  transition: color 1.5s;
+}
+.seccionLi a:hover {
+  background: transparent;
+  text-decoration: none;
+  color: white;
+}
+
+/* CARRITO DE COMPRAS */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.boton-abrircarrito {
+  color: rgb(0, 0, 0);
+  font-size: 150%;
+  border: groove;
+  justify-content: space-between;
+  margin: 0%;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.fa-shopping-cart {
+  font-size: 120%;
+  transition: font-size 0.3s;
+}
+.fa-shopping-cart:hover {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-size: 150%;
+  padding: 3px 20px;
+}
+.fa-shopping-cart :focus {
+  outline: none;
+}
+
+.contadorCarrito {
+  margin-right: 5%;
+}
+
+.shopCart {
+  color: black;
+  margin: 0%;
+  background: rgba(255, 255, 255, 0.527);
+  padding: 1.5px 7.5px;
+  font-family: "Quintessential";
+  font-size: medium
+}
+
+
+
+/* FIN HEADER Y NAVBAR */
+
+/* PRODUCTOS */
+.productos {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
+  padding-top: 0.5%;
+  grid-column-gap: 2.5%;
+  grid-row-gap: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.listadeproductos {
+  display: flex;
+  justify-content: space-around;
+  margin: 1%;
+  padding: 2%;
+}
+
+.product-item {
+  display: flex;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.37), rgb(255, 157, 211));
+  transition: all 0.6s;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.product-item:hover {
+  box-shadow: 5px -4px 7px 1px rgba(0, 0, 0, 0.47);
+  text-decoration: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.623), rgb(255, 108, 189));
+}
+.product-item:hover .tituloProducto {
+  color: rgb(5, 18, 59);
+  transition: all 0.5s;
+  font-size: 109%;
+}
+.product-item img {
+  width: 100%;
+  height: 250px;
+  border-radius: 6px;
+  transition: transform 0.5s;
+}
+.product-item img:hover {
+  transform: scale(1.01);
+}
+
+/* agregar productos */
+.button-add {
+  background: rgb(210 52 97);
+  padding: 2.5%;
+  margin-bottom: 10px;
+  border: 0.5px solid rgb(255 155 217);
+  text-decoration: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  transition: all 0.5s;
+  align-self: center;
+  border-radius: 2px;
+}
+.button-add:hover {
+  -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 2%;
+  background-color: rgb(209, 31, 31);
+}
+
+
+/* FIN PRODUCTOS */
+
+/* FOOTER */
+
+.tarjetaFoot {
+  margin-right: 7%;
+  width: 17%;
+  margin-bottom: 6%;
 }
