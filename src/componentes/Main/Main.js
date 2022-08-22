@@ -1,6 +1,6 @@
 import React from 'react'
 import {stockProductos} from '../../data'
-import Item from '../ItemListContainer/ItemListContainer';
+import ItemListContainer from '../ItemListContainer/ItemListContainer';
 
 
 
@@ -9,7 +9,7 @@ const Main = () => {
   return (
     <main className='productos'>  
         {stockProductos.map(item => (
-          <Item producto={item} />
+          <ItemListContainer producto={item} />
         ))};
     </main>
   );
