@@ -1,5 +1,5 @@
 import React from 'react'
-import Counter from '../Counter/Counter'
+import ItemCount from '../ItemCount/ItemCount'
 
 const Buttons = () => {
   return (
@@ -13,8 +13,6 @@ const Buttons = () => {
     </select>    
     <p id="precioProd" className="precioProd"> </p>
 
-    <Counter/>
-    
     </div>
   )
 }
