@@ -1,10 +1,19 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
 import Buttons from "../Buttons/Buttons";
 
 const ItemListContainer = ({producto}) => {
 
+
+
+
+useEffect(() => {
+
+    
+}, [])
+
     return (
-        <div className="product-item" >
+        <div key={producto.id} className="product-item" >
+
              <img src={producto.img} alt=""/>
             <h4 className="tituloProducto">{producto.nombre}</h4>
             

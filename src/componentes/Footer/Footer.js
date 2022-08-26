@@ -13,7 +13,7 @@ return (
     </div>
 
     <div className="col-footer"> 
-       <div class="mediosDePago"> 
+       <div className="mediosDePago"> 
             <h3>Medios De Pago</h3>
             <p> Todos los medios de pago. Paypal, Mercado Pago, Tarjeta de Credito,
             Efectivo </p> 

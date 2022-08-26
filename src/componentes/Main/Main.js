@@ -1,5 +1,5 @@
 import React from 'react'
-import {stockProductos} from '../../data'
+import {stockProductos} from '../Products/Products'
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 
 

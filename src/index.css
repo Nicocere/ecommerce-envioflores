@@ -206,7 +206,13 @@
 }
 
 
-/* agregar productos */
+/* agregar y quitar productos */
+
+.btnAgregarQuitar{
+  display: inline-table;
+
+}
+
 .button-add {
   background: rgb(210 52 97);
   padding: 2.5%;
@@ -216,6 +222,7 @@
   text-align: center;
   color: rgb(0, 0, 0);
   transition: all 0.5s;
+  width: 15%;
   align-self: center;
   border-radius: 2px;
 }
@@ -228,6 +235,49 @@
   background-color: rgb(209, 31, 31);
 }
 
+.button-quit{
+  background: rgb(210 52 97);
+  padding: 2.5%;
+  margin-bottom: 10px;
+  border: 0.5px solid rgb(255 155 217);
+  text-decoration: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  transition: all 0.5s;
+  align-self: center;
+  width: 15%;
+  border-radius: 2px;
+}
+.button-quit:hover {
+  -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 2%;
+  background-color: rgb(209, 31, 31);
+}
+
+.agregarAlCarrito{
+  background: rgb(210 52 97);
+  padding: 2.5%;
+  margin-bottom: 10px;
+  border: 0.5px solid rgb(255 155 217);
+  text-decoration: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  transition: all 0.5s;
+  align-self: center;
+  border-radius: 2px;
+}
+
+.agregarAlCarrito:hover {
+  -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 2%;
+  background-color: rgb(209, 31, 31);
+}
 
 /* FIN PRODUCTOS */
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Counter from '../Counter.js/Counter'
+import Counter from '../Counter/Counter'
 
 const Buttons = () => {
   return (
@@ -14,8 +14,10 @@ const Buttons = () => {
     <p id="precioProd" className="precioProd"> </p>
 
     <Counter/>
+    
     </div>
   )
 }
+
 
 export default Buttons
