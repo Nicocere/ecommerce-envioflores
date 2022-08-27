@@ -1,24 +1,33 @@
-import React , {useState, useEffect} from "react";
-import Buttons from "../Buttons/Buttons";
+import React , {useEffect, useState} from "react";
+import ItemList from "../itemList/ItemList";
+import { stockProductos } from "../Products/Products";
 
-const ItemListContainer = ({producto}) => {
+const ItemListContainer = () => {
+    const [items,  setItems] = useState ([]);
 
-
-
-
+    
 useEffect(() => {
 
-    
-}, [])
+    const getProducts = () => new Promise ((resolve, reject) => {
+        setTimeout(() => { resolve(stockProductos)}, 4000);});
 
+    getProducts()
+    .then((data) => {setItems(data)
+    })
+    .catch((error) => { console.log("esto es error", error)
+    })
+
+}, []);
+
+
+    console.log("items", items)
     return (
-        <div key={producto.id} className="product-item" >
+        <div className="productos">
 
-             <img src={producto.img} alt=""/>
-            <h4 className="tituloProducto">{producto.nombre}</h4>
+            <h2> ITEM LIST CONTAINER</h2>
             
-            <Buttons/>
-    
+            <ItemList items={items}/>
+
         </div>
 );
 

@@ -7,7 +7,7 @@ import ItemCount from './componentes/ItemCount/ItemCount'
 function App() {
 
    const onAdd = (agregar) => {
-    console.log( "click boton agregar", agregar)
+    console.log( "click boton agregar, PERO EN NAVBAR", agregar)
    }
 
 
@@ -15,6 +15,7 @@ function App() {
     <>
     <Header/>
     <ItemCount stock={5} initial={0} onAdd={onAdd}/>
+    
     <Main/>
     <Footer/>
 
