@@ -17,6 +17,7 @@ function App() {
     <ItemCount stock={5} initial={0} onAdd={onAdd}/>
     
     <Main/>
+    
     <Footer/>
 
     </>

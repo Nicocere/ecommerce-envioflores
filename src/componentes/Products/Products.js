@@ -39,7 +39,7 @@ export const stockProductos = [
              color: ["rosas","rojas","amarillas","blancas"],
              precio: 12500}, 
     
-            ], tipo: "caja",  flor: "rosas", stock: 100
+            ], tipo: "Caja",  flor: "rosas", stock: 100
             , descr: "Caja con rosas Diamante y Ferrero Rocher" , img: CajaRosasDiamanteRocher },
         
         
@@ -56,7 +56,7 @@ export const stockProductos = [
              color: ["rosas","rojas","amarillas","blancas"],
              precio: 12500}, 
     
-            ], tipo: "caja", flor: "rosas",  stock: 100
+            ], tipo: "Caja", flor: "rosas",  stock: 100
             , descr: "Caja 18 rosas Ferrero" , img: CajaRosasRocher },
         
     {id: 3, producto: true, nombre: "Caja Rosas rosadas", categoria: ["Rosas", "Todos"] , opciones:[
@@ -72,7 +72,7 @@ export const stockProductos = [
                  color: ["rosas","rojas","amarillas","blancas"],
                  precio: 13500}, 
         
-                ],  tipo: "caja",  flor: "rosas",  stock: 100
+                ],  tipo: "Caja",  flor: "rosas",  stock: 100
                 , descr: "Caja 25 rosas rosadas" , img: CajaRosasRosadas },
         
     {id: 4, producto: true, nombre: "Corazon de rosas y ferrero rocher", categoria: ["Rosas", "Todos"] , opciones:[
@@ -105,7 +105,7 @@ export const stockProductos = [
                  precio: 28500}, 
                 
         
-        ], tipo: "caja",  flor: "rosas",   stock: 100
+        ], tipo: "Caja",  flor: "rosas",   stock: 100
         , descr: "Caja Sorpresa Rosas con Ferrero Rocher" , img: CorazonSorpresaRosasFerrero },
         
     {id: 6, producto: true, nombre: "Mini Caja Rosas c/ Peluche", categoria: ["Rosas", "Todos"], opciones:[
@@ -121,7 +121,7 @@ export const stockProductos = [
                 color: ["rosas","rojas","amarillas","blancas"],
                 precio: 18500}, 
     
-        ],  tipo: "caja",  flor: "rosas",   stock: 100
+        ],  tipo: "Caja",  flor: "rosas",   stock: 100
         , descr: "Mini caja rosas con peluche" , img: MiniCajaRosasPeluche },
         
     {id: 7, producto: true, nombre: "Florero con Rosas, Lilium y Gerberas", categoria: ["Rosas", "Florero", "Todos"], opciones:[

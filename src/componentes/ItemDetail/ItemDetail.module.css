@@ -1,0 +1,14 @@
+.productDetail{
+
+    border: 2px black solid;
+
+}
+
+.productDetail img{
+
+    width: 25%;
+}
+
+.details{
+    border: 1px blue solid;
+}

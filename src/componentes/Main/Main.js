@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 
 
@@ -10,6 +11,9 @@ const Main = () => {
 
   <main className=''>  
       <ItemListContainer/>
+
+      <ItemDetailContainer/>
+      
     </main>
   );
 

@@ -4,7 +4,7 @@ import { stockProductos } from "../Products/Products";
 
 const ItemListContainer = () => {
     const [items,  setItems] = useState ([]);
-
+    // const [isLoading, setIsLoading] = useState (true);
     
 useEffect(() => {
 
