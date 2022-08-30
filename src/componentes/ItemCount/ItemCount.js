@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(initial);
 
-    
+    console.log("esto es count", count)
 
   
-  useEffect (() => {});
+  
 
     
     const sumar = () => {
@@ -26,10 +26,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <button onClick={sumar} className="button-add">+</button>
         <button onClick={restar} className="button-quit">-</button>
 
-        <button onClick={onAdd} className="agregarAlCarrito"> Agregar al carrito</button>
+        <button onClick={() => onAdd(count)} className="agregarAlCarrito"> Agregar al carrito</button>
         
     {/* contador */}
-        <p>Cantidad: {count}</p>
+        <p className='tituloProducto'>Cantidad: {count}</p>
 
     </div>
   )

@@ -1,14 +1,47 @@
 .productDetail{
 
     border: 2px black solid;
-
+    height: max-content;
 }
 
-.productDetail img{
+.productDetailImg{
 
     width: 25%;
 }
 
-.details{
-    border: 1px blue solid;
+.tableDetail{
+    width: 100%;
 }
+.trDetail{
+
+    
+}
+.thDetail{
+    text-align: left;
+    font-family: "Quintessential";
+
+
+}
+
+.detalles{
+    font-family: cursive;
+
+}
+.ulCategory{
+    border: 1px blue solid;
+    width: fit-content;
+    display: flex;
+
+}
+.listOption{
+    display: block;
+    border: 2px rgba(204, 0, 255, 0.486) solid;
+    width: 25%;
+    display: inline-block;
+}
+
+.optionLi{
+    border: 1px rgba(128, 0, 75, 0.452) solid;
+    list-style: none;
+}
+

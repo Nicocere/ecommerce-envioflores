@@ -20,7 +20,8 @@ useEffect(() => {
 }, []);
 
 
-    console.log("items", items)
+    // console.log("items", items)
+
     return (
         <div className="productos">
 

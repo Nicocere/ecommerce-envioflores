@@ -8,31 +8,40 @@ const ItemDetailContainer = () => {
     
      const [productDetail,  setProductDetail] = useState ({});
 
-    const unicoProd = stockProductos.find((producto) => producto.id === 2) 
+    const unicoProd = stockProductos.find((producto) => producto.id === 15) 
 
-    useEffect(() => {
+    let prodOptions = unicoProd.opciones
 
-        const getDetailProduct = () => new Promise ((resolve, reject) => {
-            setTimeout(() => { resolve(unicoProd)}, 4000);});
     
-        getDetailProduct()
-        .then((data) => {setProductDetail(data)
+    
+    
+    
+    useEffect(() => {
+        
+        const getDetailProduct = () => new Promise ((resolve, reject) => {
+            setTimeout(() => { resolve(unicoProd, prodOptions)}, 4000);});
+            
+            getDetailProduct()
+            .then((data) => {setProductDetail(data)
+          
+ 
+                console.log("Esta es la prod Options del then en container", prodOptions)
         })
         .catch((error) => { console.log("esto es error", error)
         })
-    
+        
+
+
     }, []);
 
-    console.log("UNICO PROD", unicoProd)
     
-    console.log("productDetail", productDetail)
 
     return (
-        <div className="productos">
+        <div className="productoDetail">
 
-            <h1> ITEM DETAIL CONTAINER</h1>
-            
-            <ItemDetail unicoProd={productDetail}/>
+            <h4>Item List CONTAINER</h4>
+
+            <ItemDetail unicoProd={productDetail} prodOptions={productDetail}/>
 
         </div>
 );

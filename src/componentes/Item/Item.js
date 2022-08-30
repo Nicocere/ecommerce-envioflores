@@ -2,8 +2,6 @@ import React from 'react'
 import Buttons from '../Buttons/Buttons'
 
 const Item = ({items}) => {
-
-    console.log('Item N° ', items.id)
     
   return (
     <div className="product-item">

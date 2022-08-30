@@ -1,49 +1,105 @@
-import React from 'react'
-import estilosDetail from './ItemDetail.module.css'
+import React from 'react';
+import ItemCount from '../ItemCount/ItemCount'
+import estilosDetail from './ItemDetail.module.css';
+
+const ItemDetail = ({unicoProd, prodOptions}) => {
+
+  console.log("UNICOPROD es esto", unicoProd)
+  
+  console.log("prodOptions es esto", prodOptions)
+
+   const options =  unicoProd.opciones
+  
+  console.log(" las options", options)
 
 
-const ItemDetail = ({unicoProd}) => {
-
-    // const detailOpciones = unicoProd.map ((option)=> option.opciones)
-
-    // console.log("estas son las opciones", detailOpciones)
-    const options =  [unicoProd.opciones]
+  console.log("categorias", unicoProd.categoria)
+  
 
 
-    console.log("este es mi OPTIONS", options)
+
+  const onAdd = (agregar) => {
+
+    console.log( "click boton agregar pero en un ITEM", agregar);
+
+
+   }
+
+
+    // let detailOption = options[0]
+
+    // console.log("este es mi detsil", detailOption)
+    
 
   return (
 
     <div className={estilosDetail.productDetail}>
-        
-        <h3>Item Detail</h3>
-           
-            <img src={unicoProd.img} alt=""/>
+                 
+            <img  className={estilosDetail.productDetailImg} src={unicoProd.img} alt=""/>
+
+            <ItemCount stock={5} initial={0} onAdd={onAdd} />
+
             <h4 className="tituloProducto">{unicoProd.nombre}</h4>
-            <p className={estilosDetail.details}> {unicoProd.tipo}</p>
 
-            {/* HASTA EL MOMENTO NO PUDE REENDERIZAR LAS OPCIONES DE PRODUCTO PERO SI LLEGUE A PONERLOS EN CONSOLA */}
+            <p className={estilosDetail.detalles}> {unicoProd.descr}</p>
 
-{/*  ACA ESTA EL INTENTO FALLIDO 
-            <div>
-                {options.map((item) => (
-                <div key={options.id}>{item} </div>
-                ))}
-            </div> */}
+             <h4 className="tituloProducto">Categorias que pertenece:</h4>         
+            {
+              unicoProd.categoria?.map((category, index)=> {  
+                  console.log("esto es el category", category)
+                    return (
+            
+                      <ul key={index} className={estilosDetail.ulCategory}> 
+                        <li>
+                            {category}
+                        </li>
+                                         
+                      </ul>
+                    )
+            
+              })
+            }
+              <br/>
+              <h4 className="tituloProducto">Opciones:</h4>
 
-
-            <p className={estilosDetail.details}> {unicoProd.categoria}</p>
-            <p className={estilosDetail.details}> {unicoProd.descr}</p>
-
-
-
-
-
-
-    
+                <table className={estilosDetail.tableDetail}>
+                    <tr className={estilosDetail.trDetail}>
+                      <th className={estilosDetail.thDetail}>Tamaño</th>
+                      <th className={estilosDetail.thDetail}>Precio</th>
+                      <th className={estilosDetail.thDetail}>Colores</th>
+                    </tr>
+            {
+              
+              prodOptions.opciones?.map((option)=> {
+                console.log("esto es el option", option)
+                return (
+                  
+                  
+                  <tr>
+                      <td>{option.tamaño}</td>
+                      <td>{option.precio}</td>
+                      <td>{
+                        
+                        option.color?.map((colores) => {
+                          return(
+                            <td>{colores}
+                            <br/>
+                            </td>
+                            )
+                          })
+                          
+                        }</td>
+                    </tr>
+                 
+                 
+                 )
+                })
+                
+              }
+              </table>
     </div>
     
   )
-}
+};
 
 export default ItemDetail
