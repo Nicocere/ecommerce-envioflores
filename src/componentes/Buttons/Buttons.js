@@ -23,7 +23,7 @@ const Buttons = ({items}) => {
     <ItemCount stock={8} initial={0} onAdd={onAdd} />
     </div>
   )
-};
+}
 
 
 export default Buttons
