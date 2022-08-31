@@ -1,6 +1,11 @@
 import React from 'react'
+import ItemCount from '../ItemCount/ItemCount'
 
-const CartWidget = () => {
+const CartWidget = ({count}) => {
+  
+  
+  console.log("count de cartwhidegt", count)
+
   return (
    
  
@@ -8,7 +13,7 @@ const CartWidget = () => {
     
         <span className="material-symbols-outlined">shopping_cart</span>
     
-    <span className="contadorCarrito"> 0 </span>
+    <span className="contadorCarrito"> {count} </span>
     
     
      </button>

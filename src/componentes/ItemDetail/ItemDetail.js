@@ -8,94 +8,81 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
   
   console.log("prodOptions es esto", prodOptions)
 
-   const options =  unicoProd.opciones
-  
-  console.log(" las options", options)
-
-
-  console.log("categorias", unicoProd.categoria)
-  
-
-
-
   const onAdd = (agregar) => {
 
-    console.log( "click boton agregar pero en un ITEM", agregar);
-
-
+    console.log( "click boton agregar pero en un item pero en detail", agregar);
    }
-
-
-    // let detailOption = options[0]
-
-    // console.log("este es mi detsil", detailOption)
-    
 
   return (
 
     <div className={estilosDetail.productDetail}>
                  
-            <img  className={estilosDetail.productDetailImg} src={unicoProd.img} alt=""/>
+      <img  className={estilosDetail.productDetailImg} src={unicoProd.img} alt=""/>
 
             <ItemCount stock={5} initial={0} onAdd={onAdd} />
 
-            <h4 className="tituloProducto">{unicoProd.nombre}</h4>
+            <h4 className={estilosDetail.detalles}>{unicoProd.nombre}</h4>
 
-            <p className={estilosDetail.detalles}> {unicoProd.descr}</p>
-
-             <h4 className="tituloProducto">Categorias que pertenece:</h4>         
+            <h4 className="tituloProducto">Categorias que pertenece:</h4>  
+          <div className={estilosDetail.ulCategory}> 
             {
               unicoProd.categoria?.map((category, index)=> {  
                   console.log("esto es el category", category)
                     return (
-            
-                      <ul key={index} className={estilosDetail.ulCategory}> 
-                        <li>
+                     
+                      <div key={index} className={estilosDetail.divCategory}> 
+                           
                             {category}
-                        </li>
+                        </div>
+
                                          
-                      </ul>
-                    )
-            
+                      )
+                                         
               })
             }
+          </div>
+
+
               <br/>
               <h4 className="tituloProducto">Opciones:</h4>
 
                 <table className={estilosDetail.tableDetail}>
+                  <thead>
+
                     <tr className={estilosDetail.trDetail}>
-                      <th className={estilosDetail.thDetail}>Tamaño</th>
-                      <th className={estilosDetail.thDetail}>Precio</th>
-                      <th className={estilosDetail.thDetail}>Colores</th>
+                      <th className={estilosDetail.thDetail}>Tamaños:</th>
+                      <th className={estilosDetail.thDetail}>Precio:</th>
+                      <th className={estilosDetail.thDetail}>Colores:</th>
                     </tr>
-            {
+                    </thead>
+                    <tbody>
+        {
               
-              prodOptions.opciones?.map((option)=> {
-                console.log("esto es el option", option)
+          prodOptions.opciones?.map((option)=> {
+
                 return (
                   
-                  
                   <tr>
-                      <td>{option.tamaño}</td>
-                      <td>{option.precio}</td>
-                      <td>{
+                      <td className={estilosDetail.tdDetail}>{option.tamaño}</td>
+                      <td className={estilosDetail.tdDetail}>$ {option.precio}</td>
+                      {
                         
                         option.color?.map((colores) => {
                           return(
-                            <td>{colores}
+                            <td className={estilosDetail.tdDetail}>{colores}
                             <br/>
                             </td>
                             )
                           })
                           
-                        }</td>
-                    </tr>
-                 
-                 
-                 )
-                })
+                      }
+                  </tr>
+    
+                )
+            })
                 
-              }
+        }
+              </tbody>
               </table>
     </div>
     

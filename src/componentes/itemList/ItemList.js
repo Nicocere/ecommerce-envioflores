@@ -8,8 +8,6 @@ const ItemList = ({items}) => {
   return (
     
     <div className='listadeproductos'>
-        <h4> item list </h4>
-
             {
               items.map((items)=>{
                 

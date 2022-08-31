@@ -7,8 +7,6 @@ const Buttons = ({items}) => {
     console.log( "click boton agregar pero en un ITEM", agregar);
    }
 
-console.log("ITEMS", items)
-
   return (
     <div> 
       <h6 className="elijaTamaño">Elija un Tamaño</h6>
@@ -21,16 +19,11 @@ console.log("ITEMS", items)
 
                 </li>
               </ul>
-              
-        
-          
 
-      
-  
     <ItemCount stock={8} initial={0} onAdd={onAdd} />
     </div>
   )
-}
+};
 
 
 export default Buttons

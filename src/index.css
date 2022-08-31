@@ -156,8 +156,9 @@
 .listadeproductos {
   display: grid;
   justify-items: center;
-  grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
+  grid-template-columns: 16.4% 16.4% 16.4% 16.4% 16.4%;
   padding-top: 0.5%;
+  margin-left: 2%;
   grid-column-gap: 2.5%;
   grid-row-gap: 50px;
   margin-bottom: 50px;
@@ -210,10 +211,16 @@
 
 .productoDetail{
   display: flex;
-  flex-direction: column;
-  background: rgba(241, 177, 177, 0.664);
+  flex-direction: row;
+  background: rgb(255 255 255 / 64%);
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
 }
-/* agregar y quitar productos */
+
+
+
+/* agregar y quitar productos ----------------------*/
 
 .btnAgregarQuitar{
   display: inline-table;
@@ -297,3 +304,18 @@
 }
 
 
+
+/* VISTA TABLETS Y CELULARES --------------- */
+@media screen and (max-width: 1280px) {
+  .listadeproductos {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
+    padding-top: 0.5%;
+    grid-column-gap: 2.5%;
+    grid-row-gap: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+}

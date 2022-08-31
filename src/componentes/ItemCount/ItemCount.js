@@ -1,23 +1,19 @@
 import React, {useState} from 'react'
+import CartWidget from '../CartWidget/CartWidget';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(initial);
 
-    console.log("esto es count", count)
-
-  
-  
-
-    
     const sumar = () => {
       count < stock ? setCount( count + 1) : alert ("maximo stock");
     }
-
+    
     const restar = () => {
       count > initial ?  setCount (count - 1) : alert ("Ya esta vacio");
     }
-
+    
+    <CartWidget count={count}/>
 
   return (
     <div className='btnAgregarQuitar'>
@@ -30,6 +26,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         
     {/* contador */}
         <p className='tituloProducto'>Cantidad: {count}</p>
+
 
     </div>
   )

@@ -24,8 +24,6 @@ useEffect(() => {
 
     return (
         <div className="productos">
-
-            <h2> ITEM LIST CONTAINER</h2>
             
             <ItemList items={items}/>
 

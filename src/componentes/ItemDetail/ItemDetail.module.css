@@ -1,20 +1,29 @@
 .productDetail{
 
-    border: 2px black solid;
-    height: max-content;
+    border: 2px rgb(255 108 189 / 26%) solid;
+    border-radius: 8px;
 }
 
 .productDetailImg{
-
-    width: 25%;
+    width: 350px;
+    border-radius: 14px;
+    margin: 11px;
+    margin-bottom: 0px;
+    transition: transform .5s;
 }
-
+.productDetailImg:hover{
+    transform: scale(1.05);
+}
 .tableDetail{
     width: 100%;
 }
-.trDetail{
-
+.tdDetail{
+    border: 1px violet solid;
+    transition: all .5s;
     
+}
+.tdDetail:hover{
+    border: 1.5px rgb(228, 26, 26) solid;
 }
 .thDetail{
     text-align: left;
@@ -24,24 +33,31 @@
 }
 
 .detalles{
-    font-family: cursive;
-
+    font-family: "Quintessential";
+    margin: 5%;
+    margin-top: 0%;
 }
 .ulCategory{
-    border: 1px blue solid;
-    width: fit-content;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
 
 }
-.listOption{
-    display: block;
-    border: 2px rgba(204, 0, 255, 0.486) solid;
-    width: 25%;
-    display: inline-block;
+.divCategory{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 1px #ee82ee9c solid;
+    border-radius: 2px;
+    place-content: center;
+    transition: border .5s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
-.optionLi{
-    border: 1px rgba(128, 0, 75, 0.452) solid;
-    list-style: none;
+.divCategory:hover{
+    border: 1.8px rgb(77, 12, 12) solid;
+    background-color: rgba(255, 192, 203, 0.801);
 }
+
 

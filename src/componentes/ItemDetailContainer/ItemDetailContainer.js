@@ -39,7 +39,7 @@ const ItemDetailContainer = () => {
     return (
         <div className="productoDetail">
 
-            <h4>Item List CONTAINER</h4>
+            <h4>Item DETAIL CONTAINER</h4>
 
             <ItemDetail unicoProd={productDetail} prodOptions={productDetail}/>
 
