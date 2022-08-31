@@ -16,7 +16,7 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
 
   return (
 
-    <div className={estilosDetail.productDetail}>
+    <div key={unicoProd.id} className={estilosDetail.productDetail}>
                  
       <img  className={estilosDetail.productDetailImg} src={unicoProd.img} alt=""/>
 
@@ -26,28 +26,24 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
 
             <h4 className="tituloProducto">Categorias que pertenece:</h4>  
           <div className={estilosDetail.ulCategory}> 
+            
             {
-              unicoProd.categoria?.map((category, index)=> {  
+              unicoProd.categoria?.map((category)=> {  
                   console.log("esto es el category", category)
-                    return (
-                     
-                      <div key={index} className={estilosDetail.divCategory}> 
-                           
+                    return (                    
+                      <div  className={estilosDetail.divCategory}> 
                             {category}
-                        </div>
-
-                                         
+                        </div>                                        
                       )
-                                         
+                        
               })
             }
           </div>
-
-
               <br/>
-              <h4 className="tituloProducto">Opciones:</h4>
 
-                <table className={estilosDetail.tableDetail}>
+          <h4 className="tituloProducto">Opciones:</h4>
+
+            <table className={estilosDetail.tableDetail}>
                   <thead>
 
                     <tr className={estilosDetail.trDetail}>
@@ -60,25 +56,22 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
         {
               
           prodOptions.opciones?.map((option)=> {
-
                 return (
-                  
                   <tr>
-                      <td className={estilosDetail.tdDetail}>{option.tamaño}</td>
-                      <td className={estilosDetail.tdDetail}>$ {option.precio}</td>
+                      <td  className={estilosDetail.tdDetail}>{option.tamaño}</td>
+                      <td  className={estilosDetail.tdDetail}>$ {option.precio}</td>
                       {
                         
                         option.color?.map((colores) => {
                           return(
-                            <td className={estilosDetail.tdDetail}>{colores}
+                            <td  className={estilosDetail.tdDetail}>
+                            {colores}
                             <br/>
                             </td>
                             )
-                          })
-                          
+                          })   
                       }
                   </tr>
-    
                 )
             })
                 

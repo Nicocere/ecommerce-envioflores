@@ -1,20 +1,19 @@
 import Header from './componentes/Header/Header';
 import Main from './componentes/Main/Main';
 import Footer from './componentes/Footer/Footer';
-import ItemCount from './componentes/ItemCount/ItemCount'
-
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
 
 
 
   return (
-    <>
+    <BrowserRouter>
     <Header/>    
     <Main/>
     <Footer/>
 
-    </>
+    </BrowserRouter>
 
   );
 }

@@ -2,6 +2,8 @@
 /* HEADER Y NAVBAR */
 
 /* BODY */
+
+
 #cuerpo {
 
   background-image: url(./imagenes/fondo_pagina.jpg);
@@ -23,6 +25,9 @@
 
   transition: background-position 2.5s;
 
+}
+.seccionLi .active{
+  color: rgb(117, 0, 133);
 }
 .seccionLi:hover {
 
@@ -212,11 +217,12 @@
 
 .productoDetail{
   display: flex;
-  flex-direction: row;
   background: rgb(255 255 255 / 64%);
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
+  flex-direction: column;
+
 }
 
 

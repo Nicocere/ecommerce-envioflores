@@ -1,25 +1,29 @@
 import React , {useEffect, useState} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { stockProductos } from "../Products/Products";
-
+import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
 
     
      const [productDetail,  setProductDetail] = useState ({});
 
-    const unicoProd = stockProductos.find((producto) => producto.id === 15) 
+     const {prodId} = useParams()
+     const prodIdNumber = Number(prodId)
+     
+     const unicoProd = stockProductos.find((producto) => producto.id === prodIdNumber) 
+     
+     let prodOptions = unicoProd.opciones
+     
 
-    let prodOptions = unicoProd.opciones
+    console.log("prod ID", prodId)
 
-    
-    
     
     
     useEffect(() => {
         
         const getDetailProduct = () => new Promise ((resolve, reject) => {
-            setTimeout(() => { resolve(unicoProd, prodOptions)}, 4000);});
+            setTimeout(() => { resolve(unicoProd, prodOptions)}, 400);});
             
             getDetailProduct()
             .then((data) => {setProductDetail(data)
@@ -32,16 +36,14 @@ const ItemDetailContainer = () => {
         
 
 
-    }, []);
+    }, [prodId]);
 
     
 
     return (
-        <div className="productoDetail">
+        <div key={unicoProd.id} className="productoDetail">
 
-            <h4>Item DETAIL CONTAINER</h4>
-
-            <ItemDetail unicoProd={productDetail} prodOptions={productDetail}/>
+            <ItemDetail  unicoProd={productDetail} prodOptions={productDetail}/>
 
         </div>
 );

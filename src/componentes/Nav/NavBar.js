@@ -3,38 +3,46 @@ import estilos from './nav.module.css'
 import Logo from '../../imagenes/EnvioFlores3.png'
 import CartWidget from '../CartWidget/CartWidget'
 
+import {NavLink} from 'react-router-dom'
+
 const NavBar = () => {
   return (
     <nav className={estilos.navBar}>
         <img src={Logo} alt="logo envio flores"/>  
             <ul className='seccion'>
 
-                <li className='seccionLi'>
-                    <a href="https//google.com">Rosas</a>
-                </li>
-                <li className='seccionLi'>
-                    <a href="https//google.com">Canastas</a>
-                </li>
-                <li className='seccionLi'>
-                    <a href="https//google.com">Floreros</a>
-                </li>
-                <li className='seccionLi'>
-                    <a href="https//google.com">Arreglos Especiales</a>
-                </li>
-                <li className='seccionLi'>
-                    <a href="https//google.com">Comestibles</a>
+            <li className='seccionLi'>
+                    <NavLink to='/'>Home</NavLink> 
                 </li>
 
                 <li className='seccionLi'>
-                    <a href="https//google.com">Desayunos</a>
+                    <NavLink to='/categoria/Rosas'>Rosas</NavLink> 
                 </li>
-                <li className='seccionLi-Fechas'>
-                    <a href="https//google.com">Fechas Especiales</a>
+                <li className='seccionLi'>
+                    <NavLink to="/categoria/Canasta">Canastas</NavLink>
+                </li>
+                <li className='seccionLi'>
+                    <NavLink to="/categoria/Florero">Floreros</NavLink>
+                </li>
+ 
+                <li className='seccionLi'>
+                    <NavLink to="/categoria/Comestible">Comestibles</NavLink>
+                </li>
+
+                <li className='seccionLi'>
+                    <NavLink to="/categoria/Desayuno">Desayunos</NavLink>
                 </li>
 
             </ul>
+                
+                {/* <div className='seccionLi-Fechas'>
+                    <NavLink to="/category/Fechas Especiales">Fechas Especiales</NavLink>
+                </div> */}
 
+            <NavLink to="/Carrito">
+                
             <CartWidget />
+            </NavLink>
 
     </nav>
   );
