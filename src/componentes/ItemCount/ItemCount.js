@@ -15,6 +15,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
     
     <CartWidget count={count}/>
 
+    console.log("count", count)
+
   return (
     <div className='btnAgregarQuitar'>
 

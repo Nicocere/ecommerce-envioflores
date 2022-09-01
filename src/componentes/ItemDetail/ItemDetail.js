@@ -7,16 +7,19 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
 
   console.log("UNICOPROD es esto", unicoProd)
   
+  const unicoProdId = unicoProd.id
+  console.log("PROD POR ID", unicoProdId
+  )
   console.log("prodOptions es esto", prodOptions)
 
-  const onAdd = (agregar) => {
+  const onAdd = ((agregar) => {
 
-    console.log( "click boton agregar pero en un item pero en detail", agregar);
-   }
+    console.log( "click boton agregar pero en un item pero en detail", agregar)
+  })
 
   return (
 
-    <div key={unicoProd.id} className={estilosDetail.productDetail}>
+    <div key={unicoProdId} className={estilosDetail.productDetail}>
                  
       <img  className={estilosDetail.productDetailImg} src={unicoProd.img} alt=""/>
 
@@ -44,9 +47,9 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
           <h4 className="tituloProducto">Opciones:</h4>
 
             <table className={estilosDetail.tableDetail}>
-                  <thead>
+                  <thead >
 
-                    <tr className={estilosDetail.trDetail}>
+                    <tr  className={estilosDetail.trDetail}>
                       <th className={estilosDetail.thDetail}>Tamaños:</th>
                       <th className={estilosDetail.thDetail}>Precio:</th>
                       <th className={estilosDetail.thDetail}>Colores:</th>

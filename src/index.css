@@ -11,8 +11,10 @@
 }
 
 .seccion{
-  display: flex;
+  display: contents;
+  width: 50%;
   flex-direction: row;
+  padding: 0%;
 }
 
 .seccionLi {
@@ -323,6 +325,12 @@
     grid-row-gap: 50px;
     margin-bottom: 50px;
     margin-top: 50px;
+  }
+
+  .seccion{
+    display: flex;
+    flex-direction: row;
+    padding: 0%;
   }
 
 }
