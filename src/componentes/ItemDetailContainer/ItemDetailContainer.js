@@ -4,9 +4,10 @@ import { stockProductos } from "../Products/Products";
 import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
+ 
+    const [productDetail,  setProductDetail] = useState ({});
 
-    
-     const [productDetail,  setProductDetail] = useState ({});
+    const [isLoading, setIsLoading] = useState(true)
 
      const {prodId} = useParams()
      const prodIdNumber = Number(prodId)
@@ -23,11 +24,12 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         
         const getDetailProduct = () => new Promise ((resolve, reject) => {
-            setTimeout(() => { resolve(unicoProd, prodOptions)}, 400);});
+            setTimeout(() => { resolve(unicoProd, prodOptions)}, 1000);});
             
             getDetailProduct()
-            .then((data) => {setProductDetail(data)
-          
+            .then((data) => {
+                setProductDetail(data);
+                setIsLoading(false);
  
                 console.log("Esta es la prod Options del then en container", prodOptions)
         })
@@ -43,7 +45,11 @@ const ItemDetailContainer = () => {
     return (
         <div key={unicoProd.id} className="prodDetailContainer">
 
-            <ItemDetail  unicoProd={productDetail} prodOptions={productDetail}/>
+            { isLoading ? (
+                <h2 className="loadDetailProd">Cargando Productos....</h2>
+            ) : (
+                <ItemDetail  unicoProd={productDetail} prodOptions={productDetail}/>
+            )}
 
         </div>
 );

@@ -300,7 +300,7 @@ export const stockProductos = [
         ], tipo: "Canasta", stock: 100
         , descr: "Canasta de Rosas Sin Bombones", img: CanastaRosas },
         
-    {id: 18, producto: true, nombre: "Canasta con Flores Blancas de Estacion", categoria: ["Canasta", "Todos"], opciones:[
+    {id: 18, producto: true, nombre: "Canasta con Flores Estacion", categoria: ["Canasta", "Todos"], opciones:[
                 { tamaño: "Standard",
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -314,7 +314,7 @@ export const stockProductos = [
                  precio: 12500}, 
     
         ], tipo: "Canasta", stock: 100
-        , descr: "canasta con flores blancas de estacion", img: CanastaFloresBlancasEstacion},
+        , descr: "Canasta con Flores de Estacion", img: CanastaFloresBlancasEstacion},
         
     {id: 19, producto: true, nombre: "Canasta de Gerberas y Rosas", categoria: ["Rosas", "Canasta", "Todos"], opciones:[
                 { tamaño: "Standard",
@@ -350,15 +350,15 @@ export const stockProductos = [
         
     {id: 21, producto: true, nombre: "Canasta de Jazmines", categoria: ["Canasta", "Todos"], opciones:[
                 { tamaño: "Standard",
-                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                
                  precio: 6500}, 
         
                 { tamaño: "Premium",
-                    color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                    
                     precio: 8500}, 
                 
                 { tamaño: "Deluxe",
-                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                 
                  precio: 12500}, 
     
         ],tipo: "Canasta",  stock: 100
@@ -366,15 +366,15 @@ export const stockProductos = [
         
     {id: 22, producto: true, nombre: "Bandeja Comestible te quiero", categoria: ["Comestible", "Todos"], opciones:[
                 { tamaño: "Standard",
-                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                 
                  precio: 6500}, 
         
                 { tamaño: "Premium",
-                    color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                    
                     precio: 8500}, 
                 
                 { tamaño: "Deluxe",
-                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                 
                  precio: 12500}, 
     
         ], tipo: "Comestible", stock: 100
@@ -382,15 +382,15 @@ export const stockProductos = [
         
     {id: 23, producto: true, nombre: "Desayuno", categoria: ["Desayuno", "Todos"],opciones:[
                 { tamaño: "Standard",
-                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                 
                  precio: 6500}, 
         
                 { tamaño: "Premium",
-                    color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                   
                     precio: 8500}, 
                 
                 { tamaño: "Deluxe",
-                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
+                 
                  precio: 12500}, 
     
         ], tipo: "Comestible", stock: 100

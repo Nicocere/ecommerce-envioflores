@@ -248,7 +248,15 @@
 
 }
 
+.loadDetailProd {
+  color: white;
+  font-family: "Quintessential";
+  font-size: xx-large;
+}
 
+.loadProd {
+  font-family: "Quintessential";
+}
 
 /* agregar y quitar productos ----------------------*/
 

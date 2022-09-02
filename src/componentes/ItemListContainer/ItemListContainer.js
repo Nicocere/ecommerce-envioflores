@@ -5,25 +5,28 @@ import { stockProductos } from "../Products/Products";
 
 const ItemListContainer = () => {
     const [items,  setItems] = useState ([]);
-    // const [isLoading, setIsLoading] = useState (true);
+    const [isLoading, setIsLoading] = useState (true);
 
    const {categoryName} = useParams()
    console.log("categoria name", categoryName)
 
+
 useEffect(() => {
 
-        const getProducts = () => 
+    const getProducts = () => 
         new Promise ((resolve, reject) => {
 
-            const prodFiltrados = stockProductos.filter(
+    const prodFiltrados = stockProductos.filter(
                 (prod) => prod.categoria.includes(categoryName));
                 console.log("prod filtrado", prodFiltrados)
 
             setTimeout(() => { 
-                resolve( categoryName ? prodFiltrados : stockProductos)}, 500);});
+                resolve( categoryName ? prodFiltrados : stockProductos)}, 1000);});
     
         getProducts()
-        .then((data) => {setItems(data)
+        .then((data) => {
+            setItems(data)
+            setIsLoading(false)
         })
         .catch((error) => { console.log("esto es error", error)
         });
@@ -35,8 +38,14 @@ useEffect(() => {
 
     return (
         <div className="productos">
+
+            { isLoading ? ( 
+                    
+                    <h1 className="loadProd">Cargando Productos...</h1> 
+               ) : ( 
+                    <ItemList items={items}/> 
+                )}
             
-            <ItemList items={items}/>
 
         </div>
 );
