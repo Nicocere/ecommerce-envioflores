@@ -41,7 +41,7 @@ const ItemDetailContainer = () => {
     
 
     return (
-        <div key={unicoProd.id} className="productoDetail">
+        <div key={unicoProd.id} className="prodDetailContainer">
 
             <ItemDetail  unicoProd={productDetail} prodOptions={productDetail}/>
 
