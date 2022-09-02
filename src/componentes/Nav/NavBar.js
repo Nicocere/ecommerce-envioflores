@@ -11,27 +11,28 @@ const NavBar = () => {
         <img src={Logo} alt="logo envio flores"/>  
             <ul className='seccion'>
 
-            <li className='seccionLi'>
-                    <NavLink to='/'>Home</NavLink> 
-                </li>
+        <NavLink className='seccionLi' to='/'>
+            
+                    Home
+                </NavLink> 
 
-                <li className='seccionLi'>
-                    <NavLink to='/categoria/Rosas'>Rosas</NavLink> 
-                </li>
-                <li className='seccionLi'>
-                    <NavLink to="/categoria/Canasta">Canastas</NavLink>
-                </li>
-                <li className='seccionLi'>
-                    <NavLink to="/categoria/Florero">Floreros</NavLink>
-                </li>
+                
+                    <NavLink className='seccionLi' to='/categoria/Rosas'>Rosas</NavLink> 
+               
+                
+                    <NavLink className='seccionLi' to="/categoria/Canasta">Canastas</NavLink>
+               
+                
+                    <NavLink  className='seccionLi' to="/categoria/Florero">Floreros</NavLink>
+               
  
-                <li className='seccionLi'>
-                    <NavLink to="/categoria/Comestible">Comestibles</NavLink>
-                </li>
+                
+                    <NavLink className='seccionLi' to="/categoria/Comestible">Comestibles</NavLink>
+               
 
-                <li className='seccionLi'>
-                    <NavLink to="/categoria/Desayuno">Desayunos</NavLink>
-                </li>
+                
+                    <NavLink className='seccionLi' to="/categoria/Desayuno">Desayunos</NavLink>
+               
 
             </ul>
                 

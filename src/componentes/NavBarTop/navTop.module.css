@@ -1,0 +1,51 @@
+.contacto{
+    color: rgb(119, 27, 119);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    transition: all .5s;
+    font-family: sans-serif;
+    font-weight: 550;
+}
+.contacto:hover{
+    color: rgb(160, 0, 0);
+    transform: scale(1.09);
+}
+.divContacto {
+
+    display: flex;
+}
+.contactoMail{
+    border-left: 2px solid rgb(187, 76, 187);
+    
+}
+.contactoTel{
+    border-left: 2px solid rgb(187, 76, 187);
+    margin-right: 20px;
+}
+.redesSociales{
+    width: 100%;
+    margin-left: 15px;
+    display: flex;
+    align-items: center; 
+    transition: transform .5s;   
+}
+.redesSociales:hover{
+    transform: scale(1.5);
+}
+
+.redFacebook{
+    border-left: 2px violet solid;
+    margin-right: 20px;
+}
+.redInsta{
+    border-left: 2px violet solid;
+}
+.navTop{
+    display: flex;
+    justify-content: space-evenly;
+    text-decoration: none;
+    background: linear-gradient(rgb(255 255 255 / 100%), rgb(255 255 255 / 100%));
+  }

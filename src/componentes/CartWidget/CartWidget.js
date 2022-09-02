@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import {HiOutlineShoppingBag} from '@react-icons/all-files/hi/HiOutlineShoppingBag'
 
 const CartWidget = ({count}) => {
   
@@ -11,9 +12,9 @@ const CartWidget = ({count}) => {
  
       <button className="boton-abrircarrito"><p className="shopCart">Shopping Cart</p>
     
-        <span className="material-symbols-outlined">shopping_cart</span>
+        <span ><HiOutlineShoppingBag/></span>
     
-    <span className="contadorCarrito"> {count} </span>
+    <span className="contadorCarrito"> 0 </span>
     
     
      </button>

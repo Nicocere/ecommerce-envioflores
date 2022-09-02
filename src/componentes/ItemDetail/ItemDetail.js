@@ -7,9 +7,6 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
 
   console.log("UNICOPROD es esto", unicoProd)
   
-  const unicoProdId = unicoProd.id
-  console.log("PROD POR ID", unicoProdId
-  )
   console.log("prodOptions es esto", prodOptions)
 
   const onAdd = ((agregar) => {
@@ -19,7 +16,7 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
 
   return (
 
-    <div key={unicoProdId} className={estilosDetail.productDetail}>
+    <div  className={estilosDetail.productDetail}>
                  
       <img  className={estilosDetail.productDetailImg} src={unicoProd.img} alt=""/>
 
@@ -31,10 +28,10 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
           <div className={estilosDetail.ulCategory}> 
             
             {
-              unicoProd.categoria?.map((category)=> {  
+              unicoProd.categoria?.map((category, idx)=> {  
                   console.log("esto es el category", category)
                     return (                    
-                      <div  className={estilosDetail.divCategory}> 
+                      <div key={idx}  className={estilosDetail.divCategory}> 
                             {category}
                         </div>                                        
                       )
@@ -58,16 +55,16 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
                     <tbody>
         {
               
-          prodOptions.opciones?.map((option)=> {
+          prodOptions.opciones?.map((option, idx)=> {
                 return (
-                  <tr>
+                  <tr key={idx} >
                       <td  className={estilosDetail.tdDetail}>{option.tamaño}</td>
                       <td  className={estilosDetail.tdDetail}>$ {option.precio}</td>
                       {
                         
-                        option.color?.map((colores) => {
+                        option.color?.map((colores, idx) => {
                           return(
-                            <td  className={estilosDetail.tdDetail}>
+                            <td key={idx}  className={estilosDetail.tdDetail}>
                             {colores}
                             <br/>
                             </td>

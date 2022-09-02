@@ -8,10 +8,16 @@ function App() {
 
 
   return (
+
+    
     <BrowserRouter>
+    <div className='cuerpo'>
+
     <Header/>    
     <Main/>
     <Footer/>
+
+    </div>
 
     </BrowserRouter>
 

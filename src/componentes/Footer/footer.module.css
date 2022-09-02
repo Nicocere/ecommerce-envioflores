@@ -1,10 +1,10 @@
-.footer {
+.foot {
   display: grid;
   grid-template-columns: 24% 24% 24% 24%;
   grid-column-gap: .5%;
   border-top: 1px black solid;
   color: rgb(0, 0, 0);
-  background: #ffffff52;
+  background: #fffefebb;
   }
   
   .link-fot {

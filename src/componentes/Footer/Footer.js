@@ -1,9 +1,13 @@
+import { FiPhoneCall } from '@react-icons/all-files/fi/FiPhoneCall';
+import { HiOutlineMail } from '@react-icons/all-files/hi/HiOutlineMail';
+import { ImFacebook2 } from '@react-icons/all-files/im/ImFacebook2';
+import { SiInstagram } from '@react-icons/all-files/si/SiInstagram';
 import estilos from './footer.module.css'
 
 const Footer = () => {
 return ( 
 
-    <footer className={estilos.footer}>
+    <footer className={estilos.foot}>
     
     <div className={estilos.linkFot}>
         <h3> Sitio Web Oficial</h3>
@@ -30,16 +34,16 @@ return (
 
     <div className={estilos.contacto}>
         <h3>Contactanos</h3>
-        <a href="tel:+54 9 11 4788 9185" className={estilos.contactoTel}><i className="fa-solid fa-phone"></i> +54 9 11 4788 9185</a>
+        <a href="tel:+54 9 11 4788 9185" className={estilos.contactoTel}><FiPhoneCall/> +54 9 11 4788 9185</a>
         
-        <a href="mailto:regalosflores25@gmail.com" className={estilos.contactoMail}><i className="fa-solid fa-envelope"></i>Regalosflores25@gmail.com </a>
+        <a href="mailto:regalosflores25@gmail.com" className={estilos.contactoMail}><HiOutlineMail/> Regalosflores25@gmail.com </a>
 
     </div>
     
     <div className={estilos.socialBarFooter}> 
         <h3> Redes Sociales</h3>
-        <a href="http://facebook.com/flores.aflorar" className={estilos.fbFoot}><i className="fa-brands fa-facebook-square"></i>  Facebook</a>
-        <a href="http://instagram.com/aflorar.arg" className={estilos.instFoot}><i className="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="http://facebook.com/flores.aflorar" className={estilos.fbFoot}><ImFacebook2/> Facebook</a>
+        <a href="http://instagram.com/aflorar.arg" className={estilos.instFoot}><SiInstagram/> Instagram</a>
     </div>
 
     </footer>

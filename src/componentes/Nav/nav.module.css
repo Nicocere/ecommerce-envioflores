@@ -1,10 +1,10 @@
 .navBar{
-    display: flex;
-    margin: 0%;
-    background: linear-gradient(rgb(255 255 255 / 50%), rgb(255 255 255 / 46%));
-    align-items: center;
-    width: 100%;
-    text-align: center;
+  display: flex;
+  margin: 0%;
+  background: linear-gradient(rgb(255 255 255 / 100%), rgb(255 255 255 / 2%));
+  align-items: center;
+  width: 100%;
+  text-align: center;
 }
 
 @media screen and (max-width: 1280px) {
