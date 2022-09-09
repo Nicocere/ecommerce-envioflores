@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Form from '../Form/Form';
 import ItemCount from '../ItemCount/ItemCount'
 import estilosDetail from './ItemDetail.module.css';
 
@@ -41,7 +42,9 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
           </div>
               <br/>
 
-          <h4 className="tituloProducto">Opciones:</h4>
+              <Form unicoProd={unicoProd}/>
+
+          {/* <h4 className="tituloProducto">Opciones:</h4>
 
             <table className={estilosDetail.tableDetail}>
                   <thead >
@@ -77,7 +80,7 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
                 
         }
               </tbody>
-              </table>
+              </table> */}
     </div>
     
   )

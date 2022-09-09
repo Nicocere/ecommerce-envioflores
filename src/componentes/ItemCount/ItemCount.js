@@ -13,9 +13,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
       count > initial ?  setCount (count - 1) : alert ("Ya esta vacio");
     }
     
-    <CartWidget count={count}/>
+    const agregarAlCarrito = () => {
+      onAdd(count)
+    }
 
-    console.log("count", count)
 
   return (
     <div className='btnAgregarQuitar'>
@@ -24,7 +25,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <button onClick={sumar} className="button-add">+</button>
         <button onClick={restar} className="button-quit">-</button>
 
-        <button onClick={() => onAdd(count)} className="agregarAlCarrito"> Agregar al carrito</button>
+        <button onClick={agregarAlCarrito} className="agregarAlCarrito"> Agregar al carrito</button>
         
     {/* contador */}
         <p className='tituloProducto'>Cantidad: {count}</p>

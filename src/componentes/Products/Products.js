@@ -66,7 +66,7 @@ export const stockProductos = [
         
                 { tamaño: 18,
                     color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
-                    precio: 500}, 
+                    precio: 11000}, 
                 
                 { tamaño: 25,
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
