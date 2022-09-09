@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const Form = ({unicoProd}) => {
 
-    const [color, setColor] = useState('');
+    const [color, setColor] = useState({});
     const [tamañoPrecio, setTamañoPrecio] = useState([]);
     
     const handleSubmit = (event) => {
@@ -16,7 +16,7 @@ const Form = ({unicoProd}) => {
     
     };
     const handleChangeColor = (event) => {
-        console.log("evento en target",event.target.value);
+        //  console.log("EVENTO EN TARGET",event.target.value);
         setColor(event.target.value);
     };
 
@@ -26,24 +26,31 @@ const Form = ({unicoProd}) => {
 
 
 
-    const prodOptions = unicoProd.opciones
-    console.log( " prodOptions  en formrr", prodOptions)
+    const prodOptions = unicoProd.opciones;
+    // console.log( " prodOptions  en formrr", prodOptions);
 
-    
+
+
+
+
+    const colorOption = prodOptions[0,1,2].color;
+    // console.log("color Option", colorOption);    
+
+
+
+
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
+        const handleClick = (e) => {
             //setX(e.clientX);
         };
-        window.addEventListener('mousemove', handleMouseMove);
-        console.log('Creo evento');
-        //console.log('Creo evento');
+        window.addEventListener('click', handleClick);
+            console.log('Creo evento');
         return () => {
             //siempre antes
-            //clearInterval()
-            window.removeEventListener('mousemove', handleMouseMove);
-            console.log('Borro evento');
-            //console.log('Borro evento');
+            // clearInterval()
+            window.removeEventListener('click', handleClick);
+            // console.log('Borro evento');
         };
     });
 
@@ -52,52 +59,45 @@ const Form = ({unicoProd}) => {
 
 
     <form action="" onSubmit={handleSubmit}>
-                <select value={tamañoPrecio} onChange={handleChangeTamañoPrecio}>
-                    <optgroup>
+        
+                <select id='selectId' value={tamañoPrecio || [] } onChange={handleChangeTamañoPrecio}>
+                    
                         {
                         prodOptions?.map((prodTam) => {
-                            console.log("precio tamaño", prodTam)
-                            console.log("tamaño", prodTam.tamaño )
-                            console.log("precio", prodTam.precio)
+                            // console.log("precio tamaño", prodTam)
+                            // console.log("tamaño", prodTam.tamaño )
+                            // console.log("precio", prodTam.precio)
                             const tamaño = prodTam.tamaño
                             const precio = prodTam.precio
-                            console.log(tamaño , precio)
+                            // console.log(tamaño , precio)
                             return(
-                                <option key={tamaño}>
-                                    Tamaño:{tamaño}, Precio: ${precio}</option>
+                                <option  key={tamaño}>
+                                    Tamaño:{tamaño}, Precio: ${precio}
+                                </option>
                             )
                     
                         })
                         }
-                    </optgroup>
+                    
                   
                 </select>
 
     
 
 
- <select value={color} onChange={handleChangeColor}>  
-            <optgroup >{
-                  
-                prodOptions?.map((colorOption) => {
-                    console.log("color optionn", colorOption.color[""])
+ <select  value={[color]} onChange={handleChangeColor}>  
+            {
 
-                    const colorOpt = colorOption.color
-                         console.log("ESto es COLOR OPT ", colorOpt)
-
-                         return (
-
-                             colorOpt?.map((colors) => {
-                                 
-                                 console.log("colors", colors)
-                                 return (<option>{colors}</option>)
-                                })
-                                
-                                )
-                    
+                colorOption?.map((colors) => {
+                    // console.log ("colors", colors)
+                    return (
+                        <option key={colors}>{colors}</option>
+                        )
                 })
+                  
 
-                }</optgroup>
+   
+                }
 
         </select> 
 
