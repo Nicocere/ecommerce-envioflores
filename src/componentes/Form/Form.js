@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 
-const Form = ({unicoProd}) => {
+const Form = ({item}) => {
 
     const [color, setColor] = useState({});
     const [tamañoPrecio, setTamañoPrecio] = useState([]);
@@ -26,19 +26,11 @@ const Form = ({unicoProd}) => {
 
 
 
-    const prodOptions = unicoProd.opciones;
+    const prodOptions = item.opciones;
     // console.log( " prodOptions  en formrr", prodOptions);
-
-
-
-
 
     const colorOption = prodOptions[0,1,2].color;
     // console.log("color Option", colorOption);    
-
-
-
-
 
     useEffect(() => {
         const handleClick = (e) => {
@@ -55,12 +47,11 @@ const Form = ({unicoProd}) => {
     });
 
     return (
+
     <div >
-
-
     <form action="" onSubmit={handleSubmit}>
         
-                <select id='selectId' value={tamañoPrecio || [] } onChange={handleChangeTamañoPrecio}>
+        <select id='selectId' value={tamañoPrecio || [] } onChange={handleChangeTamañoPrecio}>
                     
                         {
                         prodOptions?.map((prodTam) => {
@@ -80,25 +71,16 @@ const Form = ({unicoProd}) => {
                         }
                     
                   
-                </select>
-
-    
+        </select>
 
 
- <select  value={[color]} onChange={handleChangeColor}>  
+        <select  value={[color]} onChange={handleChangeColor}>  
             {
-
                 colorOption?.map((colors) => {
                     // console.log ("colors", colors)
-                    return (
-                        <option key={colors}>{colors}</option>
-                        )
-                })
-                  
-
-   
-                }
-
+                    return (<option key={colors}>{colors}</option>)
+                })    
+            }
         </select> 
 
         <button>Enviar</button>

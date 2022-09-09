@@ -12,9 +12,9 @@ const ItemDetailContainer = () => {
      const {prodId} = useParams()
      const prodIdNumber = Number(prodId)
      
-     const unicoProd = stockProductos.find((producto) => producto.id === prodIdNumber) 
+     const item = stockProductos.find((producto) => producto.id === prodIdNumber) 
      
-     let prodOptions = unicoProd.opciones
+     let prodOptions = item.opciones
      
 
     console.log("prod ID", prodId)
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         
         const getDetailProduct = () => new Promise ((resolve, reject) => {
-            setTimeout(() => { resolve(unicoProd, prodOptions)}, 1000);});
+            setTimeout(() => { resolve(item, prodOptions)}, 1000);});
             
             getDetailProduct()
             .then((data) => {
@@ -43,12 +43,12 @@ const ItemDetailContainer = () => {
     
 
     return (
-        <div key={unicoProd.id} className="prodDetailContainer">
+        <div key={item.id} className="prodDetailContainer">
 
             { isLoading ? (
                 <h2 className="loadDetailProd">Cargando Productos....</h2>
             ) : (
-                <ItemDetail  unicoProd={productDetail} prodOptions={productDetail}/>
+                <ItemDetail  item={productDetail} prodOptions={productDetail}/>
             )}
 
         </div>

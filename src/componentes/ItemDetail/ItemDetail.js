@@ -1,35 +1,52 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Form from '../Form/Form';
 import ItemCount from '../ItemCount/ItemCount'
 import estilosDetail from './ItemDetail.module.css';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext'
 
-const ItemDetail = ({unicoProd, prodOptions}) => {
+const ItemDetail = ({item, prodOptions}) => {
+ 
+    const [cantidad, setCantidad] = useState(0);
+    const { addToCart } = useContext(CartContext);
 
-  console.log("UNICOPROD es esto", unicoProd)
+  console.log("item es esto", item)
   
   console.log("prodOptions es esto", prodOptions)
 
-  const onAdd = ((agregar) => {
+  const onAdd = (cantidadItem) => {
 
-    console.log( "click boton agregar pero en un item pero en detail", agregar)
-  })
+      setCantidad(cantidadItem);
+      addToCart(item, cantidadItem);
+};
 
   return (
 
     <div  className={estilosDetail.productDetail}>
                  
-      <img  className={estilosDetail.productDetailImg} src={unicoProd.img} alt=""/>
+      <img  className={estilosDetail.productDetailImg} src={item.img} alt=""/>
 
-            <ItemCount stock={5} initial={0} onAdd={onAdd} />
+      {
+      cantidad === 0 ? (
+                    
+      <ItemCount stock={5} initial={0} onAdd={onAdd} />   
+            ) : (
+                    
+      <Link to="/Carrito">Ir al carrito</Link>
+            )
+                
+        }
 
-            <h4 className={estilosDetail.detalles}>{unicoProd.nombre}</h4>
+
+            <h4 className={estilosDetail.detalles}>{item.nombre}</h4>
 
             <h4 className="tituloProducto">Categorias que pertenece:</h4>  
           <div className={estilosDetail.ulCategory}> 
             
             {
-              unicoProd.categoria?.map((category, idx)=> {  
+              item.categoria?.map((category, idx)=> {  
                   console.log("esto es el category", category)
                     return (                    
                       <div key={idx}  className={estilosDetail.divCategory}> 
@@ -42,7 +59,7 @@ const ItemDetail = ({unicoProd, prodOptions}) => {
           </div>
               <br/>
 
-              <Form unicoProd={unicoProd}/>
+              <Form item={item}/>
 
           {/* <h4 className="tituloProducto">Opciones:</h4>
 
