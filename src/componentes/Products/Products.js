@@ -362,7 +362,7 @@ export const stockProductos = [
                  precio: 12500}, 
     
         ],tipo: "Canasta",  stock: 100
-        , descr: "canasta de jazmines" ,  precio: 3000, img: CanastaJazmines },
+        , descr: "canasta de jazmines" ,   img: CanastaJazmines },
         
     {id: 22, producto: true, nombre: "Bandeja Comestible te quiero", categoria: ["Comestible", "Todos"], opciones:[
                 { tamaño: "Standard",
@@ -378,7 +378,7 @@ export const stockProductos = [
                  precio: 12500}, 
     
         ], tipo: "Comestible", stock: 100
-        , descr: "bandeja comestible te quiero" ,  precio: 4500, img: BandejaComestible},
+        , descr: "bandeja comestible te quiero" , img: BandejaComestible},
         
     {id: 23, producto: true, nombre: "Desayuno", categoria: ["Desayuno", "Todos"],opciones:[
                 { tamaño: "Standard",
@@ -394,7 +394,7 @@ export const stockProductos = [
                  precio: 12500}, 
     
         ], tipo: "Comestible", stock: 100
-        , descr: "Desayuno" ,  precio: 5000, img: Desayuno},
+        , descr: "Desayuno" , img: Desayuno},
     ];
     
     

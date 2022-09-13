@@ -52,7 +52,7 @@ const ItemDetailContainer = () => {
                 <FadeLoader color="white"/>
                 </>
             ) : (
-                <ItemDetail  item={productDetail} prodOptions={productDetail}/>
+                <ItemDetail  item={productDetail} prodOptions={productDetail.opciones}/>
             )}
 
         </div>

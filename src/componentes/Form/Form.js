@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 
 const Form = ({item}) => {
-
+    
     const [color, setColor] = useState({});
     const [tamañoPrecio, setTamañoPrecio] = useState([]);
-    
     console.log("TAMAÑO PRECIO", tamañoPrecio)
     console.log("COLOR DE SET COLOR", color)
+
+
     
     const handleSubmit = (event) => {
         event.preventDefault();
-       
-       
-        console.log( "Seleccionaste ",color, tamañoPrecio); //envir la info a la base de datos
-    
+        console.log( "Seleccionaste ",color, tamañoPrecio); //envir la info a la base de datos  
     };
+
     const handleChangeColor = (event) => {
         //  console.log("EVENTO EN TARGET",event.target.value);
         setColor(event.target.value);
@@ -26,8 +26,17 @@ const Form = ({item}) => {
     const handleChangeTamañoPrecio = (e) => {
         setTamañoPrecio(e.target.value);
     };
+    const onAdd = () => {
+        
+      
+        const colorElegido = color
+        const tamañoPrecioElegido = tamañoPrecio
+    
+        console.log("COLOR ELEGIDO", colorElegido)
+        console.log("TAMAÑO Y PRECIO ELEGIDO", tamañoPrecioElegido)
+    };
 
-
+    // creo una variable para color y tamaño+precio 
 
     const prodOptions = item.opciones;
     // console.log( " prodOptions  en formrr", prodOptions);
@@ -52,11 +61,11 @@ const Form = ({item}) => {
     return (
 
     <div >
-    <form action="" onSubmit={handleSubmit}>
+    <form action="./Carrito" onSubmit={handleSubmit}>
         
         <select id='selectId' value={tamañoPrecio } onChange={handleChangeTamañoPrecio}>
                         
-                        <option value={''} selected>Elegi tamaño</option>
+                        <option value={''} >Elegi tamaño</option>
                     
                         {
                         prodOptions?.map((prodTam) => {
@@ -92,8 +101,10 @@ const Form = ({item}) => {
                 })    
             }
         </select> 
-
-        <button> Agregar</button>
+          
+               <button onClick={() => onAdd}> Agregar</button>  
+              
+           
     </form>
 
     </div>

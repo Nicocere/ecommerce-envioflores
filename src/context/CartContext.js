@@ -3,24 +3,27 @@ import { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 
-//componente -> estado, efect, tener funciones que modifiquen mi estado
-
-//crear componente
-
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
+        console.log("esto es el carrt ", cart)
 
-    const addToCart = (item, cantidad) => {
+     
+
+
+
+
+    const addToCart = (item, cantidadItem, colorElegido, tamañoPrecioElegido) => {
   
         if (isInCart(item.id)) {
             //lo encuentro y le sumo la cantidad
-            sumarCantidad(item, cantidad);
+            sumarCantidad(item, cantidadItem, tamañoPrecioElegido);
         } else {
-            setCart([...cart, { ...item, cantidad }]);
+            setCart([...cart, { ...item, cantidadItem, colorElegido, tamañoPrecioElegido }]);
         }
     };
     
+   
     // corroborar si el producto ya está en el carrito (isInCart)
     const isInCart = (id) =>{
         return cart.some((prod) => prod.id === id);
@@ -30,19 +33,19 @@ const CartProvider = ({ children }) => {
     const totalPrecio = () => {
         let acumulador = 0;
         cart.forEach((prod) => {
-            console.log("ACUMULADOR ", prod)
-            acumulador += prod.cantidad * prod.price;
+            
+            acumulador += prod.cantidadItem * prod.tamañoPrecioElegido;
         });
         return acumulador;
     };
 
     //sumar cantidades del mismo producto
-    const sumarCantidad = (item, cantidad) => {
+    const sumarCantidad = (item, cantidadItem) => {
         const carritoActualizado = cart.map((prod)=> {
             if(prod.id === item.id){ 
                 const prodActualizado = {
                     ...prod,
-                    cantidad: prod.cantidad + cantidad
+                    cantidadItem: prod.cantidadItem + cantidadItem
                 };
                 return prodActualizado;
 
@@ -52,16 +55,6 @@ const CartProvider = ({ children }) => {
         });
         setCart(carritoActualizado);
     };
-
-    // const totalQuantitySingleProduct = (item, cantidad) => {
-    //     const updateProducts = cart.map((prod) => {
-    //         if (prod.id === item.id) {
-    //             const productUpdated = {
-    //                 ...prod,
-    //                 cantidad: cantidad,
-    //             };
-
-    console.log("esto es el carrt", cart)
 
     //eliminar un solo producto pasandole el id
 
@@ -77,11 +70,15 @@ const CartProvider = ({ children }) => {
 
     const cantidadProducto = (id) => {
         const producto = cart.find((prod) => prod.id === id);
-        return producto?.cantidad;
+        return producto?.cantidadItem;
 
     }
 
-    //calcular total precio
+    //Obtener los Formularios de las opciones
+
+    // const optionSelected = () => {
+
+    // };
 
     //vaciar todo el carrito
     const clearCart = () => {
@@ -93,11 +90,11 @@ const CartProvider = ({ children }) => {
         value={{ 
             cart,
             addToCart, 
-            clearCart, 
             eliminarProd,
             cantidadProducto,
             totalPrecio,
             totalCantidad,
+            clearCart, 
              }}>  
                 
                  {children}

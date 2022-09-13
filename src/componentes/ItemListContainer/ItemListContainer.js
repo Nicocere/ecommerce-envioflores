@@ -44,7 +44,7 @@ useEffect(() => {
             { isLoading ? ( 
                     <>
                     <h1 className="loadProd">Cargando Productos...</h1>
-                    <FadeLoader color="violet" /> 
+                    <FadeLoader className="fadeLoader" color="rgb(82, 10, 82)" /> 
                     </>
                ) : ( 
                     <ItemList items={items}/> 

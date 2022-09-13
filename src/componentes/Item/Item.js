@@ -1,5 +1,5 @@
 import React from 'react'
-import Buttons from '../Buttons/Buttons'
+// import Buttons from '../Buttons/Buttons'
 import {Link} from 'react-router-dom'
 
 const Item = ({items}) => {
@@ -10,7 +10,7 @@ const Item = ({items}) => {
         <img src={items.img} alt=""/>
         <h4 className="tituloProducto">{items.nombre}</h4>
 
-        <Buttons items={items} key={items.id}  />
+        {/* <Buttons items={items} key={items.id}  /> */}
        
         <Link to={`/detail/${items.id}`}>
           

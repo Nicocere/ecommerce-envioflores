@@ -1,6 +1,15 @@
 
 /* HEADER Y NAVBAR */
 
+/* Loader */
+.fadeLoader{
+
+  margin-left: 50%;
+  margin-right: 50%;
+  color: rgb(82, 10, 82);
+
+}
+
 
 
 /* BODY */
@@ -256,6 +265,9 @@
 
 .loadProd {
   font-family: "Quintessential";
+  color: rgb(82, 10, 82);
+  align-content: center;
+  text-align: center;
 }
 
 /* agregar y quitar productos ----------------------*/
@@ -343,6 +355,13 @@
   flex-direction: row;
   background: #ffffffb3;
   align-items: center;
+}
+
+.detailsInCart{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(56, 6, 56);
+  display: flex;
+  font-weight: 500;
 }
 
 /* FIN PRODUCTOS */
