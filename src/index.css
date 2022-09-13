@@ -333,6 +333,18 @@
   background-color: rgb(58, 3, 3);
 }
 
+     /* -----Producto en carrito */
+.imgInCart{
+  width: 151px;
+}
+.prodInCart{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background: #ffffffb3;
+  align-items: center;
+}
+
 /* FIN PRODUCTOS */
 
 /* FOOTER */

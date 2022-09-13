@@ -2,6 +2,7 @@ import React , {useEffect, useState} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { stockProductos } from "../Products/Products";
 import { useParams } from 'react-router-dom'
+import { FadeLoader } from "react-spinners";
 
 const ItemDetailContainer = () => {
  
@@ -46,7 +47,10 @@ const ItemDetailContainer = () => {
         <div key={item.id} className="prodDetailContainer">
 
             { isLoading ? (
+                <>
                 <h2 className="loadDetailProd">Cargando Productos....</h2>
+                <FadeLoader color="white"/>
+                </>
             ) : (
                 <ItemDetail  item={productDetail} prodOptions={productDetail}/>
             )}

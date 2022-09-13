@@ -2,6 +2,8 @@ import React , {useEffect, useState} from "react";
 import {useParams} from 'react-router-dom'
 import ItemList from "../itemList/ItemList";
 import { stockProductos } from "../Products/Products";
+import { FadeLoader } from "react-spinners";
+
 
 const ItemListContainer = () => {
     const [items,  setItems] = useState ([]);
@@ -40,8 +42,10 @@ useEffect(() => {
         <div className="productos">
 
             { isLoading ? ( 
-                    
-                    <h1 className="loadProd">Cargando Productos...</h1> 
+                    <>
+                    <h1 className="loadProd">Cargando Productos...</h1>
+                    <FadeLoader color="violet" /> 
+                    </>
                ) : ( 
                     <ItemList items={items}/> 
                 )}

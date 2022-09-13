@@ -10,7 +10,10 @@ import { CartContext } from '../../context/CartContext'
 const ItemDetail = ({item, prodOptions}) => {
  
     const [cantidad, setCantidad] = useState(0);
-    const { addToCart } = useContext(CartContext);
+    const { addToCart, cantidadProducto } = useContext(CartContext);
+    
+    
+    const quantity = cantidadProducto(item.id);
 
   console.log("item es esto", item)
   
@@ -18,32 +21,17 @@ const ItemDetail = ({item, prodOptions}) => {
 
   const onAdd = (cantidadItem) => {
 
-      setCantidad(cantidadItem);
-      addToCart(item, cantidadItem);
+    setCantidad(cantidadItem);
+    addToCart(item, cantidadItem);
 };
 
   return (
 
-    <div  className={estilosDetail.productDetail}>
-                 
+    <div  className={estilosDetail.productDetail}>          
       <img  className={estilosDetail.productDetailImg} src={item.img} alt=""/>
-
-      {
-      cantidad === 0 ? (
-                    
-      <ItemCount stock={5} initial={0} onAdd={onAdd} />   
-            ) : (
-                    
-      <Link to="/Carrito">Ir al carrito</Link>
-            )
-                
-        }
-
-
             <h4 className={estilosDetail.detalles}>{item.nombre}</h4>
-
             <h4 className="tituloProducto">Categorias que pertenece:</h4>  
-          <div className={estilosDetail.ulCategory}> 
+            <div className={estilosDetail.ulCategory}> 
             
             {
               item.categoria?.map((category, idx)=> {  
@@ -59,48 +47,31 @@ const ItemDetail = ({item, prodOptions}) => {
           </div>
               <br/>
 
-              <Form item={item}/>
-
-          {/* <h4 className="tituloProducto">Opciones:</h4>
-
-            <table className={estilosDetail.tableDetail}>
-                  <thead >
-
-                    <tr  className={estilosDetail.trDetail}>
-                      <th className={estilosDetail.thDetail}>Tamaños:</th>
-                      <th className={estilosDetail.thDetail}>Precio:</th>
-                      <th className={estilosDetail.thDetail}>Colores:</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-        {
               
-          prodOptions.opciones?.map((option, idx)=> {
-                return (
-                  <tr key={idx} >
-                      <td  className={estilosDetail.tdDetail}>{option.tamaño}</td>
-                      <td  className={estilosDetail.tdDetail}>$ {option.precio}</td>
-                      {
-                        
-                        option.color?.map((colores, idx) => {
-                          return(
-                            <td key={idx}  className={estilosDetail.tdDetail}>
-                            {colores}
-                            <br/>
-                            </td>
-                            )
-                          })   
+                    {
+                      cantidad === 0  ? (       
+                      <>
+                        <Form item={item} />
+                        <ItemCount item={item} stock={5} initial={quantity} onAdd={onAdd} />   
+                      </>     
+                        ) : (
+                      <>
+                      <Link to="/"> 
+                      <h4>Seguir Comprando</h4>
+                      </Link>
+
+                      <Link to="/Carrito">
+                      <h4> Ir al carrito </h4>
+                      </Link>
+                      </>
+                        )       
                       }
-                  </tr>
-                )
-            })
-                
-        }
-              </tbody>
-              </table> */}
+
     </div>
     
-  )
-};
+    )
+  };
 
 export default ItemDetail
+  
+

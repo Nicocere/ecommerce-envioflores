@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
-import CartWidget from '../CartWidget/CartWidget';
+import React, {useState, useEffect} from 'react'
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, initial = 1, onAdd}) => {
 
-    const [count, setCount] = useState(initial);
 
+  const [count, setCount] = useState(initial);
+  
     const sumar = () => {
       count < stock ? setCount( count + 1) : alert ("maximo stock");
     }
@@ -16,7 +16,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const agregarAlCarrito = () => {
       onAdd(count)
     }
-
+    
+    useEffect(() => {
+      setCount(initial);
+  }, [initial]);
 
   return (
     <div className='btnAgregarQuitar'>

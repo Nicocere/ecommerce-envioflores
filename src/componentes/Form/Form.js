@@ -8,6 +8,9 @@ const Form = ({item}) => {
     const [color, setColor] = useState({});
     const [tamañoPrecio, setTamañoPrecio] = useState([]);
     
+    console.log("TAMAÑO PRECIO", tamañoPrecio)
+    console.log("COLOR DE SET COLOR", color)
+    
     const handleSubmit = (event) => {
         event.preventDefault();
        
@@ -51,7 +54,9 @@ const Form = ({item}) => {
     <div >
     <form action="" onSubmit={handleSubmit}>
         
-        <select id='selectId' value={tamañoPrecio || [] } onChange={handleChangeTamañoPrecio}>
+        <select id='selectId' value={tamañoPrecio } onChange={handleChangeTamañoPrecio}>
+                        
+                        <option value={''} selected>Elegi tamaño</option>
                     
                         {
                         prodOptions?.map((prodTam) => {
@@ -62,9 +67,13 @@ const Form = ({item}) => {
                             const precio = prodTam.precio
                             // console.log(tamaño , precio)
                             return(
-                                <option  key={tamaño}>
+                                <>
+                               
+                                <option  key={tamaño} >
                                     Tamaño:{tamaño}, Precio: ${precio}
                                 </option>
+                                </>
+                                
                             )
                     
                         })
@@ -74,16 +83,17 @@ const Form = ({item}) => {
         </select>
 
 
-        <select  value={[color]} onChange={handleChangeColor}>  
+        <select  value={[color]} onChange={handleChangeColor}> 
+        <option value='' selected>Elegi Color</option> 
             {
                 colorOption?.map((colors) => {
                     // console.log ("colors", colors)
-                    return (<option key={colors}>{colors}</option>)
+                    return (<option  key={colors}>{colors}</option>)
                 })    
             }
         </select> 
 
-        <button>Enviar</button>
+        <button> Agregar</button>
     </form>
 
     </div>

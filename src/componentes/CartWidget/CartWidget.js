@@ -14,7 +14,7 @@ const CartWidget = ({count}) => {
     
         <span ><HiOutlineShoppingBag/></span>
     
-    <span className="contadorCarrito"> 0 </span>
+    <span className="contadorCarrito"> {} </span>
     
     
      </button>
