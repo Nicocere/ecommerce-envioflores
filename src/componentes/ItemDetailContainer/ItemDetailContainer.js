@@ -32,7 +32,6 @@ const ItemDetailContainer = () => {
                 setProductDetail(data);
                 setIsLoading(false);
  
-                console.log("Esta es la prod Options del then en container", prodOptions)
         })
         .catch((error) => { console.log("esto es error", error)
         })

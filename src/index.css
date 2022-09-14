@@ -120,17 +120,16 @@
 
 .boton-abrircarrito {
   display: inline-block;
-  padding: 0px 16px;
-  font-size: 23px;
+  padding: 0px 12px;
+  font-size: 20px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  outline: none;
   color: #000;
-  background-color: #c01a7066;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 6px #626262;
+  background-color: #ff8fc9;
+  border: 0.5px rgb(117 0 133) solid;
+  border-radius: 5px;
+  box-shadow: 0 6px #000000c9;
   transition: background-color 1s;
 
 }
@@ -163,6 +162,62 @@
 
 .contadorCarrito {
   margin-right: 5%;
+}
+
+.btn-eliminarProd{
+  cursor: pointer;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(160 0 0);
+  border: 0.5px rgb(252 143 255) solid;
+  border-radius: 5px;
+  transition: background-color 1s;
+}
+
+.btn-eliminarProd:hover{
+  background-color: red;
+}
+
+.btn-clear{
+
+  cursor: pointer;
+  text-align: center;
+  padding: 4px;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(160 0 0);
+  border: 0.5px rgb(252 143 255) solid;
+  border-radius: 5px;
+  transition: background-color 1s;
+
+}
+.btn-clear:hover{
+  background-color: red;
+}
+
+.btn-verMas{
+  cursor: pointer;
+  font-size: medium;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  background-color: #ffcbe6;
+  font-family: system-ui,  'Helvetica Neue', sans-serif;
+  border: 0.5px rgb(117 0 133) solid;
+  border-radius: 2.5px;
+  transition: all 1s;
+}
+
+.btn-verMas:hover{
+  background-color: rgb(255, 41, 76);
+  color: white;
+  border: #ac1060 1px solid;
+}
+
+.totalPrecio{
+  background: rgba(255, 255, 255, 0.781);
 }
 
 .shopCart {

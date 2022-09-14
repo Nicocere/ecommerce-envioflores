@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount'
 import estilosDetail from './ItemDetail.module.css';
 import { useContext } from 'react';
@@ -12,15 +12,17 @@ const ItemDetail = ({item, prodOptions}) => {
   console.log("prodOptions es esto", prodOptions)
 
 
-
+  
   // ESTADOS Y CONTEXTO
   const { addToCart, cantidadProducto } = useContext(CartContext);
   const [color, setColor] = useState();
   const [tamañoPrecio, setTamañoPrecio] = useState([]);
-    console.log("TAMAÑO PRECIO", tamañoPrecio)
-    console.log("COLOR DE SET COLOR", color)
+  console.log("TAMAÑO PRECIO", tamañoPrecio)
+  console.log("COLOR DE SET COLOR", color)
   const [cantidad, setCantidad] = useState(0);
-    
+  
+  const [prodElegido, setProdElegido] = useState(false)
+
   // CONSTANTES CANTIDAD DE PRODUCTO Y OPCIONES  + COLORES 
     const quantity = cantidadProducto(item.id);
     const colorOption = prodOptions[0,1,2].color;
@@ -30,26 +32,44 @@ const ItemDetail = ({item, prodOptions}) => {
 // A PARTIRDE ACA VA LO NUEVO
 
 
-
 // EVENTOS QUE ELIGE EL USUARIO DE OPCIONES DE PRODUCTO
-    const handleSubmit = (event) => {
+const handleSubmit = (event) => {
         event.preventDefault();
         console.log( "Seleccionaste ",color, tamañoPrecio); 
     };
 
-    const handleChangeColor = (event) => {
-        setColor(event.target.value);
-    };
-
     const handleChangeTamañoPrecio = (e) => {
-        setTamañoPrecio(e.target.value);
+
+
+      console.log("e", e)
+      
+        if (setTamañoPrecio(e.target.value)) {
+          setProdElegido(false)
+
+        } else {
+          setProdElegido(true)
+
+        }
+
+      
+      
+
     };
+      
+      const handleChangeColor = (event) => {
+        setColor(event.target.value);
+      };
+      
+      
+      
+      // CONSTANTES COLORES TAMAÑO Y PRECIO
+      const colorElegido = color
+      const tamañoPrecioElegido = tamañoPrecio
+      
+      
 
-    
-// CONSTANTES COLORES TAMAÑO Y PRECIO
-    const colorElegido = color
-    const tamañoPrecioElegido = tamañoPrecio
 
+console.log("esto es el setPRODUCTO ELEGIDO", prodElegido)
 
 
 
@@ -62,6 +82,11 @@ const ItemDetail = ({item, prodOptions}) => {
 // YA QUE NO PUEDO ACCEDER EN EL ACUMULADOR EN EL CART  CARTCONTEXT PORQUE ES UN STRING
 
 
+useEffect(() => {
+
+ 
+   
+}, [prodElegido])
 
 
 
@@ -78,8 +103,8 @@ const ItemDetail = ({item, prodOptions}) => {
 
       setCantidad(cantidadItem);
       addToCart(item, cantidadItem, colorElegido, tamañoPrecioElegido);    
-      console.log("COLOR ELEGIDO", colorElegido);
-      console.log("TAMAÑO Y PRECIO ELEGIDO", tamañoPrecioElegido);
+      // console.log("COLOR ELEGIDO", colorElegido);
+      // console.log("TAMAÑO Y PRECIO ELEGIDO", tamañoPrecioElegido);
     };
 
     // creo una variable para color y tamaño+precio 
@@ -109,12 +134,14 @@ const ItemDetail = ({item, prodOptions}) => {
         <form action="./Carrito" onSubmit={handleSubmit}>
         
           <select id='selectId' value={tamañoPrecio} onChange={handleChangeTamañoPrecio}>
-                        <option value="" > Elegir tamaño </option>
+
+                        <option  value={''}  > Elegir tamaño  </option>
                         {
+                          
                         prodOptions?.map((prodTam, idx) => {
-                             console.log("precio tamaño", prodTam)
-                             console.log("tamaño", prodTam.tamaño )
-                            console.log("precio ", prodTam.precio)
+                            //  console.log("precio tamaño", prodTam)
+                            //  console.log("tamaño", prodTam.tamaño )
+                            // console.log("precio ", prodTam.precio)
                             const tamaño = prodTam.tamaño
                             const precio = prodTam.precio
                             // console.log(tamaño , precio)
@@ -130,42 +157,45 @@ const ItemDetail = ({item, prodOptions}) => {
        
           </select>
 
-          { tamañoPrecio !== ""  ? 
+          { prodElegido   ? 
             (
           <>
           <select  value={color} onChange={handleChangeColor}> 
              {
                colorOption?.map((colors) => {
-                 console.log ("colors", colors)
+                //  console.log ("colors", colors)
                  return (<option  key={colors.id}>{colors}</option>)
                 })    
               }
           </select> 
           
-          <button onClick={() => onAdd}> Agregar</button>  
+{
+            cantidad === 0  ? (       
+            <>
+              <ItemCount item={item} stock={5} initial={quantity} onAdd={onAdd} />   
+            </>     
+              ) : (
+            <>
+            <Link to="/"> 
+            <h4 className={estilosDetail.detalles} >Seguir Comprando</h4>
+            </Link>
 
-          {
-                      cantidad === 0  ? (       
-                      <>
-                        <ItemCount item={item} stock={5} initial={quantity} onAdd={onAdd} />   
-                      </>     
-                        ) : (
-                      <>
-                      <Link to="/"> 
-                      <h4 className={estilosDetail.detalles} >Seguir Comprando</h4>
-                      </Link>
+            <Link to="/Carrito">
+            <h4 className={estilosDetail.detalles} > Ir al carrito </h4>
+            </Link>
+            </>
+              )       
+  }
 
-                      <Link to="/Carrito">
-                      <h4 className={estilosDetail.detalles} > Ir al carrito </h4>
-                      </Link>
-                      </>
-                        )       
-                    }
           </>
-          ) : 
-                <h4>Debe elegir un Tamaño y Precio.</h4>
+            ) 
+           
+          : 
+                <h4>Debe elegir un Tamaño y Precio.</h4> 
                   
-                  }
+                  } 
+                  
+       
 
 
       

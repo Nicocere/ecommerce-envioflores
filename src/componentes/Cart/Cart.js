@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-
+import {FaTrashAlt} from '@react-icons/all-files/fa/FaTrashAlt'
 const Cart = () => {
     const { cart, clearCart, eliminarProd, totalPrecio, colorElegido, tamañoPrecioElegido} = useContext(CartContext);
 
@@ -21,17 +21,21 @@ const Cart = () => {
                         <p className='detailsInCart'>Color: {prod.colorElegido}</p>
                         <p className='detailsInCart'>{prod.tamañoPrecioElegido}</p>
 
-                        <button onClick={() => eliminarProd(prod.id)}>
-                            Eliminar Producto
+                        <button  className='btn-eliminarProd' onClick={() => eliminarProd(prod.id)}>
+
+                            <FaTrashAlt/> Eliminar
                         </button>
 
                        
                     </div>
                 ))
             }
+            <button className='btn-clear' onClick={clearCart}>Eliminar Todo</button>
          
-            <h2>Total: $ {total}</h2>
-            <button onClick={clearCart}>Clear Cart</button>
+            <h2 className='totalPrecio'>Total: $ {total}</h2>
+            
+           
+
         </div>
     );
 };
