@@ -39,25 +39,29 @@ const handleSubmit = (event) => {
     };
 
     const handleChangeTamañoPrecio = (e) => {
-
-
       console.log("e", e)
-      
-        if (setTamañoPrecio(e.target.value)) {
-          setProdElegido(false)
-
-        } else {
+        if (e.target.value !== "") {
+          setTamañoPrecio(e.target.value)
           setProdElegido(true)
 
+        } else {
+        setTamañoPrecio( e.target.value === "")
+          setProdElegido(false)
         }
-
-      
-      
-
     };
       
       const handleChangeColor = (event) => {
-        setColor(event.target.value);
+        console.log("EVENTO", event)
+        if (event.target.value !== "") {
+          
+          setColor(event.target.value);
+          
+        } else {
+          setColor(event.target.value === '');
+          <h1> Debe elegir un Color</h1>
+
+        }
+
       };
       
       
@@ -135,7 +139,7 @@ useEffect(() => {
         
           <select id='selectId' value={tamañoPrecio} onChange={handleChangeTamañoPrecio}>
 
-                        <option  value={''}  > Elegir tamaño  </option>
+                        <option  value={''} placeholder="vacio" > Elegir tamaño  </option>
                         {
                           
                         prodOptions?.map((prodTam, idx) => {
@@ -160,11 +164,18 @@ useEffect(() => {
           { prodElegido   ? 
             (
           <>
-          <select  value={color} onChange={handleChangeColor}> 
+          <select  value={color}  onChange={handleChangeColor}> 
+                <option value={''}>Elegir Color</option>
              {
-               colorOption?.map((colors) => {
-                //  console.log ("colors", colors)
-                 return (<option  key={colors.id}>{colors}</option>)
+               colorOption?.map((colors, index) => {
+                  console.log ("colors", colors)
+                 return (
+                  <>
+                  
+                  <option value={index}  key={colors.id}>{colors}</option>
+                  </>
+                  
+                  )
                 })    
               }
           </select> 
