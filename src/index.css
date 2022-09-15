@@ -228,6 +228,17 @@
   font-size: medium
 }
 
+.cart{
+  display: 'block';
+  justify-content: 'center';
+  margin-top:'50px'; 
+  background: rgba(255, 255, 255, 0.616);
+}
+.cartVacio{
+  background: rgba(255, 255, 255, 0.733);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 50px;
+}
 
 
 /* FIN HEADER Y NAVBAR */

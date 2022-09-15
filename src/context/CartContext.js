@@ -8,13 +8,8 @@ const CartProvider = ({ children }) => {
 
         console.log("esto es el carrt ", cart)
 
-     
-
-
-
-
     const addToCart = (item, cantidadItem, colorElegido, tamañoPrecioElegido) => {
-  
+            
         if (isInCart(item.id)) {
             //lo encuentro y le sumo la cantidad
             sumarCantidad(item, cantidadItem, tamañoPrecioElegido);
@@ -23,6 +18,11 @@ const CartProvider = ({ children }) => {
         }
     };
     
+    
+    // const  precio = 
+    
+
+    // console.log("precio cart contex", precio)
    
     // corroborar si el producto ya está en el carrito (isInCart)
     const isInCart = (id) =>{

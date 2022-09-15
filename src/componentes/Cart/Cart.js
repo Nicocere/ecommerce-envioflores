@@ -1,18 +1,25 @@
 import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import {FaTrashAlt} from '@react-icons/all-files/fa/FaTrashAlt'
+import {FaTrashAlt} from '@react-icons/all-files/fa/FaTrashAlt';
+
+
 const Cart = () => {
     const { cart, clearCart, eliminarProd, totalPrecio, colorElegido, tamañoPrecioElegido} = useContext(CartContext);
 
     const total = totalPrecio();
 
-    console.log("CART EN CART PRECIOO",cart);
+    console.log("TOTAL", total)
+
+    console.log("CART EN CART ",cart);
 
     
     return (
-        <div style={{ display: 'block', justifyContent: 'center', marginTop:'50px' }}>
+        <div className='cart'>
             {
+                cart.length !== 0  ? (
+
+                
                 cart.map((prod)=> (
                     <div  className='prodInCart' key={prod.id}>
                         <img className='imgInCart' src={prod.img} alt="imagen producto en carrito"/>
@@ -29,7 +36,9 @@ const Cart = () => {
                        
                     </div>
                 ))
+                ) : <h1 className='cartVacio'> ESTA VACIO </h1>
             }
+
             <button className='btn-clear' onClick={clearCart}>Eliminar Todo</button>
          
             <h2 className='totalPrecio'>Total: $ {total}</h2>

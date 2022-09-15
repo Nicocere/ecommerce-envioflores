@@ -39,7 +39,7 @@ const handleSubmit = (event) => {
     };
 
     const handleChangeTamañoPrecio = (e) => {
-      console.log("e", e)
+      
         if (e.target.value !== "") {
           setTamañoPrecio(e.target.value)
           setProdElegido(true)
@@ -69,39 +69,20 @@ const handleSubmit = (event) => {
       // CONSTANTES COLORES TAMAÑO Y PRECIO
       const colorElegido = color
       const tamañoPrecioElegido = tamañoPrecio
+
       
       
 
 
-console.log("esto es el setPRODUCTO ELEGIDO", prodElegido)
+console.log("esto es el set PRODUCTO ELEGIDO", tamañoPrecioElegido)
 
 
+// ACA O EN EL CONTEXT DEBERIA PONER ALGUNA FUNCION O MANERA PARA CONSEGUIR EL PRECIO DE "TAMAÑO PRECIO ELEGIDO"
+// YA QUE NO PUEDO ACCEDER EN EL ACUMULADOR EN EL CART  CARTCONTEXT PORQUE ES UN STRING..
 
+useEffect(()=>{
 
-
-
-
-
-// ACA O EN EL CONTEXT DEBERIA PONER ALGUNA FUNCION O MANERA PARA CONSEGUIR EL PRECIO DE TAMAÑO PRECIO ELEGIDO
-// YA QUE NO PUEDO ACCEDER EN EL ACUMULADOR EN EL CART  CARTCONTEXT PORQUE ES UN STRING
-
-
-useEffect(() => {
-
- 
-   
-}, [prodElegido])
-
-
-
-
-
-
-
-
-
-
-
+},[])
 
     const onAdd = (cantidadItem) => {
 
@@ -148,9 +129,10 @@ useEffect(() => {
                             // console.log("precio ", prodTam.precio)
                             const tamaño = prodTam.tamaño
                             const precio = prodTam.precio
-                            // console.log(tamaño , precio)
+                             console.log("precio en el map", typeof precio)
                             return(
-                                <option  key={tamaño.id} >
+
+                                <option  >
                                   
                                    Tamaño:{tamaño},  Precio: ${precio}
 
