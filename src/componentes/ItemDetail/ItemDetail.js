@@ -8,8 +8,8 @@ import { CartContext } from '../../context/CartContext'
 
 // Componente
 const ItemDetail = ({item, prodOptions}) => {
-  console.log("item es esto", item)
-  console.log("prodOptions es esto", prodOptions)
+  console.log("esto es ITEM", item)
+  console.log("esto es prodOptions ", prodOptions)
 
 
   
@@ -51,7 +51,6 @@ const handleSubmit = (event) => {
     };
       
       const handleChangeColor = (event) => {
-        console.log("EVENTO", event)
         if (event.target.value !== "") {
           
           setColor(event.target.value);
@@ -70,11 +69,7 @@ const handleSubmit = (event) => {
       const colorElegido = color
       const tamañoPrecioElegido = tamañoPrecio
 
-      
-      
-
-
-console.log("esto es el set PRODUCTO ELEGIDO", tamañoPrecioElegido)
+console.log("esto es TamañoPrecioElegido que le envio a ADD TO CART:", tamañoPrecioElegido)
 
 
 // ACA O EN EL CONTEXT DEBERIA PONER ALGUNA FUNCION O MANERA PARA CONSEGUIR EL PRECIO DE "TAMAÑO PRECIO ELEGIDO"
@@ -88,8 +83,7 @@ useEffect(()=>{
 
       setCantidad(cantidadItem);
       addToCart(item, cantidadItem, colorElegido, tamañoPrecioElegido);    
-      // console.log("COLOR ELEGIDO", colorElegido);
-      // console.log("TAMAÑO Y PRECIO ELEGIDO", tamañoPrecioElegido);
+
     };
 
     // creo una variable para color y tamaño+precio 
@@ -129,7 +123,6 @@ useEffect(()=>{
                             // console.log("precio ", prodTam.precio)
                             const tamaño = prodTam.tamaño
                             const precio = prodTam.precio
-                             console.log("precio en el map", typeof precio)
                             return(
 
                                 <option  >
@@ -150,7 +143,6 @@ useEffect(()=>{
                 <option value={''}>Elegir Color</option>
              {
                colorOption?.map((colors, index) => {
-                  console.log ("colors", colors)
                  return (
                   <>
                   
