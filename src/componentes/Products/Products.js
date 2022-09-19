@@ -26,7 +26,7 @@ import Desayuno from '../../imagenes/PRODUCTOS/desayuno.jpg'
 
 
 export const stockProductos = [
-    {id: 1, producto: true, nombre: "Caja Rosas Diamante & Ferrero Rocher", categoria: ["Rosas", "Todos"] , opciones:[
+    {producto: true, nombre: "Caja Rosas Diamante & Ferrero Rocher", categoria: ["Rosas", "Todos"] , opciones:[
             { tamaño: 12,
              color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
              precio: 6500}, 
@@ -43,7 +43,7 @@ export const stockProductos = [
             , descr: "Caja con rosas Diamante y Ferrero Rocher" , img: CajaRosasDiamanteRocher },
         
         
-    {id: 2, producto: true, nombre: "Caja Rosas & Ferrero", categoria: ["Rosas", "Todos"] , opciones:[
+    { producto: true, nombre: "Caja Rosas & Ferrero", categoria: ["Rosas", "Todos"] , opciones:[
             { tamaño: 12,
              color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
              precio: 5500}, 
@@ -59,7 +59,8 @@ export const stockProductos = [
             ], tipo: "Caja", flor: "rosas",  stock: 100
             , descr: "Caja 18 rosas Ferrero" , img: CajaRosasRocher },
         
-    {id: 3, producto: true, nombre: "Caja Rosas rosadas", categoria: ["Rosas", "Todos"] , opciones:[
+    {
+         producto: true, nombre: "Caja Rosas rosadas", categoria: ["Rosas", "Todos"] , opciones:[
                 { tamaño: 12,
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -75,7 +76,7 @@ export const stockProductos = [
                 ],  tipo: "Caja",  flor: "rosas",  stock: 100
                 , descr: "Caja 25 rosas rosadas" , img: CajaRosasRosadas },
         
-    {id: 4, producto: true, nombre: "Corazon de rosas y ferrero rocher", categoria: ["Rosas", "Todos"] , opciones:[
+    {producto: true, nombre: "Corazon de rosas y ferrero rocher", categoria: ["Rosas", "Todos"] , opciones:[
                 { tamaño: 20,
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 11500}, 
@@ -91,7 +92,7 @@ export const stockProductos = [
         ], tipo: "arreglo floral", flor: "rosas", stock: 100
         , descr: "Corazon de rosas y ferrero rocher", img: CorazonRosasRocher},
         
-    {id: 5, producto: true, nombre: "Caja de Rosas c/ Ferrero Rocher", categoria: ["Rosas", "Todos"], opciones:[
+    { producto: true, nombre: "Caja de Rosas c/ Ferrero Rocher", categoria: ["Rosas", "Todos"], opciones:[
                 { tamaño: 20,
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 11500}, 
@@ -108,7 +109,7 @@ export const stockProductos = [
         ], tipo: "Caja",  flor: "rosas",   stock: 100
         , descr: "Caja Sorpresa Rosas con Ferrero Rocher" , img: CorazonSorpresaRosasFerrero },
         
-    {id: 6, producto: true, nombre: "Mini Caja Rosas c/ Peluche", categoria: ["Rosas", "Todos"], opciones:[
+    { producto: true, nombre: "Mini Caja Rosas c/ Peluche", categoria: ["Rosas", "Todos"], opciones:[
                 { tamaño: 6,
                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                 precio: 4500}, 
@@ -124,7 +125,7 @@ export const stockProductos = [
         ],  tipo: "Caja",  flor: "rosas",   stock: 100
         , descr: "Mini caja rosas con peluche" , img: MiniCajaRosasPeluche },
         
-    {id: 7, producto: true, nombre: "Florero con Rosas, Lilium y Gerberas", categoria: ["Rosas", "Florero", "Todos"], opciones:[
+    { producto: true, nombre: "Florero con Rosas, Lilium y Gerberas", categoria: ["Rosas", "Florero", "Todos"], opciones:[
         { tamaño: "Standard",
         color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
          precio: 5500}, 
@@ -140,7 +141,7 @@ export const stockProductos = [
         ], tipo: "Florero", stock: 100
         , descr: "Florero con rosas, lilium y gerberas" , img: FloreroRosasLiliumGerberas},
         
-    {id: 8, producto: true, nombre: "Florero con rosas en papel italiano",categoria: ["Rosas", "Florero", "Todos"], opciones:[
+    { producto: true, nombre: "Florero con rosas en papel italiano",categoria: ["Rosas", "Florero", "Todos"], opciones:[
                 
                 { tamaño: "Standard",
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
@@ -157,7 +158,7 @@ export const stockProductos = [
        ], tipo: "Florero", stock: 100
        , descr: "Florero con rosas en papel italiano" , img: FloreroRosasItaliano},
         
-    {id: 9, producto: true, nombre: "Florero con Rosas", categoria: ["Rosas", "Florero", "Todos"], opciones: [
+    {producto: true, nombre: "Florero con Rosas", categoria: ["Rosas", "Florero", "Todos"], opciones: [
                 { tamaño: 12,
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -173,7 +174,7 @@ export const stockProductos = [
         ],tipo: "Florero",  stock: 100
         , descr: "Florero con rosas rosadas" , img: FloreroRosasRosadas},
         
-    {id: 10, producto: true, nombre: "Florero con Lisianthus", categoria: ["Florero", "Todos"], opciones:[
+    { producto: true, nombre: "Florero con Lisianthus", categoria: ["Florero", "Todos"], opciones:[
                 { tamaño: "Standard",
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -189,7 +190,8 @@ export const stockProductos = [
         ] , tipo: "Florero",  stock: 100
         , descr: "Florero con lisianthus ", img: FloreroLisianthus },
         
-    {id: 11, producto: true, nombre: "Ramo de Rosas Europeo", categoria: ["Rosas","Ramos", "Todos"], opciones:[
+    {
+        producto: true, nombre: "Ramo de Rosas Europeo", categoria: ["Rosas","Ramos", "Todos"], opciones:[
                 { tamaño: 6,
                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                 precio: 6500}, 
@@ -205,7 +207,8 @@ export const stockProductos = [
         ],tipo: "Florero",  stock: 100
         , descr: "Ramo de Rosas Europeo" , img: RamoRosasEuropeo},
         
-    {id: 12, producto: true, nombre: "Exquisito Florero", categoria: ["Florero", "Todos"], opciones:[
+    {
+         producto: true, nombre: "Exquisito Florero", categoria: ["Florero", "Todos"], opciones:[
                 { tamaño: "Standard",
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -220,7 +223,8 @@ export const stockProductos = [
         ], tipo: "Florero",  stock: 100
         ,  descr: "Exquisito florero" , img: ExquisitoFlorero},
         
-    {id: 13, producto: true, nombre: "Florero con Gerberas", categoria: ["Florero", "Todos"], opciones:[
+    {
+         producto: true, nombre: "Florero con Gerberas", categoria: ["Florero", "Todos"], opciones:[
                 { tamaño: "Standard",
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -236,7 +240,8 @@ export const stockProductos = [
         ], tipo: "Florero", stock: 100
         , descr: "florero con gerberas" , img: FloreroGerberas },
         
-    {id: 14, producto: true, nombre: "Florero con Liliums", categoria: ["Florero", "Todos"], opciones:[
+    {
+        producto: true, nombre: "Florero con Liliums", categoria: ["Florero", "Todos"], opciones:[
                 { tamaño: 6,
                 color: ["rosas","rojas","blancas"],
                 precio: 6500}, 
@@ -252,7 +257,8 @@ export const stockProductos = [
         ],tipo: "Florero",  stock: 100
         , descr: "Florero con Liliums" , img: FloreroLiliums},
         
-    {id: 15, producto: true, nombre: "Florero con Rosas y Astromelias", categoria: ["Rosas","Florero", "Todos"],  opciones:[
+    {
+        producto: true, nombre: "Florero con Rosas y Astromelias", categoria: ["Rosas","Florero", "Todos"],  opciones:[
                 { tamaño: "Standard",
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -268,7 +274,8 @@ export const stockProductos = [
         ], tipo: "Florero", stock: 100
         , descr: "Florero con rosas y astromelias" , img: FloreroRosasAstromelias},
         
-    {id: 16, producto: true, nombre: "Canasta de Rosas con Bombones", categoria: ["Canasta", "Todos"], opciones:[
+    {
+         producto: true, nombre: "Canasta de Rosas con Bombones", categoria: ["Canasta", "Todos"], opciones:[
                 { tamaño: 6,
                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                 precio: 6500}, 
@@ -284,7 +291,8 @@ export const stockProductos = [
         ], tipo: "Canasta",  stock: 100
         , descr: "Canasta de Rosas con Bombones" , img: CanastaRosasBombones},
         
-    {id: 17, producto: true, nombre: "Canasta de Rosas Sin Bombones", categoria: ["Canasta", "Todos"], opciones:[
+    {
+        producto: true, nombre: "Canasta de Rosas Sin Bombones", categoria: ["Canasta", "Todos"], opciones:[
                 { tamaño: 6,
                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                 precio: 5500}, 
@@ -300,7 +308,8 @@ export const stockProductos = [
         ], tipo: "Canasta", stock: 100
         , descr: "Canasta de Rosas Sin Bombones", img: CanastaRosas },
         
-    {id: 18, producto: true, nombre: "Canasta con Flores Estacion", categoria: ["Canasta", "Todos"], opciones:[
+    {
+         producto: true, nombre: "Canasta con Flores Estacion", categoria: ["Canasta", "Todos"], opciones:[
                 { tamaño: "Standard",
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -316,7 +325,8 @@ export const stockProductos = [
         ], tipo: "Canasta", stock: 100
         , descr: "Canasta con Flores de Estacion", img: CanastaFloresBlancasEstacion},
         
-    {id: 19, producto: true, nombre: "Canasta de Gerberas y Rosas", categoria: ["Rosas", "Canasta", "Todos"], opciones:[
+    {
+        producto: true, nombre: "Canasta de Gerberas y Rosas", categoria: ["Rosas", "Canasta", "Todos"], opciones:[
                 { tamaño: "Standard",
                  color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                  precio: 6500}, 
@@ -332,7 +342,8 @@ export const stockProductos = [
         ], tipo: "Canasta",  stock: 100
         , descr: "canasta de gerberas y rosas" , img: CanastaGerberasRosas },
         
-    {id: 20, producto: true, nombre: "Canasta Rosas y Lilium", categoria: ["Rosas", "Canasta", "Todos"], opciones:[
+    {
+        producto: true, nombre: "Canasta Rosas y Lilium", categoria: ["Rosas", "Canasta", "Todos"], opciones:[
                 { tamaño: 6,
                 color: ["Rosas ","Rojas " ,"Amarillas " ,"Blancas"],
                 precio: 6500}, 
@@ -348,7 +359,8 @@ export const stockProductos = [
         ], tipo: "Canasta",  stock: 100
         , descr: "canasta rosas y lilum" , img: CanastaRosasLiliums },
         
-    {id: 21, producto: true, nombre: "Canasta de Jazmines", categoria: ["Canasta", "Todos"], opciones:[
+    {
+         producto: true, nombre: "Canasta de Jazmines", categoria: ["Canasta", "Todos"], opciones:[
                 { tamaño: "Standard",
                 
                  precio: 6500}, 
@@ -364,7 +376,8 @@ export const stockProductos = [
         ],tipo: "Canasta",  stock: 100
         , descr: "canasta de jazmines" ,   img: CanastaJazmines },
         
-    {id: 22, producto: true, nombre: "Bandeja Comestible te quiero", categoria: ["Comestible", "Todos"], opciones:[
+    {
+         producto: true, nombre: "Bandeja Comestible te quiero", categoria: ["Comestible", "Todos"], opciones:[
                 { tamaño: "Standard",
                  
                  precio: 6500}, 
@@ -380,7 +393,8 @@ export const stockProductos = [
         ], tipo: "Comestible", stock: 100
         , descr: "bandeja comestible te quiero" , img: BandejaComestible},
         
-    {id: 23, producto: true, nombre: "Desayuno", categoria: ["Desayuno", "Todos"],opciones:[
+    {
+         producto: true, nombre: "Desayuno", categoria: ["Desayuno", "Todos"],opciones:[
                 { tamaño: "Standard",
                  
                  precio: 6500}, 

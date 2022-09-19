@@ -1,113 +1,105 @@
-import React, { useContext } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { CartContext } from '../../context/CartContext';
+import React, { useState, useEffect } from 'react';
+import {
+    addDoc,
+    collection,
+    doc,
+    serverTimestamp,
+    updateDoc,
+} from 'firebase/firestore';
+import { baseDeDatos } from '../../FireBaseConfig';
 
+const Form = () => {
 
-const Form = ({item}) => {
-    
-    const [color, setColor] = useState({});
-    const [tamañoPrecio, setTamañoPrecio] = useState([]);
-    console.log("TAMAÑO PRECIO", tamañoPrecio)
-    console.log("COLOR DE SET COLOR", color)
+    //const [datosorm, setDatosForm] = useState(initialState);
+const Form = ({ cart, total, clearCart, handleId }) => {
+    const [nombre, setNombre] = useState('');
+    const [apellido, setApellido] = useState('');
+    const [talle, setTalle] = useState('');
+    //const [x, setX] = useState('');
 
-
-    
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log( "Seleccionaste ",color, tamañoPrecio); //envir la info a la base de datos  
+        //console.log(event.target.elements.nombre.value);
+        //console.log(event.target.elements.apellido.value);
+        //console.dir(event.target);
+        //console.log(nombre, apellido, talle); //enviar la info a la base de datos
+        //setNombre('');
+        const order = {
+            buyer: { nombre: nombre, apellido: apellido },
+            items: cart,
+            total: total,
+            date: serverTimestamp(),
+        };
+
+        const ordersCollection = collection(baseDeDatos, 'orders');
+
+        addDoc(ordersCollection, order).then((res) => {
+            handleId(res.id);
+            clearCart();
+            updateprod();
+        });
     };
 
-    const handleChangeColor = (event) => {
-        //  console.log("EVENTO EN TARGET",event.target.value);
-        setColor(event.target.value);
+    // const handleChange = () => {
+    //     //name y value de cada input
+    // }
+    const updateprod = () => {
+        const orderDoc = doc(baseDeDatos, 'orders', 'A29yVRkpjasoaRfEo3G5');
+        updateDoc(orderDoc, { total: 100 });
     };
 
-    const handleChangeTamañoPrecio = (e) => {
-        setTamañoPrecio(e.target.value);
+    const handleChangeNombre = (event) => {
+        //console.log(event.target.value);
+        setNombre(event.target.value);
     };
-    const onAdd = () => {
-        
-      
-        const colorElegido = color
-        const tamañoPrecioElegido = tamañoPrecio
-    
-        console.log("COLOR ELEGIDO", colorElegido)
-        console.log("TAMAÑO Y PRECIO ELEGIDO", tamañoPrecioElegido)
+    const handleChangeApellido = (event) => {
+        setApellido(event.target.value);
     };
 
-    // creo una variable para color y tamaño+precio 
-
-    const prodOptions = item.opciones;
-    // console.log( " prodOptions  en formrr", prodOptions);
-
-    const colorOption = prodOptions[0,1,2].color;
-    // console.log("color Option", colorOption);    
+    const handleChangeTalle = (e) => {
+        setTalle(e.target.value);
+    };
 
     useEffect(() => {
-        const handleClick = (e) => {
+        const handleMouseMove = (e) => {
             //setX(e.clientX);
         };
-        window.addEventListener('click', handleClick);
-            console.log('Creo evento');
+        window.addEventListener('mousemove', handleMouseMove);
+        //console.log('Creo evento');
         return () => {
             //siempre antes
-            // clearInterval()
-            window.removeEventListener('click', handleClick);
-            // console.log('Borro evento');
+            //clearInterval()
+            window.removeEventListener('mousemove', handleMouseMove);
+            //console.log('Borro evento');
         };
     });
 
     return (
-
-    <div >
-    <form action="./Carrito" onSubmit={handleSubmit}>
-        
-        <select id='selectId' value={tamañoPrecio } onChange={handleChangeTamañoPrecio}>
-                        
-                        <option value={''} >Elegi tamaño</option>
-                    
-                        {
-                        prodOptions?.map((prodTam) => {
-                            // console.log("precio tamaño", prodTam)
-                            // console.log("tamaño", prodTam.tamaño )
-                            // console.log("precio", prodTam.precio)
-                            const tamaño = prodTam.tamaño
-                            const precio = prodTam.precio
-                            // console.log(tamaño , precio)
-                            return(
-                                <>
-                               
-                                <option  key={tamaño} >
-                                    Tamaño:{tamaño}, Precio: ${precio}
-                                </option>
-                                </>
-                                
-                            )
-                    
-                        })
-                        }
-                    
-                  
-        </select>
-
-
-        <select  value={[color]} onChange={handleChangeColor}> 
-        <option value='' selected>Elegi Color</option> 
-            {
-                colorOption?.map((colors) => {
-                    // console.log ("colors", colors)
-                    return (<option  key={colors}>{colors}</option>)
-                })    
-            }
-        </select> 
-          
-               <button onClick={() => onAdd}> Agregar</button>  
-              
-           
-    </form>
-
-    </div>
+        <div style={{ marginTop: '20px' }}>
+            <form action="" onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Nombre..."
+                    name="nombre"
+                    value={nombre}
+                    onChange={handleChangeNombre}
+                />
+                <input
+                    type="text"
+                    placeholder="Apellido..."
+                    name="apellido"
+                    value={apellido}
+                    onChange={handleChangeApellido}
+                />
+                <select value={talle} onChange={handleChangeTalle}>
+                    <option value="Large">L</option>
+                    <option value="Medium">M</option>
+                    <option value="Small">S</option>
+                </select>
+                <button>Enviar</button>
+            </form>
+        </div>
     );
 };
+}
 export default Form;

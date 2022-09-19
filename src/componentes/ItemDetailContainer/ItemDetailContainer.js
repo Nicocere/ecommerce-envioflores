@@ -1,42 +1,40 @@
 import React , {useEffect, useState} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { stockProductos } from "../Products/Products";
+
+// import { stockProductos } from "../Products/Products";
+
+import { getDoc, doc, collection } from 'firebase/firestore';
+
+import { baseDeDatos } from "../../FireBaseConfig";
 import { useParams } from 'react-router-dom'
 import { FadeLoader } from "react-spinners";
 
 const ItemDetailContainer = () => {
  
-    const [productDetail,  setProductDetail] = useState ({});
+    const [item,  setitem] = useState ({});
 
     const [isLoading, setIsLoading] = useState(true)
 
      const {prodId} = useParams()
-     const prodIdNumber = Number(prodId)
      
-     const item = stockProductos.find((producto) => producto.id === prodIdNumber) 
      
-     let prodOptions = item.opciones
+    //  const item = baseDeDatos.find((producto) => producto.id === prodId) 
+     
+    const prodOptions = item.opciones
      
 
     console.log("prod ID", prodId)
 
     
-    
     useEffect(() => {
         
-        const getDetailProduct = () => new Promise ((resolve, reject) => {
-            setTimeout(() => { resolve(item, prodOptions)}, 1000);});
-            
-            getDetailProduct()
-            .then((data) => {
-                setProductDetail(data);
-                setIsLoading(false);
- 
-        })
-        .catch((error) => { console.log("esto es error", error)
-        })
-        
-
+        const itemCollection = collection(baseDeDatos, 'productos');
+        const ref = doc(itemCollection, prodId);
+        getDoc(ref).then((res) => {
+            setitem({ id: res.id, ...res.data() });
+            setIsLoading(false)
+            console.log("RES", res)
+        });
 
     }, [prodId]);
 
@@ -51,7 +49,7 @@ const ItemDetailContainer = () => {
                 <FadeLoader color="white"/>
                 </>
             ) : (
-                <ItemDetail  item={productDetail} prodOptions={productDetail.opciones}/>
+                <ItemDetail  item={item}  prodOptions={item.opciones}/>
             )}
 
         </div>

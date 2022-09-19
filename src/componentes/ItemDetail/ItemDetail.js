@@ -25,7 +25,7 @@ const ItemDetail = ({item, prodOptions}) => {
 
   // CONSTANTES CANTIDAD DE PRODUCTO Y OPCIONES  + COLORES 
     const quantity = cantidadProducto(item.id);
-    const colorOption = prodOptions[0,1,2].color;
+    const colorOption = prodOptions[0,1].color;
         
 
 
@@ -75,6 +75,23 @@ console.log("esto es TamañoPrecioElegido que le envio a ADD TO CART:", tamañoP
 // ACA O EN EL CONTEXT DEBERIA PONER ALGUNA FUNCION O MANERA PARA CONSEGUIR EL PRECIO DE "TAMAÑO PRECIO ELEGIDO"
 // YA QUE NO PUEDO ACCEDER EN EL ACUMULADOR EN EL CART  CARTCONTEXT PORQUE ES UN STRING..
 
+
+let tamaño = prodOptions?.map((prodTam) => {
+  console.log("precio tamaño", prodTam)
+ //  console.log("tamaño", prodTam.tamaño )
+ // console.log("precio ", prodTam.precio)
+//  const tamaño = prodTam.tamaño
+//    const precio = prodTam.precio
+ return {
+  tamaño: prodTam.tamaño,
+  precio: prodTam.precio
+ }
+
+})
+console.log("tamaño de map", tamaño)
+          
+     
+
 useEffect(()=>{
 
 },[])
@@ -82,7 +99,7 @@ useEffect(()=>{
     const onAdd = (cantidadItem) => {
 
       setCantidad(cantidadItem);
-      addToCart(item, cantidadItem, colorElegido, tamañoPrecioElegido);    
+      addToCart(item, cantidadItem, colorElegido, tamañoPrecioElegido, tamaño);    
 
     };
 
@@ -99,7 +116,7 @@ useEffect(()=>{
             <div className={estilosDetail.ulCategory}> 
             
             {
-              item.categoria?.map((category, idx)=> {  
+              item?.categoria?.map((category, idx)=> {  
                     return (                    
                       <div key={idx}  className={estilosDetail.divCategory}> 
                             {category}
@@ -123,14 +140,14 @@ useEffect(()=>{
                             // console.log("precio ", prodTam.precio)
                             const tamaño = prodTam.tamaño
                             const precio = prodTam.precio
-                            return(
-
-                                <option  >
-                                  
-                                   Tamaño:{tamaño},  Precio: ${precio}
-
-                                </option>    
+                            return (
+                              <option value={precio}>
+                               Tamaño: {tamaño}
+        
+                                Precio:{precio}
+                              </option>
                             )
+                            
                         })
                         }
        

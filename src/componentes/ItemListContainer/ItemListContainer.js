@@ -1,38 +1,63 @@
 import React , {useEffect, useState} from "react";
 import {useParams} from 'react-router-dom'
 import ItemList from "../itemList/ItemList";
-import { stockProductos } from "../Products/Products";
+// import { stockProductos } from "../Products/Products";
 import { FadeLoader } from "react-spinners";
+import {collection, getDocs, query, where } from 'firebase/firestore'
+import { baseDeDatos } from "../../FireBaseConfig";
+
 
 
 const ItemListContainer = () => {
     const [items,  setItems] = useState ([]);
     const [isLoading, setIsLoading] = useState (true);
-
-   const {categoryName} = useParams()
-   console.log("categoria name", categoryName)
-
-
-useEffect(() => {
-
-    const getProducts = () => 
-        new Promise ((resolve, reject) => {
-
-    const prodFiltrados = stockProductos.filter(
-                (prod) => prod.categoria.includes(categoryName));
-                console.log("prod filtrado", prodFiltrados)
-
-            setTimeout(() => { 
-                resolve( categoryName ? prodFiltrados : stockProductos)}, 1000);});
     
-        getProducts()
-        .then((data) => {
-            setItems(data)
-            setIsLoading(false)
+    const {categoryName} = useParams()
+    console.log("categoria name", categoryName)
+
+
+    
+    
+    
+    useEffect(() => {
+        const itemCollection = collection(baseDeDatos, 'productos');
+
+
+        
+         console.log(" ITEM COLLECTION", itemCollection)
+
+         
+         
+         const q = categoryName 
+         ? query(itemCollection, where('categoria', '==', categoryName)) 
+         : itemCollection;
+         
+         console.log("FILTRO", q)
+         
+         
+         getDocs(q)
+         .then((resp) => {
+                
+
+                const productos = resp.docs.map((prod)=>{
+                 console.log("proddata: ",prod.data().categoria)
+                return{
+                    id: prod.id,
+                    ...prod.data(),
+                    
+
+                };
+            });
+       console.log("PRODUCTOS", productos )
+            setItems(productos);
         })
-        .catch((error) => { console.log("esto es error", error)
+
+        .catch((error)=>{
+            console.log("Los Productos no llegaron", error);
+        })
+        .finally(()=>{
+            setIsLoading(false)
         });
-    
 
 }, [categoryName]);
 
@@ -57,3 +82,22 @@ useEffect(() => {
 };
 
 export default ItemListContainer;
+
+// const getProducts = () => 
+// new Promise ((resolve, reject) => {
+
+// const prodFiltrados = stockProductos.filter(
+//         (prod) => prod.categoria.includes(categoryName));
+//         console.log("prod filtrado", prodFiltrados)
+
+//     setTimeout(() => { 
+//         resolve( categoryName ? prodFiltrados : stockProductos)}, 1000);});
+
+// getProducts()
+// .then((data) => {
+//     setItems(data)
+//     setIsLoading(false)
+// })
+// .catch((error) => { console.log("esto es error", error)
+// });
+

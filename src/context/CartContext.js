@@ -15,11 +15,16 @@ const CartProvider = ({ children }) => {
             sumarCantidad(item, cantidadItem, tamañoPrecioElegido);
         } else {
             setCart([...cart, { ...item, cantidadItem, colorElegido, tamañoPrecioElegido }]);
+            console.log("precio de lo que deberia llegarme en cart context",tamañoPrecioElegido)
         }
     };
     
     
-    // const  precio = 
+    // // encontrar el tamaño
+    // const tamaño = cart.map((tam)=>{
+    //     return tamaño?.tamañoPrecioElegido,
+        
+    // })
     
 
     // console.log("precio cart contex", precio)
