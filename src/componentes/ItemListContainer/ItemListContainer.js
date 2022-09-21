@@ -10,41 +10,28 @@ import { baseDeDatos } from "../../FireBaseConfig";
 
 const ItemListContainer = () => {
     const [items,  setItems] = useState ([]);
-    const [isLoading, setIsLoading] = useState (true);
-    
+    const [isLoading, setIsLoading] = useState (true); 
     const {categoryName} = useParams()
-    console.log("categoria name", categoryName)
 
 
-    
-    
-    
+
     useEffect(() => {
         const itemCollection = collection(baseDeDatos, 'productos');
 
-
-        
-         console.log(" ITEM COLLECTION", itemCollection)
-
-         
-         
          const q = categoryName 
-         ? query(itemCollection, where('categoria', '==', categoryName)) 
-         : itemCollection;
-         
-         console.log("FILTRO", q)
-         
-         
+         ? query(itemCollection, where('categoria', 'array-contains', categoryName)) 
+         : itemCollection ;
+
          getDocs(q)
          .then((resp) => {
-                
 
                 const productos = resp.docs.map((prod)=>{
                  console.log("proddata: ",prod.data().categoria)
-                return{
+
+                 return{
                     id: prod.id,
+                  
                     ...prod.data(),
-                    
 
                 };
             });
