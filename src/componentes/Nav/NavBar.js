@@ -1,7 +1,8 @@
 import React from 'react'
 import estilos from './nav.module.css'
-import Logo from '../../imagenes/EnvioFlores3.png'
+import Logo from '../EnvioFlores3.png'
 import CartWidget from '../CartWidget/CartWidget'
+
 
 import {NavLink} from 'react-router-dom'
 
