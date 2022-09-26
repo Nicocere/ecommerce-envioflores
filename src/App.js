@@ -17,8 +17,6 @@ function App() {
 
   return (
 
-
-    
     <BrowserRouter>
 
     <div className='cuerpo'>

@@ -7,8 +7,10 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext'
 
 // Componente
-const ItemDetail = ({item, prodOptions}) => {
+const ItemDetail = ({item}) => {
   console.log("esto es ITEM", item)
+  
+  const prodOptions = item.opciones
   console.log("esto es prodOptions ", prodOptions)
 
 
@@ -16,7 +18,10 @@ const ItemDetail = ({item, prodOptions}) => {
   // ESTADOS Y CONTEXTO
   const { addToCart, cantidadProducto } = useContext(CartContext);
   const [color, setColor] = useState();
-  const [tamañoPrecio, setTamañoPrecio] = useState([]);
+  const [tamañoPrecio, setTamañoPrecio] = useState();
+  
+  // const [tamañoElegido, setTamañoElegido] = useState();
+
   console.log("TAMAÑO PRECIO", tamañoPrecio)
   console.log("COLOR DE SET COLOR", color)
   const [cantidad, setCantidad] = useState(0);
@@ -26,7 +31,8 @@ const ItemDetail = ({item, prodOptions}) => {
   // CONSTANTES CANTIDAD DE PRODUCTO Y OPCIONES  + COLORES 
     const quantity = cantidadProducto(item.id);
     const colorOption = prodOptions[0,1].color;
-        
+    
+ 
 
 
 // A PARTIRDE ACA VA LO NUEVO
@@ -39,9 +45,11 @@ const handleSubmit = (event) => {
     };
 
     const handleChangeTamañoPrecio = (e) => {
+      console.log("TARGET", e.target.value)
       
         if (e.target.value !== "") {
           setTamañoPrecio(e.target.value)
+          console.log("esto es value", e.target.value)
           setProdElegido(true)
 
         } else {
@@ -65,31 +73,44 @@ const handleSubmit = (event) => {
       
       
       
-      // CONSTANTES COLORES TAMAÑO Y PRECIO
-      const colorElegido = color
-      const tamañoPrecioElegido = tamañoPrecio
+// CONSTANTES COLORES TAMAÑO Y PRECIO
 
-console.log("esto es TamañoPrecioElegido que le envio a ADD TO CART:", tamañoPrecioElegido)
+      //condicional tamaño
+      const precioElegido = tamañoPrecio
+      console.log("esto es PrecioElegido que le envio a ADD TO CART:", precioElegido)
 
-
-// ACA O EN EL CONTEXT DEBERIA PONER ALGUNA FUNCION O MANERA PARA CONSEGUIR EL PRECIO DE "TAMAÑO PRECIO ELEGIDO"
-// YA QUE NO PUEDO ACCEDER EN EL ACUMULADOR EN EL CART  CARTCONTEXT PORQUE ES UN STRING..
-
-
-let tamaño = prodOptions?.map((prodTam) => {
-  console.log("precio tamaño", prodTam)
- //  console.log("tamaño", prodTam.tamaño )
- // console.log("precio ", prodTam.precio)
-//  const tamaño = prodTam.tamaño
-//    const precio = prodTam.precio
- return {
-  tamaño: prodTam.tamaño,
-  precio: prodTam.precio
- }
-
-})
-console.log("tamaño de map", tamaño)
+//       const tamElegido = prodOptions?.map((prodTam) => {
+//         //  console.log("precio tamaño", prodTam)
+//         //  console.log("tamaño", prodTam.tamaño )
+//         // console.log("precio ", prodTam.precio)
+//         // const tamaño = prodTam.tamaño
+//         // const precio = prodTam.precio
+//         return {
           
+//           tamaño: prodTam.tamaño,
+//           precio: prodTam.precio
+//         }
+// })
+//   console.log("tam ELEGIDO", tamElegido)
+
+      
+
+      //condicional por si el producto no tiene color.
+
+      let colorElegido = color
+      if (colorElegido === undefined) {
+        colorElegido = false
+       } else {
+        colorElegido = color
+      }
+
+
+
+// NO ENCUENTRO LA MANERA DE OBTENER EL DATO DE TAMAÑO SELECCIONADO DEL VALUE. SI SACO EL VALUE={PRECIO}
+// DESPUES NO PUEDO EN EL CART ENCONTRARLOS POR SEPARADO, POR LO QUE PIERDO EL VALOR DE "TOTALPRICE()"
+// ..
+
+
      
 
 useEffect(()=>{
@@ -99,13 +120,9 @@ useEffect(()=>{
     const onAdd = (cantidadItem) => {
 
       setCantidad(cantidadItem);
-      addToCart(item, cantidadItem, colorElegido, tamañoPrecioElegido, tamaño);    
+      addToCart(item, cantidadItem, colorElegido, precioElegido);    
 
     };
-
-    // creo una variable para color y tamaño+precio 
-
-
 
   return (
 
@@ -132,8 +149,7 @@ useEffect(()=>{
           <select id='selectId' value={tamañoPrecio} onChange={handleChangeTamañoPrecio}>
 
                         <option  value={''} placeholder="vacio" > Elegir tamaño  </option>
-                        {
-                          
+                        {                        
                         prodOptions?.map((prodTam, idx) => {
                             //  console.log("precio tamaño", prodTam)
                             //  console.log("tamaño", prodTam.tamaño )
@@ -141,12 +157,14 @@ useEffect(()=>{
                             const tamaño = prodTam.tamaño
                             const precio = prodTam.precio
                             return (
-                              <option value={precio}>
-                               Tamaño: {tamaño}
-        
-                                Precio:{precio}
+                              // <option key={idx} multiple={true} value={[precio, tamaño]}>
+                              <option key={idx} multiple={true} value={precio}>
+
+                                Tamaño: {tamaño}
+                                Precio: ${precio}
                               </option>
                             )
+
                             
                         })
                         }
@@ -159,11 +177,11 @@ useEffect(()=>{
           <select  value={color}  onChange={handleChangeColor}> 
                 <option value={''}>Elegir Color</option>
              {
-               colorOption?.map((colors, index) => {
+               colorOption?.map((colors) => {
                  return (
                   <>
                   
-                  <option value={index}  key={colors.id}>{colors}</option>
+                  <option value={colors}  key={colors.id}>{colors}</option>
                   </>
                   
                   )
@@ -182,8 +200,8 @@ useEffect(()=>{
             <h4 className={estilosDetail.detalles} >Seguir Comprando</h4>
             </Link>
 
-            <Link to="/Carrito">
-            <h4 className={estilosDetail.detalles} > Ir al carrito </h4>
+            <Link to="/Carrito" className={estilosDetail.detalles}>
+            <h4  > Ir al carrito </h4>
             </Link>
             </>
               )       

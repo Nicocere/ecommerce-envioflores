@@ -37,12 +37,10 @@
 .detalles{
     font-family: "Quintessential";
     margin: 5%;
-    margin-top: 0%;
 }
 .detalles:hover{
     color: rgb(163, 29, 141);
     transition: all 0.5s;
-    font-size: 115%;
 }
 .ulCategory{
     width: 100%;

@@ -1,10 +1,6 @@
 import React , {useEffect, useState} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-
-// import { stockProductos } from "../Products/Products";
-
 import { getDoc, doc, collection } from 'firebase/firestore';
-
 import { baseDeDatos } from "../../FireBaseConfig";
 import { useParams } from 'react-router-dom'
 import { FadeLoader } from "react-spinners";
@@ -15,14 +11,8 @@ const ItemDetailContainer = () => {
 
     const [isLoading, setIsLoading] = useState(true)
 
-     const {prodId} = useParams()
-     
-     
-    //  const item = baseDeDatos.find((producto) => producto.id === prodId) 
-     
-    const prodOptions = item.opciones
-     
-
+     const {prodId} = useParams()   
+    //  const item = baseDeDatos.find((producto) => producto.id === prodId)   
     console.log("prod ID", prodId)
 
     
@@ -49,7 +39,7 @@ const ItemDetailContainer = () => {
                 <FadeLoader color="white"/>
                 </>
             ) : (
-                <ItemDetail  item={item}  prodOptions={item.opciones}/>
+                <ItemDetail  item={item}/>
             )}
 
         </div>

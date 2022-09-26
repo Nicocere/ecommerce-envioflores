@@ -8,23 +8,17 @@ const CartProvider = ({ children }) => {
 
         console.log("esto es el CART", cart)
 
-    const addToCart = (item, cantidadItem, colorElegido, tamañoPrecioElegido) => {
+    const addToCart = (item, cantidadItem, colorElegido, precioElegido) => {
             
         if (isInCart(item.id)) {
             //lo encuentro y le sumo la cantidad
-            sumarCantidad(item, cantidadItem, tamañoPrecioElegido);
+            sumarCantidad(item, cantidadItem, precioElegido);
         } else {
-            setCart([...cart, { ...item, cantidadItem, colorElegido, tamañoPrecioElegido }]);
-            console.log("precio de lo que deberia llegarme en cart context",tamañoPrecioElegido)
+            setCart([...cart, { ...item, cantidadItem, colorElegido, precioElegido }]);
+            console.log("precio de lo que deberia llegarme en cart context",precioElegido)
         }
     };
     
-    
-    // // encontrar el tamaño
-    // const tamaño = cart.map((tam)=>{
-    //     return tamaño?.tamañoPrecioElegido,
-        
-    // })
     
 
     // console.log("precio cart contex", precio)
@@ -39,7 +33,7 @@ const CartProvider = ({ children }) => {
         let acumulador = 0;
         cart.forEach((prod) => {
             
-            acumulador += prod.cantidadItem * prod.tamañoPrecioElegido;
+            acumulador += prod.cantidadItem * prod.precioElegido;
         });
         return acumulador;
     };

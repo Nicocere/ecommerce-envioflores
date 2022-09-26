@@ -19,7 +19,6 @@
 
   text-align: center;
   position: relative;
-  background-image: url(./imagenes/PRODUCTOS/caja-rosas-diamante.jpg);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -29,8 +28,7 @@
 }
 
 .seccion{
-  display: contents;
-  width: 50%;
+  display: flex;
   flex-direction: row;
   padding: 0%;
 }
@@ -40,11 +38,13 @@
   list-style: none;
   color: black;
   align-self: center;
-  border: 0.5px solid rgb(61, 0, 61);
+  border: 0.3px solid rgb(61, 0, 61);
+  border-radius: 5px;
   width: 100%;
+  margin: 2px;
   font-family: "Lato", sans-serif;
   text-decoration: none;
-  transition: all .8s;
+  transition: all .1s;
 }
 .seccionLi:hover {
   background: rgb(255, 207, 207);
@@ -61,47 +61,6 @@
   border: 2px solid violet;
 
 }
-/* 
-.seccionLi a {
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  background: rgba(255, 255, 255, 0);
-  font-family: "Lato", sans-serif;
-  font-size: 100%;
-  transition: color 1s;
-}
-.seccionLi a:hover {
-  background: transparent;
-  text-decoration: none;
-  color: rgb(189, 8, 149);
-} */
-
-/* .seccionLi-Fechas{
-  padding: 2px;
-  list-style: none;
-  margin-right: 1.5%;
-  align-self: center;
-  background-position: top;
-  padding-top: 1.5%;
-  transition: background-position 2.5s;
-
-} */
-/* 
-.seccionLi-Fechas a{
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  background: rgba(255, 255, 255, 0);
-  font-family: "Quintessential";
-  font-size: 130%;
-  list-style: none;
-  transition: color 1.5s;
-}
-
-.seccionLi-Fechas:hover {
-
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-} */
 
 .seccionLi-Fechas a:hover {
   background: transparent;
