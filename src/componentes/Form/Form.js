@@ -6,6 +6,8 @@ import { baseDeDatos } from '../../FireBaseConfig';
 
 //const [datosorm, setDatosForm] = useState(initialState);
 const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
+
+    const [value, setValue] = useState(false);
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [phone, setPhone] = useState('')
@@ -32,20 +34,11 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
         addDoc(ordersCollection, order).then((res) => {
             handleId(res.id);
             clearCart();
-            updateprod();
         });
     };
 
-    // const handleChange = () => {
-    //     //name y value de cada input
-    // }
-    const updateprod = () => {
-        const orderDoc = doc(baseDeDatos, 'orders', 'A29yVRkpjasoaRfEo3G5');
-        updateDoc(orderDoc, { total: 100 });
-    };
-
     const handleChangeNombre = (event) => {
-        //console.log(event.target.value);
+        console.log(event.target.value);
         setNombre(event.target.value);
     };
     const handleChangeApellido = (event) => {
@@ -56,15 +49,15 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     };
     const handleChangeMail = (event) => {
         setMail(event.target.value);
+        
     };
     const handleChangeValidateMail = (event) => {
         setValidateMail(event.target.value);
+
     };
 
-    if (mail !== validateMail) {
-        <h3>debe ingresar el mismo mail</h3>
-    
-    }
+
+
 
 
     useEffect(() => {

@@ -6,26 +6,28 @@ import Form from '../Form/Form';
 
 
 const Cart = () => {
-    const { cart, clearCart, eliminarProd, totalPrecio, colorElegido, precioElegido} = useContext(CartContext);
-
+    const { cart, clearCart, eliminarProd, totalPrecio} = useContext(CartContext);
     const [idCompra, setIdCompra] = useState('');
     const total = totalPrecio();
-    
-    console.log("color eelegido", colorElegido);
-    console.log("precio elegido", precioElegido);
     console.log("CART EN CART ",cart);
 
+
     const itemSelected = cart.map((item)=> {
-        console.log("cart item selected", item)
+        console.log("cart item selected PRECIO ELEGIDO", typeof Number(item.precioElegido));
+        const precio = Number(item.precioElegido);
+        const precioTamaño = item.opciones.find((tam)=> tam.precio === precio)
+        console.log("SIZE SELECTED", precioTamaño)
 
         return{
             id: item.id,
             img: item.img,
             cantidad: item.cantidadItem,
-            precio: item.precioElegido,
-            name: item.nombre,
+            precioUnidad: item.precioElegido,
+            nombreProducto: item.nombre,
             color: item.colorElegido,
+            tamaño: precioTamaño.tamaño,
             precioCantidad: item.cantidadItem * item.precioElegido,
+            tipo: item.tipo
 
         }
     })
@@ -53,23 +55,22 @@ const Cart = () => {
     return (
         <div className='cart'>
             { 
-                cart.map((prod)=> (
+                itemSelected.map((prod)=> (
                     <div  className='prodInCart' key={prod.id}>
                         <img className='imgInCart' src={prod.img} alt="imagen producto en carrito"/>
-                        <h4 className='detailsInCart'> {prod.nombre}</h4>
-                        <p className='detailsInCart'>Cantidad:{prod.cantidadItem}</p>
-                        <p className='detailsInCart'>Color: {prod.colorElegido}</p>
-                        <p className='detailsInCart'>Precio: ${prod.precioElegido}</p>
-                        <button  className='btn-eliminarProd' onClick={() => eliminarProd(prod.id)}>
+                        <h4 className='detailsInCart'> {prod.nombreProducto}</h4>
+                        <p className='detailsInCart'>Cantidad:{prod.cantidad}</p>
+                        <p className='detailsInCart'>Color: {prod.color}</p>
+                        <p className='detailsInCart'>Tamaño: {prod.tamaño}</p>
+                        <p className='detailsInCart'>Precio: ${prod.precioCantidad}</p>
 
+                        <button  className='btn-eliminarProd' onClick={() => eliminarProd(prod.id)}>
                             <FaTrashAlt/> Eliminar
                         </button>
-
                     </div>
                 ))
                 
             }
-
             <button className='btn-clear' onClick={clearCart}>Eliminar Todo</button>
          
             <h2 className='totalPrecio'>Total: $ {total}</h2>

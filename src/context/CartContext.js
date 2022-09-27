@@ -5,7 +5,6 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-
         console.log("esto es el CART", cart)
 
     const addToCart = (item, cantidadItem, colorElegido, precioElegido) => {
@@ -19,8 +18,6 @@ const CartProvider = ({ children }) => {
         }
     };
     
-    
-
     // console.log("precio cart contex", precio)
    
     // corroborar si el producto ya está en el carrito (isInCart)
@@ -28,11 +25,9 @@ const CartProvider = ({ children }) => {
         return cart.some((prod) => prod.id === id);
     };
 
-    //calcular total precio del carrito
     const totalPrecio = () => {
         let acumulador = 0;
-        cart.forEach((prod) => {
-            
+        cart.forEach((prod) => {    
             acumulador += prod.cantidadItem * prod.precioElegido;
         });
         return acumulador;
@@ -65,19 +60,12 @@ const CartProvider = ({ children }) => {
 
     //calcular total de unidades para el cart widget
 
-    const totalCantidad = () => {};
 
     const cantidadProducto = (id) => {
         const producto = cart.find((prod) => prod.id === id);
         return producto?.cantidadItem;
 
     }
-
-    //Obtener los Formularios de las opciones
-
-    // const optionSelected = () => {
-
-    // };
 
     //vaciar todo el carrito
     const clearCart = () => {
@@ -92,7 +80,6 @@ const CartProvider = ({ children }) => {
             eliminarProd,
             cantidadProducto,
             totalPrecio,
-            totalCantidad,
             clearCart, 
              }}>  
                 
