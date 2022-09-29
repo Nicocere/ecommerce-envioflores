@@ -11,14 +11,12 @@ const CartWidget = () => {
   return (
    
     
-      <button className="boton-abrircarrito"><p className="shopCart">Shopping Cart</p>
+    <button className="boton-abrircarrito">
     
-        <span ><HiOutlineShoppingBag/></span>
-    
-    <span className="contadorCarrito"> {cart.length} </span>
-    
-    
-     </button>
+      <span ><HiOutlineShoppingBag/></span>
+      <span className="contadorCarrito"> {cart.length} </span>
+        
+    </button>
   )
 }
 

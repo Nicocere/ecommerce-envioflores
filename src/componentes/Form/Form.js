@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {addDoc, collection, doc, serverTimestamp, updateDoc,} from 'firebase/firestore';
 import { baseDeDatos } from '../../FireBaseConfig';
 
-
-
-//const [datosorm, setDatosForm] = useState(initialState);
 const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
 
     const [value, setValue] = useState(false);
@@ -13,17 +10,34 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     const [phone, setPhone] = useState('')
     const [mail, setMail] = useState('')
     const [validateMail, setValidateMail] = useState('')
-    //const [x, setX] = useState('');
+    const [error, setError] = useState(false)
     
     const handleSubmit = (event) => {
-        event.preventDefault();
-        //console.log(event.target.elements.nombre.value);
-        //console.log(event.target.elements.apellido.value);
-        //console.dir(event.target);
-        //console.log(nombre, apellido, talle); //enviar la info a la base de datos
-        //setNombre('');
-                const order = {
-            buyer: { nombre: nombre, apellido: apellido, phone: phone, mail: mail},
+         event.preventDefault();
+
+        if(!validation()){
+            const buyer = { nombre: nombre, apellido: apellido, phone: phone, mail: mail};
+            createOrder(buyer)
+        }
+    };
+
+    const validation = () => {
+        let state;
+        if(mail !== validateMail){
+            setError(true)
+            setValidateMail("")
+            state = true
+        } else {
+            setError(false)
+            state = false
+        }
+        return state;
+    }
+
+    const createOrder = (buyer) => {
+
+        const order = {
+            buyer: buyer,
             items: itemSelected,
             total: total,
             date: serverTimestamp(),
@@ -35,7 +49,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             handleId(res.id);
             clearCart();
         });
-    };
+    }
 
     const handleChangeNombre = (event) => {
         console.log(event.target.value);
@@ -53,7 +67,6 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     };
     const handleChangeValidateMail = (event) => {
         setValidateMail(event.target.value);
-
     };
 
 
@@ -99,19 +112,21 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
                 onChange={handleChangePhone}
                 />
                 <input
-                    type="mail"
+                    type="email"
                     placeholder="Ingrese su Mail..."
                     name="Mail"
                     value={mail}
                     onChange={handleChangeMail}
                 />
                 <input
-                    type="mail"
+                    type="email"
                     placeholder="Repita su Mail..."
                     name="Valid Mail"
                     value={validateMail}
                     onChange={handleChangeValidateMail}
+                    className={error ? "input-error" : ""}
                 />
+                {error && <p className='message-error' >Los mails no coinciden</p>}
 
                 <button>Enviar</button>
             </form>

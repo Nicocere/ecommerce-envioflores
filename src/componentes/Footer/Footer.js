@@ -16,7 +16,7 @@ return (
         Chocolates / Peluches / Vinos y más</p>
     </div>
 
-    <div className="col-footer"> 
+    <div className={estilos.mediosDePago}> 
        <div className="mediosDePago"> 
             <h3>Medios De Pago</h3>
             <p> Todos los medios de pago. Paypal, Mercado Pago, Tarjeta de Credito,

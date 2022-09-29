@@ -16,32 +16,48 @@
 .productDetailImg:hover{
     transform: scale(1.05);
 }
-.tableDetail{
-    width: 100%;
-}
-.tdDetail{
-    border: 1px violet solid;
-    transition: all .5s;
+.name{
+    font-family: 'Lato', sans-serif;
     
 }
-.tdDetail:hover{
-    border: 1.5px rgb(228, 26, 26) solid;
+.divBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 100%;
 }
-.thDetail{
-    text-align: left;
-    font-family: "Quintessential";
-
-
-}
-
-.detalles{
+.btnIrCarrito{
     font-family: "Quintessential";
     margin: 5%;
+    color: white;
+    background: rgb(131, 16, 50);
+    border-radius: 8px;
+    border: 1.5px red solid;
+    padding: 5px;
+    width: max-content;
 }
-.detalles:hover{
-    color: rgb(163, 29, 141);
+.btnIrCarrito:hover{
+    background: red;
     transition: all 0.5s;
 }
+.btnSeguir{
+    font-family: "Quintessential";
+    margin: 5%;
+    color: white;
+    background: rgb(10, 10, 75);
+    border-radius: 8px;
+    border: 1.5px blue solid;
+    padding: 5px;
+    width: max-content;
+}
+.btnSeguir:hover{
+    background: blue;
+    transition: all 0.5s;
+}
+
 .ulCategory{
     width: 100%;
     display: flex;
@@ -63,4 +79,8 @@
 .divCategory:hover{
     border: 1.8px rgb(77, 12, 12) solid;
     background-color: rgba(255, 192, 203, 0.801);
+}
+
+.aviso{
+    font-family: 'Lato', sans-serif;
 }

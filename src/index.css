@@ -1,4 +1,7 @@
 
+#body-index{
+  margin: 2px;
+}
 /* HEADER Y NAVBAR */
 
 /* Loader */
@@ -10,6 +13,10 @@
 }
 
 /* BODY */
+.cabeza{
+  background-image: url(../public/assets/imagenes/rosas-banner-nav.jpg);
+  background-size: cover;
+}
 .cuerpo {
   text-align: center;
   position: relative;
@@ -18,7 +25,10 @@
 }
 
 .main{
-  padding-top: 0%;
+  padding-top: 2%;
+  background-image: url(../public/assets/imagenes/rosas-fondo.jpg);
+  background-size: contain;
+
 }
 .seccion{
   display: flex;
@@ -106,6 +116,11 @@
 
 .contadorCarrito {
   margin-right: 5%;
+}
+.contador{
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .btn-eliminarProd{
@@ -197,12 +212,12 @@
   justify-items: center;
   padding-top: 0.5%;
   padding-bottom: 0.5%;
-
   grid-column-gap: 2.5%;
   grid-row-gap: 50px;
   margin-bottom: 50px;
-  margin-top: 50px;
-  background: rgba(255, 255, 255, 0.918);
+  background: rgba(255, 192, 203, 0.336);
+  border: 1px solid violet;
+  border-radius: 5px;
 
 }
 
@@ -263,7 +278,8 @@
 
 .prodDetailContainer{
   display: flex;
-  background: repeating-linear-gradient(45deg, black, #000000d9 100px);
+  background-size: cover;
+  background-image: url(../public/assets/imagenes/rosas-fondo.jpg);
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
@@ -288,43 +304,45 @@
 /* agregar y quitar productos ----------------------*/
 
 .btnAgregarQuitar{
-  display: inline-table;
-
+  display: block;
+  margin-top: 5px;
 }
 
 .button-add {
-  background: rgb(210 52 97);
-  padding: 2.5%;
+  background: pink;
+  padding: 1.5%;
   margin-bottom: 10px;
-  border: 0.5px solid rgb(255 155 217);
+  margin-right: 5px;
+  border: 0.5px solid rgb(161, 0, 100);
   text-decoration: none;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: black;
   transition: all 0.5s;
-  width: 15%;
+  width: 10%;
   align-self: center;
   border-radius: 2px;
 }
 .button-add:hover {
   -webkit-box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
   box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
-  color: rgb(255, 255, 255);
+  color: white;
   text-decoration: none;
-  padding: 2%;
-  background-color: rgb(209, 31, 31);
+  border: 1px solid blue;
+  background-color: rgb(31, 58, 209);
 }
 
 .button-quit{
-  background: rgb(210 52 97);
-  padding: 2.5%;
+  background: pink;
+  padding: 1.5%;
   margin-bottom: 10px;
-  border: 0.5px solid rgb(255 155 217);
+  margin-left: 5px;
+  border: 0.5px solid rgb(119, 11, 11);
   text-decoration: none;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: black;
   transition: all 0.5s;
   align-self: center;
-  width: 15%;
+  width: 10%;
   border-radius: 2px;
 }
 .button-quit:hover {
@@ -332,15 +350,14 @@
   box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
   color: rgb(255, 255, 255);
   text-decoration: none;
-  padding: 2%;
-  background-color: rgb(209, 31, 31);
+  background-color: rgb(58, 4, 4);
 }
 
 .agregarAlCarrito{
-  background: rgb(210 52 97);
+  background: rgb(245, 195, 209);
   padding: 3.5%;
   margin-bottom: 10px;
-  border: 0.5px solid rgb(255 155 217);
+  border: 0.5px solid rgb(219, 16, 141);
   text-decoration: none;
   text-align: center;
   color: rgb(0, 0, 0);
@@ -348,7 +365,8 @@
   align-self: center;
   border-radius: 7px;
   transition: all 0.5s;
-
+  width: 100%;
+  font-family: 'Lato', sans-serif;
 }
 
 .agregarAlCarrito:hover {
@@ -357,7 +375,7 @@
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 4.2%;
-  background-color: rgb(58, 3, 3);
+  background-color: rgb(82, 13, 13);
 }
 
      /* -----Producto en carrito */
@@ -389,6 +407,14 @@
   margin-right: 7%;
   width: 17%;
   margin-bottom: 6%;
+}
+
+.input-error{
+  border: 3px red solid;
+}
+
+.message-error{
+  color: red;
 }
 
 

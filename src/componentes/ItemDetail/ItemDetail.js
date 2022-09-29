@@ -81,7 +81,7 @@ const ItemDetail = ({item}) => {
 
     <div  className={estilosDetail.productDetail}>          
       <img  className={estilosDetail.productDetailImg} src={item.img} alt=""/>
-            <h4 className={estilosDetail.detalles}>{item.nombre}</h4>
+            <h4 className={estilosDetail.name}>{item.nombre}</h4>
             <h4 className="tituloProducto">Categorias que pertenece:</h4>  
             <div className={estilosDetail.ulCategory}> 
             
@@ -138,19 +138,21 @@ const ItemDetail = ({item}) => {
               <ItemCount item={item} stock={5} initial={quantity} onAdd={onAdd} />   
             </>     
               ) : (
-            <>
+
+            <div className={estilosDetail.divBtn}>
+
             <Link to="/"> 
-            <h4 className={estilosDetail.detalles} >Seguir Comprando</h4>
+            <button className={estilosDetail.btnSeguir} >Seguir Comprando</button>
             </Link>
 
-            <Link to="/Carrito" className={estilosDetail.detalles}>
-            <h4  > Ir al carrito </h4>
+            <Link to="/Carrito" >
+            <button className={estilosDetail.btnIrCarrito} >Ir al Carrito</button>
             </Link>
-            </>
+            </div>
               )       
         }
           </>
-            ) : <h4>Debe elegir un Tamaño y Precio.</h4>             
+            ) : <h4 className={estilosDetail.aviso}>Debe elegir un Tamaño y Precio.</h4>             
     } 
   
         </form>

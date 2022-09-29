@@ -8,7 +8,7 @@ import {NavLink} from 'react-router-dom'
 const NavBar = () => {
   return (
     <nav className={estilos.navBar}>
-        <img  className={estilos.imgNavBar} src={'../assets/imagenes/EnvioFlores3.png'} alt="logo envio flores"/>  
+        <img  className={estilos.imgNavBar} src={'../assets/imagenes/logo-envio-flores.png'} alt="logo envio flores"/>  
             <ul className='seccion'>
 
         <NavLink className='seccionLi' to='/'> Home </NavLink> 
@@ -25,10 +25,6 @@ const NavBar = () => {
 
             </ul>
                 
-                {/* <div className='seccionLi-Fechas'>
-                    <NavLink to="/category/Fechas Especiales">Fechas Especiales</NavLink>
-                </div> */}
-
             <NavLink to="/Carrito">
                 
             <CartWidget />
