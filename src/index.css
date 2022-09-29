@@ -4,13 +4,7 @@
 }
 /* HEADER Y NAVBAR */
 
-/* Loader */
-.fadeLoader{
-  margin-left: 50%;
-  margin-right: 50%;
-  color: rgb(82, 10, 82);
 
-}
 
 /* BODY */
 .cabeza{
@@ -22,11 +16,11 @@
   position: relative;
   background-size: cover;
   background-attachment: fixed;
+  background-image: url(../public/assets/imagenes/rosas-fondo.jpg);
 }
 
 .main{
   padding-top: 2%;
-  background-image: url(../public/assets/imagenes/rosas-fondo.jpg);
   background-size: contain;
 
 }
@@ -40,8 +34,9 @@
   list-style: none;
   color: black;
   align-self: center;
-  border: 0.3px solid rgb(61, 0, 61);
-  border-radius: 5px;
+  border-left: 1px solid rgb(61, 0, 61);
+  border-right: 1px solid rgb(61, 0, 61);
+  padding: 8px 15px;
   width: 100%;
   margin: 2px;
   font-family: "Lato", sans-serif;
@@ -61,6 +56,7 @@
   font-size: 120%;
   background: rgb(255, 207, 207);
   border: 2px solid violet;
+  border-radius: 5px;
 
 }
 .seccionLi-Fechas a:hover {
@@ -86,14 +82,14 @@
   text-decoration: none;
   color: #000;
   background-color: #ff8fc9;
-  border: 0.5px rgb(117 0 133) solid;
+  border: 0.5px rgb(225 5 255) solid;
   border-radius: 5px;
-  box-shadow: 0 6px #000000c9;
-  transition: background-color 1s;
-
+  box-shadow: 0px 4px 5px 1px #000000ad;
+  transition: all .3s;
 }
 .boton-abrircarrito:hover {
-  background-color: #b30b61
+  background-color: #b30b61;
+  color: white;
 }
 .boton-abrircarrito:active {
   background-color: #ac1060;
@@ -177,6 +173,7 @@
 
 .totalPrecio{
   background: rgba(255, 255, 255, 0.781);
+  font-family: 'Lato', sans-serif;
 }
 
 .shopCart {
@@ -197,11 +194,19 @@
   margin-top: 40px;
 }
 .cartVacio{
-  background: rgb(213 213 213 / 22%);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: rgba(0, 0, 0, 0.22);
+  font-family: 'Lato', sans-serif;
   padding: 50px;
   border: 0.2px solid black;
   border-radius: 6px;
+  color: white;
+}
+.cart-home{
+  color: rgb(219, 133, 147);
+  transition: color 1s;
+}
+.cart-home:hover{
+  color: #b30b61;
 }
 
 
@@ -235,19 +240,19 @@
 
 .product-item {
   display: flex;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.37), rgb(255, 157, 211));
-  transition: all 0.6s;
+  background: rgba(255, 192, 203, 0.733);
   border-radius: 8px;
   width: 100%;
-
+  
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  transition: all 0.6s;
 }
 .product-item:hover {
   box-shadow: 5px -4px 7px 1px rgba(0, 0, 0, 0.47);
   text-decoration: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.623), rgb(255, 108, 189));
+  background: rgb(255, 133, 153);
 }
 .tituloProducto{
   margin: 2%;
@@ -255,7 +260,7 @@
   font-family: "Quintessential";
 }
 .tituloProducto:hover {
-  color: rgb(163, 29, 141);
+  color: rgb(170 3 3);
   transition: all 0.5s;
 }
 .product-item img {
@@ -278,8 +283,8 @@
 
 .prodDetailContainer{
   display: flex;
-  background-size: cover;
-  background-image: url(../public/assets/imagenes/rosas-fondo.jpg);
+  /* background-size: cover; */
+  /* background-image: url(../public/assets/imagenes/rosas-fondo.jpg); */
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
@@ -288,6 +293,13 @@
 
 }
 
+/* Loader */
+.fadeLoader{
+  margin-left: 50%;
+  margin-right: 50%;
+  color: rgb(255, 255, 255);
+
+}
 .loadDetailProd {
   color: white;
   font-family: "Quintessential";
@@ -296,10 +308,11 @@
 
 .loadProd {
   font-family: "Quintessential";
-  color: rgb(82, 10, 82);
+  color: rgb(255, 255, 255);
   align-content: center;
   text-align: center;
 }
+
 
 /* agregar y quitar productos ----------------------*/
 
@@ -310,11 +323,12 @@
 
 .button-add {
   background: pink;
-  padding: 1.5%;
+  padding: 5px 30px 5px 30px;
   margin-bottom: 10px;
   margin-right: 5px;
   border: 0.5px solid rgb(161, 0, 100);
   text-decoration: none;
+  font-size: large;
   text-align: center;
   color: black;
   transition: all 0.5s;
@@ -327,15 +341,16 @@
   box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
   color: white;
   text-decoration: none;
-  border: 1px solid blue;
-  background-color: rgb(31, 58, 209);
+  border: 1px solid rgb(255, 0, 200);
+  background-color: rgba(182, 53, 175, 0.61);
 }
 
 .button-quit{
   background: pink;
-  padding: 1.5%;
+  padding: 5px 30px 5px 30px;
   margin-bottom: 10px;
   margin-left: 5px;
+  font-size: large;
   border: 0.5px solid rgb(119, 11, 11);
   text-decoration: none;
   text-align: center;
@@ -350,18 +365,18 @@
   box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
   color: rgb(255, 255, 255);
   text-decoration: none;
-  background-color: rgb(58, 4, 4);
+  background-color: rgba(151, 4, 4, 0.788);
 }
 
 .agregarAlCarrito{
   background: rgb(245, 195, 209);
   padding: 3.5%;
   margin-bottom: 10px;
-  border: 0.5px solid rgb(219, 16, 141);
+  border: 0.5px solid rgb(255, 71, 184);
   text-decoration: none;
   text-align: center;
   color: rgb(0, 0, 0);
-  font-family: system-ui;
+  font-size: large;
   align-self: center;
   border-radius: 7px;
   transition: all 0.5s;
@@ -375,7 +390,7 @@
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 4.2%;
-  background-color: rgb(82, 13, 13);
+  background-color: rgba(182, 53, 175, 0.61);
 }
 
      /* -----Producto en carrito */
@@ -401,6 +416,84 @@
 
 /* FIN PRODUCTOS */
 
+/* FORMULARIO */
+.formulario{
+  margin: 20px;
+  background: #ffffff78;
+  border: rgb(255, 0, 191);
+  border-radius: 7px;
+  margin-top: 100px;
+  text-align: -webkit-center;
+}
+.form-title{
+  font-family: 'Lato', sans-serif;
+  color: black;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.input-nombre{
+  margin: 8px;
+  width: 55%;
+
+}
+.input-apellido{
+  margin: 8px;
+  width: 55%;
+
+}
+
+.input-email{
+  margin: 8px;
+  margin-bottom: 16px;
+  width: 55%;
+
+}
+
+.input-phone{
+  margin: 8px;
+  width: 55%;
+
+}
+
+.input-error{
+  border: 2px red solid;
+  width: 55%;
+  margin-bottom: 5px;
+
+}
+
+.message-error{
+  color: red;
+  margin: 0%;
+}
+
+.btn-enviarform{
+  margin: 20px;
+  background-color: pink;
+  border: 1.4px solid darksalmon;
+  border-radius: 5px;
+  transition: background-color .5s;
+  padding: 8px 25px;
+}
+.btn-enviarform:hover{
+  background-color: rgb(202, 119, 91);
+}
+.compraFinalizada{
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+
+}
+.idCompra{
+  color: pink;
+  font-family: 'Lato', sans-serif;
+  font-size: xx-large;
+}
 /* FOOTER */
 
 .tarjetaFoot {
@@ -409,13 +502,6 @@
   margin-bottom: 6%;
 }
 
-.input-error{
-  border: 3px red solid;
-}
-
-.message-error{
-  color: red;
-}
 
 
 

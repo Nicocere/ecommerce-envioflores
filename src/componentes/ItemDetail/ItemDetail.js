@@ -84,7 +84,6 @@ const ItemDetail = ({item}) => {
             <h4 className={estilosDetail.name}>{item.nombre}</h4>
             <h4 className="tituloProducto">Categorias que pertenece:</h4>  
             <div className={estilosDetail.ulCategory}> 
-            
             {
               item?.categoria?.map((category, idx)=> {  
                     return (                    
@@ -99,7 +98,7 @@ const ItemDetail = ({item}) => {
       <div >
         <form action="./Carrito" onSubmit={handleSubmit}>
         
-          <select  id='selectId' value={tamañoPrecio} onChange={handleChangeTamañoPrecio}>
+          <select key={item.id} id='selectId' value={tamañoPrecio} onChange={handleChangeTamañoPrecio}>
 
                         <option key={item.id}  value={''} placeholder="vacio" > Elegir tamaño  </option>
                         {                        
@@ -117,17 +116,11 @@ const ItemDetail = ({item}) => {
     { prodElegido   ? 
             (
           <>
-          <select  value={color}  onChange={handleChangeColor}> 
+          <select key={item.id} value={color}  onChange={handleChangeColor}> 
                 <option key={item.id} value={''}>Elegir Color</option>
              {
-               colorOption?.map((colors) => {
-                 return (
-                  <>
-                  
-                  <option  value={colors}  key={colors.color} >{colors}</option>
-                  </>
-                  
-                  )
+               colorOption?.map((colors, indx) => {
+                 return  <option key={indx} value={colors}>{colors}</option>
                 })    
               }
           </select> 

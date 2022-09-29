@@ -49,3 +49,25 @@
     text-decoration: none;
     background: linear-gradient(rgb(255 255 255 / 100%), rgb(255 187 187));
   }
+  .direc{
+    color: rgb(119, 27, 119);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    transition: all .5s;
+    font-family: sans-serif;
+    font-weight: 550;
+    border-left: 2px solid rgb(187, 76, 187);
+  }
+  .dir{
+    margin-right: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: all .5s;
+  }
+  .dir:hover{
+    transform: scale(1.09);
+    color: blueviolet;
+  }

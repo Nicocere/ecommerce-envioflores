@@ -2,45 +2,46 @@
   display: grid;
   grid-template-columns: 24% 24% 24% 24%;
   grid-column-gap: .5%;
-  border-top: 1px black solid;
-  color: rgb(0, 0, 0);
-  background: #fffefebb;
+  padding-top: 28px;
+  color: rgb(255 255 255);
+  background: linear-gradient(180deg, rgb(60 27 32 / 91%), transparent);
+  font-family: system-ui;
   }
   
   .linkFot {
     margin: 1%;
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(255, 255, 255);
   }
   .linkFot .webAflorar {
     font-size: x-large;
+    color: #ff68b6;
+
   }
   
   .mediosDePago {
     margin: 1%;
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(255, 255, 255);
   }
   
-  .tarjeta-foot {
-    margin-right: 7%;
-    width: 17%;
-    margin-bottom: 6%;
-  }
   
   .contacto {
     margin: 1%;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(255, 255, 255);
   }
   
   .contactoTel {
     font-size: large;
     text-decoration: none;
+    color: #ff68b6;
   }
   
   .contactoMail {
     font-size: large;
     text-decoration: none;
+    color: #ff68b6;
+
   }
   
   .fa-phone {
@@ -63,7 +64,7 @@
   
   .instFoot {
     font-size: x-large;
-    color: rgb(104, 0, 52);
+    color: #d11476;
     text-decoration: none;
   }
   

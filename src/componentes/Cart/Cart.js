@@ -39,14 +39,21 @@ const Cart = () => {
     };
 
     if (idCompra) {
-        return <h1>Gracias por comprar tu id es: {idCompra}</h1>;
+        return (
+            <>
+            <h2 className='compraFinalizada'>Gracias por comprar tu id es: </h2>
+            <h1 className='idCompra'> {idCompra} </h1>
+            </>
+         
+        )
+
     }
 
     if (cart.length === 0) {
         return (
             <h1 className='cartVacio'>
                 Aún no agregaste ningun producto.. 
-                Puedes dirigirte al <Link to="/">Home</Link>{' '}
+                Puedes dirigirte al <Link to="/" className='cart-home'>Inicio</Link>{' '}
                 para buscar agregar algún producto
             </h1>
         );
@@ -76,8 +83,8 @@ const Cart = () => {
             <h2 className='totalPrecio'>Total: $ {total}</h2>
 
 
-            <div>
-            <h3>Ingrese los datos de envío para confirmar la entrega.</h3>
+            <div className='formulario'>
+            <h3 className='form-title'>Ingrese los datos de envío para confirmar la entrega.</h3>
             <Form  
                 itemSelected={itemSelected}       
                 cart={cart}

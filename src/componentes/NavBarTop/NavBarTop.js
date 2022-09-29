@@ -21,9 +21,13 @@ const NavBarTop = () => {
           <div className={style.contactoMail}>
             
               <a href="mailto:regalosflores25@gmail.com" className={style.contacto} > <HiOutlineMail/> Regalosflores25@gmail.com </a>
+
           </div>
         
-        
+        <div className={style.direc} >
+              <a href='https://g.page/floresexpres?share' className={style.dir} >Av.Cramer 1915</a>
+
+        </div>
 
     </div>
     

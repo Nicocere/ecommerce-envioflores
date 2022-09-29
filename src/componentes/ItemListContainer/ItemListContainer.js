@@ -44,7 +44,7 @@ const ItemListContainer = () => {
             { isLoading ? ( 
                     <>
                     <h1 className="loadProd">Cargando Productos...</h1>
-                    <FadeLoader className="fadeLoader" color="rgb(82, 10, 82)" /> 
+                    <FadeLoader className="fadeLoader" color="rgb(255, 255, 255)" /> 
                     </>
                ) : ( 
                     <ItemList items={items}/> 

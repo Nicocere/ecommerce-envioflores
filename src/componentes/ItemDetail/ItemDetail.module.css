@@ -31,30 +31,30 @@
 }
 .btnIrCarrito{
     font-family: "Quintessential";
-    margin: 5%;
+    margin: 3%;
     color: white;
-    background: rgb(131, 16, 50);
-    border-radius: 8px;
+    background: rgb(230, 54, 107);
+    border-radius: 5px;
     border: 1.5px red solid;
-    padding: 5px;
+    padding: 5px 35px;
     width: max-content;
 }
 .btnIrCarrito:hover{
-    background: red;
+    background: rgb(134, 6, 55);
     transition: all 0.5s;
 }
 .btnSeguir{
     font-family: "Quintessential";
-    margin: 5%;
+    margin: 3%;
     color: white;
-    background: rgb(10, 10, 75);
-    border-radius: 8px;
+    background: rgb(75, 62, 255);
+    border-radius: 5px;
     border: 1.5px blue solid;
-    padding: 5px;
+    padding: 5px 20px;
     width: max-content;
 }
 .btnSeguir:hover{
-    background: blue;
+    background: rgb(17, 17, 184);
     transition: all 0.5s;
 }
 

@@ -11,7 +11,7 @@ const NavBar = () => {
         <img  className={estilos.imgNavBar} src={'../assets/imagenes/logo-envio-flores.png'} alt="logo envio flores"/>  
             <ul className='seccion'>
 
-        <NavLink className='seccionLi' to='/'> Home </NavLink> 
+        <NavLink className='seccionLi' to='/'> Inicio </NavLink> 
 
                     <NavLink className='seccionLi' to='./categoria/Rosas'>Rosas</NavLink> 
                 
