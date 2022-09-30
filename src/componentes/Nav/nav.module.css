@@ -12,12 +12,23 @@
     .imgNavBar{
       width: 250px;
     }
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1150px) {
 
       .navBar{
         display: block;
       }
-    }
+    .navBar{
+        display: block;
+      }
+
+}
+
+@media screen and (max-width: 400px){
+  .imgNavBar{
+    width: 80%;
+  }
+}
+
   
 
 

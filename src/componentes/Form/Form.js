@@ -48,7 +48,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             setErrorApellido(false)
         }
 
-        if (phone === "") {
+        if (phone === "" || phone.length < 4) {
             setErrorTel(true)
             state = true
 
@@ -68,10 +68,14 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             setValidateMail("")
             state = true
 
-        } else {
+        } else if ((nombre ==="" || apellido ==="" || phone ==="" || mail  === "") || validateMail !== mail){
+            state = true
+
+        }  else {
             setError(false)
             state = false
         }
+
         return state;
     }
 
@@ -162,7 +166,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
                 onChange={handleChangePhone}
                 className={errorTel ? "input-error" : "input-phone"}
                 />
-        {errorTel && <p className='message-error' >Debe ingresar un Telefono</p>} 
+        {errorTel && <p className='message-error' >El numero de Telefono no es valido</p>} 
                 
                 <input
                     type="email"

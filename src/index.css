@@ -4,7 +4,9 @@
 }
 /* HEADER Y NAVBAR */
 
-
+.barMovil{
+  display: none;
+}
 
 /* BODY */
 .cabeza{
@@ -41,7 +43,7 @@
   margin: 2px;
   font-family: "Lato", sans-serif;
   text-decoration: none;
-  transition: all .1s;
+  transition: all .3s ease-out;
 }
 .seccionLi:hover {
   background: rgb(255, 207, 207);
@@ -283,14 +285,16 @@
 
 .prodDetailContainer{
   display: flex;
-  /* background-size: cover; */
-  /* background-image: url(../public/assets/imagenes/rosas-fondo.jpg); */
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
   flex-direction: column;
   border-radius: 14px;
 
+}
+
+#selectId{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Loader */
@@ -489,6 +493,7 @@
   font-size: x-large;
 
 }
+
 .idCompra{
   color: pink;
   font-family: 'Lato', sans-serif;
@@ -506,7 +511,28 @@
 
 
 /* VISTA TABLETS Y CELULARES --------------- */
+
 @media screen and (max-width: 1280px) {
+        
+  .barMovil{
+    display: flex;
+    margin-bottom: 10px;
+    position: fixed;
+    top: 50px;
+    left: 5px;
+    font-size: 30px;
+    background: linear-gradient(5grad, rgba(255, 192, 203, 0.747), transparent);
+    color: rgb(85, 13, 85);
+    padding: .3%;
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px 1px rgba(255, 192, 203, 0.747);
+    transition: all .3s;
+}
+.barMovil:active{
+  box-shadow: 0 0px rgb(7, 6, 6);
+  transform: translateY(2px);
+}
+
   .listadeproductos {
     display: grid;
     justify-items: center;
@@ -520,8 +546,122 @@
 
   .seccion{
     display: flex;
-    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 81px;
+    flex-direction: column;
     padding: 0%;
+    justify-content: center;
+    background: #ffc0cbd1;
+    transition: all 1.5s ease;
+
   }
+
+  .seccionCerrada{
+    left: -101%;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 81px;
+    flex-direction: column;
+    padding: 0%;
+    justify-content: center;
+    background: #ffc0cbd1;
+    transition: all .8s ease;
+  }
+  .seccionLi {
+    padding: 0px;
+    list-style: none;
+    color: black;
+    align-self: center;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    font-family: "Lato", sans-serif;
+    text-decoration: none;
+    transition: all .3s ease-out;
+  }
+  .boton-abrircarrito{
+    float: right;
+    position: fixed;
+    padding: 0px 12px;
+    font-size: 20px;
+    cursor: pointer;
+    right: 18px;
+    top: 57px;
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    background-color: #ff8fc9;
+    border: 0.5px rgb(225 5 255) solid;
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px 1px #000000ad;
+    transition: all .3s;
+  }
+ .product-item img{ 
+
+    transition: none;
+  }
+  .product-item img:hover {
+    transform: none;
+}
+
+.prodInCart{
+  font-size: 50%;
+}
+.imgInCart{
+  width: 15%;
+}
+
+.btn-eliminarProd{
+  font-size: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-eliminarProd{
+  font-size: 10px;
+}
+
+
+.idCompra{
+  font-size: large;
+}
+
+}
+
+@media screen and (max-width: 950px) {
+
+  .listadeproductos{
+    grid-template-columns: 30% 30% 30% ;
+
+  }
+
+  .boton-abrircarrito{
+    font-size: 90%;
+  }
+  .barMovil{
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .listadeproductos{
+    grid-template-columns: 48% 48% ;
+
+  }
+ .product-item img{ 
+  width: 100%;
+  height: 150px;
+  border-radius: 6px;
+  transition: none;
+}
 
 }

@@ -4,7 +4,7 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
   const [count, setCount] = useState(initial);
     
   const sumar = () => {
-      count < stock ? setCount( count + 1) : alert ("maximo stock");
+      count < stock ? setCount( count + 1) : <p>Maximo Stock</p>;
     }
     
   const restar = () => {

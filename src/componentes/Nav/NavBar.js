@@ -4,31 +4,44 @@ import CartWidget from '../CartWidget/CartWidget'
 
 
 import {NavLink} from 'react-router-dom'
-
+import {FaBars} from '@react-icons/all-files/fa/FaBars'
+import { useState } from 'react'
 const NavBar = () => {
+
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+  const openMenu = showMobileMenu ? 'seccion' : 'seccionCerrada';
+  
   return (
     <nav className={estilos.navBar}>
         <img  className={estilos.imgNavBar} src={'../assets/imagenes/logo-envio-flores.png'} alt="logo envio flores"/>  
-            <ul className='seccion'>
+            
+          
 
-        <NavLink className='seccionLi' to='/'> Inicio </NavLink> 
+        <div className='barMovil' onClick={()=> setShowMobileMenu(!showMobileMenu)}>
+        <FaBars/>
+        </div>
 
-                    <NavLink className='seccionLi' to='./categoria/Rosas'>Rosas</NavLink> 
+          
+            <ul className={openMenu} >
+                  <NavLink className='seccionLi' to='/' onClick={()=> setShowMobileMenu(!showMobileMenu)}> Inicio </NavLink> 
+
+                    <NavLink className='seccionLi' to='./categoria/Rosas' onClick={()=> setShowMobileMenu(!showMobileMenu)}>Rosas</NavLink> 
                 
-                    <NavLink className='seccionLi' to="/categoria/Florero">Floreros</NavLink>
+                    <NavLink className='seccionLi' to="/categoria/Florero" onClick={()=> setShowMobileMenu(!showMobileMenu)}>Floreros</NavLink>
                 
-                    <NavLink  className='seccionLi' to="/categoria/Ramos">Ramos</NavLink>
+                    <NavLink  className='seccionLi' to="/categoria/Ramos" onClick={()=> setShowMobileMenu(!showMobileMenu)}>Ramos</NavLink>
                
-                    <NavLink className='seccionLi' to="/categoria/Comestible">Comestibles</NavLink>
+                    <NavLink className='seccionLi' to="/categoria/Comestible" onClick={()=> setShowMobileMenu(!showMobileMenu)}>Comestibles</NavLink>
                 
-                    <NavLink className='seccionLi' to="/categoria/Desayuno">Desayunos</NavLink>
+                    <NavLink className='seccionLi' to="/categoria/Desayuno" onClick={()=> setShowMobileMenu(!showMobileMenu)}>Desayunos</NavLink>
 
             </ul>
+
                 
-            <NavLink to="/Carrito">
-                
-            <CartWidget />
-            </NavLink>
+      <NavLink to="/Carrito">
+          <CartWidget />
+      </NavLink>
 
     </nav>
   );

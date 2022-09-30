@@ -84,3 +84,11 @@
 .aviso{
     font-family: 'Lato', sans-serif;
 }
+
+@media screen and (max-width: 800px) {
+    .productDetailImg{
+        width: 90%;
+    }
+
+    
+}

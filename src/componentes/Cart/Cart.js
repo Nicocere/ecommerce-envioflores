@@ -72,7 +72,7 @@ const Cart = () => {
                         <p className='detailsInCart'>Precio: ${prod.precioCantidad}</p>
 
                         <button  className='btn-eliminarProd' onClick={() => eliminarProd(prod.id)}>
-                            <FaTrashAlt/> Eliminar
+                            <FaTrashAlt className='icon-eliminarProd'/> Eliminar
                         </button>
                     </div>
                 ))
