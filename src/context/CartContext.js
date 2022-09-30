@@ -12,7 +12,6 @@ const CartProvider = ({ children }) => {
             sumarCantidad(item, cantidadItem, precioElegido);
         } else {
             setCart([...cart, { ...item, cantidadItem, colorElegido, precioElegido }]);
-            console.log("precio de lo que deberia llegarme en cart context",precioElegido)
         }
     };
     
@@ -45,7 +44,6 @@ const CartProvider = ({ children }) => {
     };
 
     const eliminarProd = (id) => {
-        console.log( ` eliminando este producto ${id}`);
         const carritoFiltrado = cart.filter((prod) => prod.id !== id);
         setCart(carritoFiltrado);
     };
