@@ -99,7 +99,6 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     }
 
     const handleChangeNombre = (event) => {
-        console.log(event.target.value);
         setNombre(event.target.value);
     };
     const handleChangeApellido = (event) => {
@@ -122,15 +121,11 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
 
     useEffect(() => {
         const handleMouseMove = (e) => {
-            //setX(e.clientX);
         };
         window.addEventListener('mousemove', handleMouseMove);
-        //console.log('Creo evento');
         return () => {
-            //siempre antes
-            //clearInterval()
+
             window.removeEventListener('mousemove', handleMouseMove);
-            //console.log('Borro evento');
         };
     });
 

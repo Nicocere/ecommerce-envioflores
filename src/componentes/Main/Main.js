@@ -6,10 +6,8 @@ import Cart from '../Cart/Cart';
 
 
 const Main = () => {
-  
-  
-  return (
 
+  return (
   <main className='main'>  
 
       <Routes>

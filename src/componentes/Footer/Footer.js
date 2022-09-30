@@ -8,7 +8,6 @@ const Footer = () => {
 return ( 
 
     <footer className={estilos.foot}>
-    
     <div className={estilos.linkFot}>
         <h3> Sitio Web Oficial</h3>
     <a  className={estilos.webAflorar} href="http://aflorar.com.ar"> Visita nuestro WEB OFICIAL AFLORAR</a>

@@ -9,14 +9,11 @@ const Cart = () => {
     const { cart, clearCart, eliminarProd, totalPrecio} = useContext(CartContext);
     const [idCompra, setIdCompra] = useState('');
     const total = totalPrecio();
-    console.log("CART EN CART ",cart);
 
 
     const itemSelected = cart.map((item)=> {
-        console.log("cart item selected PRECIO ELEGIDO", typeof Number(item.precioElegido));
         const precio = Number(item.precioElegido);
         const precioTamaño = item.opciones.find((tam)=> tam.precio === precio)
-        console.log("SIZE SELECTED", precioTamaño)
 
         return{
             id: item.id,
@@ -31,7 +28,6 @@ const Cart = () => {
 
         }
     })
-    console.log("item selected", itemSelected)
 
 
     const handleId = (id) => {
@@ -44,9 +40,7 @@ const Cart = () => {
             <h2 className='compraFinalizada'>Gracias por comprar tu id es: </h2>
             <h1 className='idCompra'> {idCompra} </h1>
             </>
-         
         )
-
     }
 
     if (cart.length === 0) {

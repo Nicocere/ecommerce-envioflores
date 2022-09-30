@@ -4,13 +4,8 @@ import NavBarTop from "../NavBarTop/NavBarTop";
 const Header = () => {
     return (
         <header className='cabeza'>
-          
-
-        <NavBarTop/>
-        <NavBar/>
-
-        
-
+            <NavBarTop/>
+            <NavBar/>
         </header>
     );
 };

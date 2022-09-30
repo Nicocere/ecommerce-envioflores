@@ -6,16 +6,10 @@ const CartWidget = () => {
   
   const { cart } = useContext(CartContext);
 
-  console.log("count de cartwhidegt", cart )
-
   return (
-   
-    
     <button className="boton-abrircarrito">
-    
       <span ><HiOutlineShoppingBag/></span>
-      <span className="contadorCarrito"> {cart.length} </span>
-        
+      <span className="contadorCarrito"> {cart.length} </span>     
     </button>
   )
 }

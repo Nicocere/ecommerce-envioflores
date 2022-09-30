@@ -18,7 +18,6 @@ const ItemDetailContainer = () => {
         getDoc(ref).then((res) => {
             setitem({ id: res.id, ...res.data() });
             setIsLoading(false)
-            console.log("RES", res)
         });
     }, [prodId]);
 

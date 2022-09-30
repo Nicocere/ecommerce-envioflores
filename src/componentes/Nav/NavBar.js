@@ -1,8 +1,6 @@
 import React from 'react'
 import estilos from './nav.module.css'
 import CartWidget from '../CartWidget/CartWidget'
-
-
 import {NavLink} from 'react-router-dom'
 import {FaBars} from '@react-icons/all-files/fa/FaBars'
 import { useState } from 'react'

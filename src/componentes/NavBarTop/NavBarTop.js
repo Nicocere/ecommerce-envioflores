@@ -5,9 +5,7 @@ import {ImFacebook2} from '@react-icons/all-files/im/ImFacebook2'
 import {HiOutlineMail} from '@react-icons/all-files/hi/HiOutlineMail'
 import {FiPhoneCall} from '@react-icons/all-files/fi/FiPhoneCall'
 
-
 const NavBarTop = () => {
-
 
   return (
     <div className={style.navTop}>

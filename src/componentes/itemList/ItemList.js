@@ -1,5 +1,4 @@
 import React from 'react'
-// import Buttons from "../Buttons/Buttons";
 import Item from '../Item/Item';
 
 
@@ -10,12 +9,10 @@ const ItemList = ({items}) => {
     <div className='listadeproductos'>
             {
               items.map((items)=>{
-                
                 return (
                   <Item items={items} key={items.id}/>
-                  
-                  )
-                })
+                )
+              })
             }
       
     </div>
