@@ -48,7 +48,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             setErrorApellido(false)
         }
 
-        if (phone === "" || phone.length <=  4) {
+        if (phone === "" || phone.length <=  4 || phone !== Number) {
             setErrorTel(true)
             state = true
 

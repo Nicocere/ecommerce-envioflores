@@ -37,7 +37,8 @@ const Cart = () => {
     if (idCompra) {
         return (
             <>
-            <h2 className='compraFinalizada'>Gracias por comprar tu id es: </h2>
+            <h2 className='compraFinalizada'>Gracias por comprar. </h2>
+            <h2 className='compraFinalizada'>Tu id es:</h2> 
             <h1 className='idCompra'> {idCompra} </h1>
             </>
         )

@@ -1,6 +1,7 @@
 
 #body-index{
   margin: 2px;
+  box-sizing: border-box;
 }
 /* HEADER Y NAVBAR */
 
@@ -264,6 +265,9 @@
 .tituloProducto:hover {
   color: rgb(170 3 3);
   transition: all 0.5s;
+}
+.link-producto{
+  text-decoration: none;
 }
 .product-item img {
   width: 100%;
