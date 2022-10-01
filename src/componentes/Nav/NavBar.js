@@ -17,7 +17,7 @@ const NavBar = () => {
           
 
         <div className='barMovil' onClick={()=> setShowMobileMenu(!showMobileMenu)}>
-        <FaBars/>
+        <FaBars/>Categorias
         </div>
 
           
