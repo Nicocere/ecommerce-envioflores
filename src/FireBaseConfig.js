@@ -3,12 +3,12 @@ import { getFirestore } from 'firebase/firestore'
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD2Oek0tB752BMD6yYsQ0_fXYdUBf8LnH0",
-  authDomain: "envio-flores.firebaseapp.com",
-  projectId: "envio-flores",
-  storageBucket: "envio-flores.appspot.com",
-  messagingSenderId: "705690986825",
-  appId: "1:705690986825:web:d4538a97987387097d9298"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
