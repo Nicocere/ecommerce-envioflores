@@ -268,6 +268,7 @@
 }
 .link-producto{
   text-decoration: none;
+  color: #850045;
 }
 .product-item img {
   width: 100%;
@@ -404,6 +405,7 @@
      /* -----Producto en carrito */
 .imgInCart{
   width: 150px;
+  border-radius: 5%
 }
 .prodInCart{
   display: flex;
@@ -516,7 +518,7 @@
 
 /* VISTA TABLETS Y CELULARES --------------- */
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1000px) {
         
   .barMovil{
     display: flex;
@@ -617,6 +619,7 @@
 
 .imgInCart{
   width: 15%;
+  border-radius: 5%;
 }
 
 .btn-eliminarProd{
@@ -637,7 +640,7 @@
 
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 850px) {
 
   .listadeproductos{
     grid-template-columns: 30% 30% 30% ;
@@ -652,7 +655,7 @@
   }
 
   .prodInCart{
-  font-size: 50%;
+  font-size: 80%;
 }
 .btn-eliminarProd{
   font-size: 20%;
@@ -688,4 +691,7 @@
   font-size: 10px;
 }
 
+.prodInCart{
+  font-size: 50%;
+}
 }
