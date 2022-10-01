@@ -31,13 +31,13 @@ const NavBarTop = () => {
     
     <div className={style.divContacto}>
 
-        <div className={style.redFacebook}>
-            <a href="http://facebook.com/flores.aflorar" className={style.redesSociales}>  <ImFacebook2/> </a>
+        <div className={style.redesSociales}>
+            <a href="http://facebook.com/flores.aflorar" className={style.redFacebook} >  <ImFacebook2 /> </a>
           
         </div> 
 
-        <div className={style.redInsta}>
-            <a href="http://instagram.com/aflorar.arg" className={style.redesSociales}> <SiInstagram/></a>
+        <div className={style.redesSociales}>
+            <a href="http://instagram.com/aflorar.arg" className={style.redInsta} > <SiInstagram  /></a>
           
         </div> 
     </div>

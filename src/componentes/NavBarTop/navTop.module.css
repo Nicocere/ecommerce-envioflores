@@ -30,18 +30,22 @@
     margin-left: 15px;
     display: flex;
     align-items: center; 
-    transition: transform .5s;   
+    transition: transform .5s;
+  margin-top: 4px;
+   
 }
 .redesSociales:hover{
     transform: scale(1.5);
 }
 
 .redFacebook{
-    border-left: 2px violet solid;
+
     margin-right: 20px;
+
+
 }
 .redInsta{
-    border-left: 2px violet solid;
+    color: #b334b3;
 }
 .navTop{
     display: flex;
@@ -128,4 +132,15 @@
         align-items: center; 
         transition: transform .5s;   
     }
+    .redFacebook{
+      border-left: 2px none;
+      margin-right: 20px;
+      font-size: medium;
+
+  }
+  .redInsta{
+      border-left: none;
+      font-size: medium;
+      
+  }
   }

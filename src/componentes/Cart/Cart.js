@@ -59,26 +59,26 @@ const Cart = () => {
             { 
                 itemSelected.map((prod)=> (
                     <div  className='prodInCart' key={prod.id}>
-                        <img className='imgInCart' src={prod.img} alt="imagen producto en carrito"/>
-                        <div>
-                            
+                        
+                    <img className='imgInCart' src={prod.img} alt="imagen producto en carrito"/>
+                        
+                    <div  className='divCart'>   
                         <h4 className='detailsInCart'> {prod.nombreProducto}</h4>
-                        </div>
+                    </div>
 
-                        <div>
-                        <p className='detailsInCart'>Cantidad:{prod.cantidad}</p>
+                    <div className='divCart'>
+                         <p className='detailsInCart'>Cantidad:{prod.cantidad}</p>
                             
-                        </div>
-                        <div>
+                    </div>
+                    <div className='divCart'>
                         <p className='detailsInCart'>Color: {prod.color}</p>
                             
-                        </div>
+                    </div>
 
-                        <div>
+                    <div className='divCart'>
                         <p className='detailsInCart'>Tamaño: {prod.tamaño}</p>
-
-                        </div>
-                    <div>
+                    </div>
+                    <div className='divCart'>
                         <p className='detailsInCart'>Precio Unidad: ${prod.precioUnidad}</p>
                         <p className='detailsInCart'>Precio por Cantidad: ${prod.precioCantidad}</p>
                     </div>

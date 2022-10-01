@@ -90,5 +90,15 @@
         width: 90%;
     }
 
+    .btnIrCarrito{
+        
+        padding: 3px 7%;
+        width: max-content;
+    }
+    .btnSeguir{
+    
+        padding: 3px 5%;
+        width: max-content;
+    }
     
 }
