@@ -46,9 +46,9 @@ const Cart = () => {
     if (cart.length === 0) {
         return (
             <h1 className='cartVacio'>
-                Aún no agregaste ningun producto.. 
-                Puedes dirigirte al <Link to="/" className='cart-home'>Inicio</Link>{' '}
-                para buscar agregar algún producto
+                El Carrito esta vacío... 
+                Puedes ir al <Link to="/" className='cart-home'>Inicio</Link>{' '}
+                para buscar y agregar algún producto
             </h1>
         );
     }
@@ -63,7 +63,10 @@ const Cart = () => {
                         <p className='detailsInCart'>Cantidad:{prod.cantidad}</p>
                         <p className='detailsInCart'>Color: {prod.color}</p>
                         <p className='detailsInCart'>Tamaño: {prod.tamaño}</p>
-                        <p className='detailsInCart'>Precio: ${prod.precioCantidad}</p>
+                    <div>
+                        <p className='detailsInCart'>Precio Unidad: ${prod.precioUnidad}</p>
+                        <p className='detailsInCart'>Precio por Cantidad: ${prod.precioCantidad}</p>
+                    </div>
 
                         <button  className='btn-eliminarProd' onClick={() => eliminarProd(prod.id)}>
                             <FaTrashAlt className='icon-eliminarProd'/> Eliminar
