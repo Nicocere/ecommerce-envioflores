@@ -98,25 +98,21 @@
 
     }
     .contacto{
-        color: rgb(119, 27, 119);
         text-decoration: none;
         display: flex;
         align-items: center;
         justify-content: space-between;
         transition: all .5s;
-        font-family: sans-serif;
         margin-left: 10px;
         margin-right: 5px;
     }
 
     .direc{
-        color: rgb(119, 27, 119);
         text-decoration: none;
         display: flex;
         align-items: center;
         justify-content: space-between;
         transition: all .5s;
-        font-family: sans-serif;
         font-weight: 550;
         margin-left: 0px;
         border-left: 2px solid rgb(187, 76, 187);
