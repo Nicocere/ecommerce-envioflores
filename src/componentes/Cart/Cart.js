@@ -55,7 +55,8 @@ const Cart = () => {
     }
 
     return (
-        <div className='cart'>
+        <div className='cart'> 
+        <h2 className='tituloProducto'>ESTOS SON LOS PRODUCTOS QUE SELECCIONO</h2>
             { 
                 itemSelected.map((prod)=> (
                     <div  className='prodInCart' key={prod.id}>
@@ -94,6 +95,7 @@ const Cart = () => {
          
             <h2 className='totalPrecio'>Total: $ {total}</h2>
 
+            <p>deslice hacia arriba podra ver los productos</p>
 
             <div className='formulario'>
             <h3 className='form-title'>Ingrese los datos de envío para confirmar la entrega.</h3>
@@ -105,9 +107,10 @@ const Cart = () => {
                 handleId={handleId}
                 />
             
+            
+
             </div>
            
-
         </div>
     );
 };

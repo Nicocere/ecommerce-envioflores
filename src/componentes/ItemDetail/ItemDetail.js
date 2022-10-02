@@ -119,7 +119,6 @@ const ItemDetail = ({item}) => {
               ) : (
 
             <div className={estilosDetail.divBtn}>
-
             <Link to="/"> 
             <button className={estilosDetail.btnSeguir} >Seguir Comprando</button>
             </Link>
@@ -127,6 +126,7 @@ const ItemDetail = ({item}) => {
             <Link to="/Carrito" >
             <button className={estilosDetail.btnIrCarrito} >Ir al Carrito</button>
             </Link>
+
             </div>
               )       
         }

@@ -331,11 +331,11 @@
 }
 
 .button-add {
-  background: pink;
-  padding: 5px 30px 5px 30px;
+  background: rgb(248, 213, 219);
+  padding: 2px 30px 2px 30px;
   margin-bottom: 10px;
   margin-right: 5px;
-  border: 0.5px solid rgb(161, 0, 100);
+  border: 0.5px solid rgb(247, 150, 210);
   text-decoration: none;
   font-size: large;
   text-align: center;
@@ -350,17 +350,17 @@
   box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.47);
   color: white;
   text-decoration: none;
-  border: 1px solid rgb(255, 0, 200);
+  border: 1px solid rgb(192, 20, 155);
   background-color: rgba(182, 53, 175, 0.61);
 }
 
 .button-quit{
-  background: pink;
-  padding: 5px 30px 5px 30px;
+  background: rgb(248, 213, 219);
+  padding: 2px 30px 2px 30px;
   margin-bottom: 10px;
   margin-left: 5px;
   font-size: large;
-  border: 0.5px solid rgb(119, 11, 11);
+  border: 0.5px solid rgb(247, 150, 210);
   text-decoration: none;
   text-align: center;
   color: black;
@@ -421,7 +421,7 @@
   padding-right: 1%;
   padding-left: 1%;
   border-left: 1px solid rgb(147 14 112 / 52%);
-
+  flex-direction: column;
   display: flex;
 }
 .detailsInCart{
@@ -461,7 +461,10 @@
 .input-apellido{
   margin: 8px;
   width: 55%;
-
+}
+.input-direccion{
+  margin: 8px;
+  width: 55%;
 }
 
 .input-email{
@@ -508,9 +511,13 @@
 }
 
 .idCompra{
-  color: pink;
+  color: rgb(255 134 218);
   font-family: 'Lato', sans-serif;
   font-size: xx-large;
+  padding-top: 20px;
+  box-shadow: 0px 4px 5px 1px #000000db;
+  padding-bottom: 52px;
+  background: rgb(4 0 0 / 77%);
 }
 /* FOOTER */
 
@@ -642,7 +649,7 @@
 
 
 .idCompra{
-  font-size: large;
+  font-size: xx-large;
 }
 
 }
@@ -697,7 +704,9 @@
 .icon-eliminarProd{
   font-size: 10px;
 }
-
+.idCompra{
+  font-size: 80%;
+}
 .prodInCart{
   font-size: 50%;
 }

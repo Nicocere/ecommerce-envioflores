@@ -6,6 +6,8 @@
   color: rgb(255 255 255);
   background: linear-gradient(180deg, rgb(60 27 32 / 91%), transparent);
   font-family: system-ui;
+  border-top: 0.5px #ffffff42 solid;
+
   }
   
   .linkFot {

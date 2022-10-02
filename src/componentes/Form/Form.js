@@ -7,10 +7,13 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     const [value, setValue] = useState(false);
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
-    const [phone, setPhone] = useState('')
-    const [mail, setMail] = useState('')
-    const [validateMail, setValidateMail] = useState('')
-    
+    const [phone, setPhone] = useState('');
+    const [mail, setMail] = useState('');
+    const [validateMail, setValidateMail] = useState('');
+    const [direccion, setDireccion] = useState('');
+   
+
+    const [errorDireccion, setErrorDireccion] = useState(false);
     const [errorNombre, setErrorNombre] = useState(false);
     const [errorApellido, setErrorApellido] = useState(false);
     const [errorTel, setErrorTel] = useState(false);
@@ -24,7 +27,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
          event.preventDefault();
 
         if(!validation()){
-            const buyer = { nombre: nombre, apellido: apellido, phone: phone, mail: mail};
+            const buyer = { nombre: nombre, apellido: apellido, phone: phone, mail: mail, direccion: direccion};
             createOrder(buyer)
         }
     };
@@ -48,7 +51,14 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             setErrorApellido(false)
         }
 
-        if (phone === "" || phone.length <=  4 || phone !== Number) {
+        if (direccion === "") {
+            setErrorDireccion(true)
+            state = true
+        } else{
+            setErrorDireccion(false)
+        }
+
+        if (phone === "" || phone.length <=  4 ) {
             setErrorTel(true)
             state = true
 
@@ -68,7 +78,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             setValidateMail("")
             state = true
 
-        } else if ((nombre ==="" || apellido ==="" || phone ==="" || mail  === "") || validateMail !== mail){
+        } else if ((nombre ==="" || apellido ==="" || phone ==="" || mail  === "" || direccion === "")  || validateMail !== mail){
             state = true
 
         }  else {
@@ -106,6 +116,10 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     };
     const handleChangePhone = (event) => {
         setPhone(event.target.value);
+    };
+    const handleChangeDireccion = (event) => {
+        setDireccion(event.target.value);
+        
     };
     const handleChangeMail = (event) => {
         setMail(event.target.value);
@@ -163,6 +177,17 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
                 />
         {errorTel && <p className='message-error' >El numero de Telefono no es valido</p>} 
                 
+                
+        <input
+                type="text"
+                placeholder="Direccion..."
+                name="Direccion"
+                value={direccion}
+                onChange={handleChangeDireccion}
+                className={errorDireccion ? "input-error" : "input-direccion"}
+                />
+        {errorDireccion && <p className='message-error' >La direccion no es valida</p>} 
+
                 <input
                     type="email"
                     placeholder="Ingrese su E-mail..."
@@ -184,6 +209,8 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
                     className={error ? "input-error" : ""}
                 />
         {error && <p className='message-error' >Los E-mails no coinciden</p>}
+
+        <h2 className='totalPrecio'>Este es el TOTAL a pagar: ${total}</h2>
 
                 <button className='btn-enviarform'>Enviar</button>
             </form>

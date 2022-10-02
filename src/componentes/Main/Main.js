@@ -3,6 +3,7 @@ import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import {Routes, Route} from 'react-router-dom'
 import Cart from '../Cart/Cart';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 
 const Main = () => {
@@ -10,8 +11,9 @@ const Main = () => {
   return (
   <main className='main'>  
 
+<ScrollToTop/>
       <Routes>
-
+        
         <Route path='/' element={<ItemListContainer/>} />
 
          <Route path='/categoria/:categoryName' element={<ItemListContainer/>}/> 
