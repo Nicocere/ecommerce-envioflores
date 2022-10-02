@@ -105,6 +105,8 @@
         transition: all .5s;
         margin-left: 10px;
         margin-right: 5px;
+        font-family: 'Lato', sans-serif;
+
     }
 
     .direc{
@@ -115,7 +117,7 @@
         transition: all .5s;
         font-weight: 550;
         margin-left: 0px;
-        border-left: 2px solid rgb(187, 76, 187);
+        border-left: 2px solid rgba(245, 134, 211, 0.808);
       }
 
       .dir{
@@ -123,6 +125,7 @@
         margin-left: .5%;
         text-decoration: none;
         transition: all .5s;
+        font-family: 'Lato', sans-serif;
       }
 
       .redesSociales{
