@@ -713,3 +713,11 @@
   font-size: 50%;
 }
 }
+
+@media screen and ( max-width: 400px ){
+  .prodInCart{    
+    font-size: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;}
+}
