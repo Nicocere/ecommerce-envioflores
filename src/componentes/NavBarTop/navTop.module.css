@@ -1,5 +1,5 @@
 .contacto{
-  color: rgb(242 0 131);
+  color: rgb(228, 65, 133);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -19,11 +19,13 @@
     display: flex;
 }
 .contactoMail{
-    border-left: 2px solid rgb(187, 76, 187);
+  border-left: 1px solid rgba(243, 144, 205, 0.76);
+  border-radius: 3px;
     
 }
 .contactoTel{
-    border-left: 2px solid rgb(187, 76, 187);
+    border-left: 1px solid rgba(243, 144, 205, 0.76);
+    border-radius: 3px;
     margin-right: 20px;
 }
 .redesSociales{
@@ -55,14 +57,14 @@
     background: linear-gradient(rgb(255 255 255 / 100%), rgb(255 187 187));
   }
   .direc{
-    color: rgb(236, 29, 115);
+    color: rgb(228, 65, 133);
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-left: 20px;
     transition: all .5s;
-    border-left: 2px solid rgb(187, 76, 187);
+    border-left: 1px solid rgba(243, 144, 205, 0.76);
     font-family: 'Quintessential';
   }
   .dir{
@@ -70,7 +72,7 @@
     margin-left: 20px;
     text-decoration: none;
     transition: all .5s;
-    color: rgb(242 0 131);
+    color: rgb(228, 65, 133);
     font-weight: 550;
 
 
@@ -117,7 +119,6 @@
         transition: all .5s;
         font-weight: 550;
         margin-left: 0px;
-        border-left: 2px solid rgba(245, 134, 211, 0.808);
       }
 
       .dir{
