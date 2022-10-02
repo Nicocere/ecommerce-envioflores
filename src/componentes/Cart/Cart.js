@@ -95,7 +95,7 @@ const Cart = () => {
          
             <h2 className='totalPrecio'>Total: $ {total}</h2>
 
-            <p>deslice hacia arriba podra ver los productos</p>
+        
 
             <div className='formulario'>
             <h3 className='form-title'>Ingrese los datos de envío para confirmar la entrega.</h3>
