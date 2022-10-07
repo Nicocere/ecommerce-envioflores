@@ -50,7 +50,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
         .then(res => {
             const linkMp = res.data.init_point
             console.log("res data", res.data.init_point)
-          window.location.href = linkMp
+        //   window.location.href = linkMp
            
         })
     };
