@@ -6,6 +6,7 @@ import {collection, getDocs, query, where } from 'firebase/firestore'
 import { baseDeDatos } from "../../FireBaseConfig";
 
 
+
 const ItemListContainer = () => {
     const [items,  setItems] = useState ([]);
     const [isLoading, setIsLoading] = useState (true); 
@@ -25,6 +26,7 @@ const ItemListContainer = () => {
                  return{
                     id: prod.id, 
                     ...prod.data(),
+                    
                 };
             });
             setItems(productos);
@@ -47,7 +49,9 @@ const ItemListContainer = () => {
                     <FadeLoader className="fadeLoader" color="rgb(255, 255, 255)" /> 
                     </>
                ) : ( 
+                    <>
                     <ItemList items={items}/> 
+                    </>
                 )}
         </div>
 );

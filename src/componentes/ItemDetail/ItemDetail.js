@@ -5,6 +5,8 @@ import estilosDetail from './ItemDetail.module.css';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext'
+import AdicionalListContainer from '../AdicionalListContainer/AdicionalListContainer';
+
 
 const ItemDetail = ({item}) => {
 
@@ -27,6 +29,7 @@ const ItemDetail = ({item}) => {
     if (e.target.value !== "") {
       setTamañoPrecio(e.target.value)
           setProdElegido(true)
+          
           
         } else {
           setTamañoPrecio( e.target.value === "")
@@ -133,9 +136,13 @@ const ItemDetail = ({item}) => {
           </>
             ) : <h4 className={estilosDetail.aviso}>Debe elegir un Tamaño y Precio.</h4>             
     } 
-  
+
         </form>
+
       </div>        
+
+    {/* <AdicionalListContainer/> */}
+
     </div> 
     )
   };

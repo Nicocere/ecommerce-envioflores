@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {addDoc, collection, doc, serverTimestamp, updateDoc,} from 'firebase/firestore';
 import { baseDeDatos } from '../../FireBaseConfig';
+import axios from 'axios'
 
 const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     
@@ -12,6 +13,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     const [validateMail, setValidateMail] = useState('');
     const [direccion, setDireccion] = useState('');
    
+    
 
     const [errorDireccion, setErrorDireccion] = useState(false);
     const [errorNombre, setErrorNombre] = useState(false);
@@ -25,72 +27,89 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     
     const handleSubmit = (event) => {
          event.preventDefault();
+  
+        // if(!validation()){
+        //     const buyer = { nombre: nombre, apellido: apellido, phone: phone, mail: mail, direccion: direccion};
+        //     createOrder(buyer)
+        // }
 
-        if(!validation()){
-            const buyer = { nombre: nombre, apellido: apellido, phone: phone, mail: mail, direccion: direccion};
-            createOrder(buyer)
+        const opts = { 
+            method: "POST",
+            data: {
+                itemSelected,
+                nombre,
+                apellido, 
+                phone,
+                mail, 
+                direccion
+
+            },
+            url: "http://localhost:3000/payment"
         }
+        axios(opts)
+        .then(res => {
+            const linkMp = res.data.init_point
+            console.log("res data", res.data.init_point)
+         window.location.href = linkMp
+           
+        })
     };
-    
+
     const validation = () => {
         let state;
      
-        if(nombre  === ""){
+    if(nombre  === ""){
             setErrorNombre(true)
-          
-
             state = true
         }else {
             setErrorNombre(false)
         }
         
-        if (apellido === "") {
+    if (apellido === "") {
             setErrorApellido(true)
             state = true
         }else{
             setErrorApellido(false)
         }
 
-        if (direccion === "") {
+    if (direccion === "") {
             setErrorDireccion(true)
             state = true
         } else{
             setErrorDireccion(false)
         }
 
-        if (phone === "" || phone.length <=  4 ) {
+    if (phone === "" || phone.length <=  4 ) {
             setErrorTel(true)
             state = true
-
         }else{
             setErrorTel(false)
         }
         
-        if(mail === ""){
+    if(mail === ""){
             setErrorEmail(true)
             state = true
         }else{
             setErrorEmail(false)
         }
 
-        if(mail !== validateMail || validateMail === ""){
+    if(mail !== validateMail || validateMail === ""){
             setError(true)
             setValidateMail("")
             state = true
-
         } else if ((nombre ==="" || apellido ==="" || phone ==="" || mail  === "" || direccion === "")  || validateMail !== mail){
             state = true
-
         }  else {
             setError(false)
             state = false
         }
 
-        return state;
+    return state;
     }
 
-    const createOrder = (buyer) => {
 
+
+    const createOrder = (buyer) => {
         const order = {
             buyer: buyer,
             items: itemSelected,
@@ -98,11 +117,11 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             date: serverTimestamp(),
         };
 
-        const ordersCollection = collection(baseDeDatos, 'orders');
+    const ordersCollection = collection(baseDeDatos, 'orders');
 
 
 
-        addDoc(ordersCollection, order).then((res) => {
+    addDoc(ordersCollection, order).then((res) => {
             handleId(res.id);
             clearCart();
         });
@@ -212,7 +231,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
 
         <h2 className='totalPrecio'>Este es el TOTAL a pagar: ${total}</h2>
 
-                <button className='btn-enviarform'>Enviar</button>
+                <button className='btn-enviarform' onClick={handleSubmit}>Pagar con Mercado pago</button>
             </form>
         </div>
     );

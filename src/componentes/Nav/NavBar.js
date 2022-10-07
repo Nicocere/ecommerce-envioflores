@@ -4,9 +4,14 @@ import CartWidget from '../CartWidget/CartWidget'
 import {NavLink} from 'react-router-dom'
 import {FaBars} from '@react-icons/all-files/fa/FaBars'
 import { useState } from 'react'
+
+
+
 const NavBar = () => {
 
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+
 
   const openMenu = showMobileMenu ? 'seccion' : 'seccionCerrada';
   
@@ -20,7 +25,9 @@ const NavBar = () => {
         <FaBars/>Categorias
         </div>
 
+      <div>
           
+      </div>
             <ul className={openMenu} >
                   <NavLink className='seccionLi' to='/' onClick={()=> setShowMobileMenu(!showMobileMenu)}> Inicio </NavLink> 
 

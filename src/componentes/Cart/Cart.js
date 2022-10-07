@@ -11,11 +11,13 @@ const Cart = () => {
     const total = totalPrecio();
 
 
+
     const itemSelected = cart.map((item)=> {
         const precio = Number(item.precioElegido);
         const precioTamaño = item.opciones.find((tam)=> tam.precio === precio)
 
         return{
+            
             id: item.id,
             img: item.img,
             cantidad: item.cantidadItem,
@@ -105,6 +107,7 @@ const Cart = () => {
                 total={total}
                 clearCart={clearCart}
                 handleId={handleId}
+                // preferenceId={preferenceId}
                 />
             
             
