@@ -1,19 +1,28 @@
-// import React from 'react'
-// import Adicional from '../Adicional/Adicional'
+import React from 'react'
+import AdicionalItem from '../AdicionalItem/AdicionalItem'
 
-// export const AdicionalList = ({adicional}) => {
+export const AdicionalList = ({adicional}) => {
+  
 
-//     return (
+
+
+
+    return (
     
-//         <div className='listadeproductos'>
-//                 {
-//                   adicional?.map((items)=>{
-//                     return (
-//                       <Adicional adicional={adicional} key={adicional.id}/>
-//                     )
-//                   })
-//                 }
+        <div className='lista-de-adicionales'>
+
+       {
+
+         adicional?.map((adicional) => { 
+
+           return(
+            <AdicionalItem adicional={adicional} key={adicional.id} />
+           )
+          })
+        }
           
-//         </div>
-//      )
-// }
+        </div>
+     )
+}
+
+export default AdicionalList

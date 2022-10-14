@@ -1,57 +1,48 @@
-// import React , {useEffect, useState} from "react";
-// import {collection, getDocs, query, where } from 'firebase/firestore'
-// import { FadeLoader } from "react-spinners";
-// import { baseDeDatos } from "../../FireBaseConfig";
-// import { AdicionalList } from '../AdicionalList/AdicionalList';
+import React , {useEffect, useState} from "react";
+import {collection, getDocs,  } from 'firebase/firestore'
+import { baseDeDatos } from "../../FireBaseConfig";
+import  AdicionalList  from "../AdicionalList/AdicionalList";
 
+const AdicionalListContainer = ({onAdd}) => {
 
-// const AdicionalListContainer = () => {
+    const [adicional, setAdicional] = useState([]);
 
-//     const [adicional, setAdicional] = useState('');
-//     const [isLoading, setIsLoading] = useState (true); 
-
-    
-//     useEffect(() => {
+    useEffect(() => {
         
-//         const adicionalCollection = collection(baseDeDatos, 'adicionales');
+        const adicionalCollection = collection(baseDeDatos, 'adicionales');
 
 
-//             getDocs()
-//             .then((resp) => {
 
-//             const adicionalProd = resp.docs.map((prod)=>{
-//                  return{
-//                     id: prod.id, 
-//                     ...prod.data(),
+            getDocs(adicionalCollection)
+            .then((resp) => {
+
+            const adicionalProd = resp.docs.map((adic)=>{
+                 return{
+                    id: adic.id, 
+                    ...adic.data(),
                     
-//                 };
-//             });
-//             setAdicional(adicionalProd);
-//         })
-//         .catch((error)=>{
-//             console.log("Los Productos no llegaron", error);
-//         })
-//         .finally(()=>{
-//             setIsLoading(false)
-//         });
+                };
+            });
+         
+            setAdicional(adicionalProd);
+        })
+        .catch((error)=>{
+            console.log("Los Productos no llegaron", error);
+        })
 
-// }, [adicional]);
+}, []);
 
 
-//     return (
-//         <div className="productos">
-//             { isLoading ? ( 
-//                     <>
-//                     <h1 className="loadProd">Cargando Productos...</h1>
-//                     <FadeLoader className="fadeLoader" color="rgb(255, 255, 255)" /> 
-//                     </>
-//                ) : ( 
-//                     <>
-//                     <AdicionalList adicional={adicional}/> 
-//                     </>
-//                 )}
-//         </div>
-// );
+    return (
+        <div className="adicionales">
 
-// };
-// export default AdicionalListContainer
+                <h2 className="titulo-adicional">Seleccione que adicionales quiere agregar</h2>
+                                              
+                    <AdicionalList adicional={adicional} /> 
+                    
+                
+        </div>
+);
+
+};
+export default AdicionalListContainer

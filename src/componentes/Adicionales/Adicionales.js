@@ -13,7 +13,7 @@ export const Adicionales = [
             {   tamaño: "300gr",
                 precio: 1800
             }
-        ],clase:"ferrero rocher", stock: 1, img: 'imagenes/PRODUCTOS/ADICIONALES/Ferrero_rocher.jpg', adicional: true},
+        ],clase:"ferrero rocher", stock: 1, img: '../assets/imagenes/PRODUCTOS/ADICIONALES/Ferrero_rocher.jpg', adicional: true},
     
     {id: 2, nombre: "Chocolates Artesanales",      
         opciones: [
@@ -27,7 +27,7 @@ export const Adicionales = [
                         
             {   tamaño: "750gr",
                 precio: 1800
-            }], clase: "Chocolate artesanal", stock: 1 , img: 'imagenes/PRODUCTOS/ADICIONALES/Chocolates_artesanales.jpg', adicional: true},
+            }], clase: "Chocolate artesanal", stock: 1 , img: '../assets/imagenes/PRODUCTOS/ADICIONALES/Chocolates_artesanales.jpg', adicional: true},
         
     {id: 3, nombre: "Peluches" ,     
         opciones: [
@@ -41,7 +41,7 @@ export const Adicionales = [
                         
             {   tamaño: "Grande",
                 precio: 4800
-            }], clase:"peluche", stock: 1 , img: 'imagenes/PRODUCTOS/ADICIONALES/PELUCHES.jpg' , adicional: true},
+            }], clase:"peluche", stock: 1 , img: '../assets/imagenes/PRODUCTOS/ADICIONALES/PELUCHES.jpg' , adicional: true},
         
     {id: 4, nombre: "Globos ",     
         opciones: [
@@ -55,7 +55,7 @@ export const Adicionales = [
                     
         {   tamaño: "3",
             precio: 1800
-        }], clase: "globo", stock: 1 , img: 'imagenes/PRODUCTOS/ADICIONALES/globos.jpg', adicional: true},
+        }], clase: "globo", stock: 1 , img: '../assets/imagenes/PRODUCTOS/ADICIONALES/globos.jpg', adicional: true},
     
     {id: 5, nombre: "Vinos" ,     
     opciones: [
@@ -69,7 +69,7 @@ export const Adicionales = [
                     
         {   tamaño: "New Age",
             precio: 1800
-        }],clase:"vino", stock:  1 , img: 'imagenes/PRODUCTOS/ADICIONALES/vinos_finos.jpg', adicional: true},
+        }],clase:"vino", stock:  1 , img: '../assets/imagenes/PRODUCTOS/ADICIONALES/vinos_finos.jpg', adicional: true},
      
         
     

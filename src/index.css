@@ -391,7 +391,7 @@
   align-self: center;
   border-radius: 7px;
   transition: all 0.5s;
-  width: 100%;
+  width: fit-content;
   font-family: 'Lato', sans-serif;
 }
 
@@ -434,6 +434,65 @@
 }
 
 /* FIN PRODUCTOS */
+
+/* ADICIONALES */
+.titulo-adicional{
+  font-family: "Quintessential";
+  margin-top: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.438);
+}
+.div-adicional{
+  margin-left: 25px;
+    margin-right: 25px;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.adicionales{
+  background: rgba(255, 192, 203, 0.466);
+  width: 100%;
+}
+.lista-de-adicionales{
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 30% 30% 30% ;
+  padding-top: 0.5%;
+  grid-column-gap: 4.5%;
+  grid-row-gap: 50px;
+  margin: 50px;
+
+}
+.adicionales img{
+  width: 130px;
+  height: 150px;
+}
+.adic-nombre{
+  border-bottom: 0.5px solid black;
+    width: 75%;
+    margin-top: 15px;
+  margin-bottom: 8px;
+}
+.lista-adicionales{
+  list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: system-ui;
+    border-left: 0.5px black solid;
+    border-right: 0.5px black solid;
+
+}
+
+.total-adicionales{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: rgba(233, 27, 62, 0.226);
+  width: fit-content;
+  align-content: center;
+  margin-top: 15px;
+}
+
+/* FIN ADICIONALES */
 
 /* FORMULARIO */
 .formulario{

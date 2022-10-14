@@ -12,6 +12,7 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
     }  
   const agregarAlCarrito = () => {
       onAdd(count)
+  
     }
   
   useEffect(() => {

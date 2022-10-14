@@ -5,16 +5,27 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-    const addToCart = (item, cantidadItem, colorElegido, precioElegido) => {
-            
+
+    console.log("VALOR CARTCONTEX", cart)
+
+    const addToCart = (item, cantidadItem, colorElegido, precioElegido, totalAdicionales) => {
+
+        console.log("value adic en  cartcontex", totalAdicionales)
+
+    
         if (isInCart(item.id)) {
 
             sumarCantidad(item, cantidadItem, precioElegido);
+
         } else {
-            setCart([...cart, { ...item, cantidadItem, colorElegido, precioElegido }]);
+            setCart([...cart, { ...item, cantidadItem, colorElegido, precioElegido, totalAdicionales}]);
         }
+
+        
     };
-    
+
+
+
     const isInCart = (id) =>{
         return cart.some((prod) => prod.id === id);
     };
@@ -61,7 +72,7 @@ const CartProvider = ({ children }) => {
         <CartContext.Provider
         value={{ 
             cart,
-            addToCart, 
+            addToCart,
             eliminarProd,
             cantidadProducto,
             totalPrecio,

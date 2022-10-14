@@ -8,6 +8,7 @@ import { CartContext } from '../../context/CartContext'
 import AdicionalListContainer from '../AdicionalListContainer/AdicionalListContainer';
 
 
+
 const ItemDetail = ({item}) => {
 
   const { addToCart, cantidadProducto } = useContext(CartContext);
@@ -15,10 +16,14 @@ const ItemDetail = ({item}) => {
   const [tamañoPrecio, setTamañoPrecio] = useState();
   const [cantidad, setCantidad] = useState(0);
   const [prodElegido, setProdElegido] = useState(false)
+
+
+
   const quantity = cantidadProducto(item.id);
   const prodOptions = item.opciones
   const precioElegido = tamañoPrecio
   
+  console.log("tamaño precio", tamañoPrecio)
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -117,7 +122,8 @@ const ItemDetail = ({item}) => {
         {
             cantidad === 0  ? (       
             <>
-              <ItemCount item={item} stock={5} initial={quantity} onAdd={onAdd} />   
+              <ItemCount item={item} stock={5} initial={quantity} onAdd={onAdd} />  
+              <AdicionalListContainer /> 
             </>     
               ) : (
 
@@ -134,14 +140,13 @@ const ItemDetail = ({item}) => {
               )       
         }
           </>
-            ) : <h4 className={estilosDetail.aviso}>Debe elegir un Tamaño y Precio.</h4>             
+            ) : <h4 className={estilosDetail.aviso}>Debe elegir un Tamaño y Precio.</h4>  
+
     } 
 
         </form>
 
       </div>        
-
-    {/* <AdicionalListContainer/> */}
 
     </div> 
     )

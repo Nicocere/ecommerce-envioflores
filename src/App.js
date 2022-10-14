@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 // import { baseDeDatos } from './FireBaseConfig';
 // import { Adicionales } from '../src/componentes/Adicionales/Adicionales.js' 
 
-//  const ref = collection(baseDeDatos, 'Adicionales');
+//  const ref = collection(baseDeDatos, 'adicionales');
 
 //  Adicionales.map((adicional) => addDoc(ref, adicional ));
 

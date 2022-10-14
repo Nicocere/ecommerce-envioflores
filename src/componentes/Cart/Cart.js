@@ -10,7 +10,7 @@ const Cart = () => {
     const [idCompra, setIdCompra] = useState('');
     const total = totalPrecio();
 
-
+    console.log("cart", cart)
 
     const itemSelected = cart.map((item)=> {
         const precio = Number(item.precioElegido);
@@ -26,11 +26,17 @@ const Cart = () => {
             color: item.colorElegido,
             tamaño: precioTamaño.tamaño,
             precioCantidad: item.cantidadItem * item.precioElegido,
-            tipo: item.tipo
+            tipo: item.tipo,
+
+            adicional: item.totalAdicionales
+
+        
+
 
         }
     })
 
+    console.log("item selected", itemSelected)
 
     const handleId = (id) => {
         setIdCompra(id);

@@ -4,6 +4,7 @@ import { getDoc, doc, collection } from 'firebase/firestore';
 import { baseDeDatos } from "../../FireBaseConfig";
 import { useParams } from 'react-router-dom'
 import { FadeLoader } from "react-spinners";
+import AdicionalListContainer from '../AdicionalListContainer/AdicionalListContainer'
 
 const ItemDetailContainer = () => {
  
@@ -14,7 +15,7 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         
         const itemCollection = collection(baseDeDatos, 'productos');
-        const ref = doc(itemCollection, prodId);
+        const ref = doc(itemCollection, prodId);        
         getDoc(ref).then((res) => {
             setitem({ id: res.id, ...res.data() });
             setIsLoading(false)
@@ -30,8 +31,12 @@ const ItemDetailContainer = () => {
                 <FadeLoader color="white"/>
                 </>
             ) : (
+                <>
                 <ItemDetail  item={item}/>
+                {/* <AdicionalListContainer/> */}
+                </>
             )}
+
         </div>
 );
 
