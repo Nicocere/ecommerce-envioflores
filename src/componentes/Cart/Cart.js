@@ -12,28 +12,28 @@ const Cart = () => {
 
     console.log("cart", cart)
 
-    const itemSelected = cart.map((item)=> {
-        const precio = Number(item.precioElegido);
-        const precioTamaño = item.opciones.find((tam)=> tam.precio === precio)
-
-        return{
-            
-            id: item.id,
-            img: item.img,
-            cantidad: item.cantidadItem,
-            precioUnidad: item.precioElegido,
-            nombreProducto: item.nombre,
-            color: item.colorElegido,
-            tamaño: precioTamaño.tamaño,
-            precioCantidad: item.cantidadItem * item.precioElegido,
-            tipo: item.tipo,
-
-            adicional: item.totalAdicionales
+    const itemSelected = cart.map((item) => {
+        console.log("ITEM", item)
 
         
 
 
+        return {
+        
+            id: item.id,
+            img: item.img,
+            cantidad: item.cantidadItem,
+            precioAdicional: item.precio,
+            precioUnidad: item.precio,
+            nombreProducto: item.nombre,
+            color: item.colorElegido,
+            tamaño: item.tamaño,
+            tamañoAdicional: item.tamaño,
+            tipo: item.tipo
         }
+
+    
+    
     })
 
     console.log("item selected", itemSelected)
@@ -88,8 +88,7 @@ const Cart = () => {
                         <p className='detailsInCart'>Tamaño: {prod.tamaño}</p>
                     </div>
                     <div className='divCart'>
-                        <p className='detailsInCart'>Precio Unidad: ${prod.precioUnidad}</p>
-                        <p className='detailsInCart'>Precio por Cantidad: ${prod.precioCantidad}</p>
+                        <p className='detailsInCart'>Precio: ${prod.precioUnidad}</p>
                     </div>
 
                         <button  className='btn-eliminarProd' onClick={() => eliminarProd(prod.id)}>
@@ -99,11 +98,10 @@ const Cart = () => {
                 ))
                 
             }
+
             <button className='btn-clear' onClick={clearCart}>Eliminar Todo</button>
          
             <h2 className='totalPrecio'>Total: $ {total}</h2>
-
-        
 
             <div className='formulario'>
             <h3 className='form-title'>Ingrese los datos de envío para confirmar la entrega.</h3>

@@ -6,25 +6,53 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    console.log("VALOR CARTCONTEX", cart)
+    console.log("CART en el CARTCONTEX", cart)
 
-    const addToCart = (item, cantidadItem, colorElegido, precioElegido, totalAdicionales) => {
-
-        console.log("value adic en  cartcontex", totalAdicionales)
-
-    
+    // AÑADIR ITEM
+    const addToCart = (item, cantidadItem, colorElegido,  tamaño, precio) => {
         if (isInCart(item.id)) {
-
-            sumarCantidad(item, cantidadItem, precioElegido);
-
+            sumarCantidad(item, cantidadItem,  tamaño, precio);
         } else {
-            setCart([...cart, { ...item, cantidadItem, colorElegido, precioElegido, totalAdicionales}]);
-        }
-
-        
+            setCart([...cart, { ...item, cantidadItem, colorElegido, tamaño, precio}]);
+        }   
     };
 
+    // AÑADIR ADICIONAL
 
+    const addAdicional = (itemAdicional, totalAdicionales, cantidadItem, tamaño, precio) =>{
+        console.log("ITEM ADD ADICIONAL", itemAdicional)
+        console.log("TOTAL ADICIONAL ADD", totalAdicionales)
+
+        if(isInCartAdicional(itemAdicional.id)){
+            sumarAdicional(itemAdicional, totalAdicionales, cantidadItem)
+        }else{
+
+            setCart ([...cart, {...itemAdicional,totalAdicionales, cantidadItem, tamaño, precio}])        
+        }
+    }
+
+
+    const isInCartAdicional = (id) =>{
+       return cart.some((adic)=> adic.id === id)
+    }
+
+    const sumarAdicional = (itemAdicional, cantidadItem) => {
+
+       const adicionalActualizado = cart.map((adic)=> {
+            if(adic.id === itemAdicional.id){ 
+                const adicActualizado = {
+                    ...itemAdicional,
+                    cantidadItem: adic.cantidadItem + cantidadItem  
+                };
+                return adicActualizado;
+
+            } else{
+                return itemAdicional;
+            }
+         });
+        setCart(adicionalActualizado);
+    };
+    
 
     const isInCart = (id) =>{
         return cart.some((prod) => prod.id === id);
@@ -33,7 +61,7 @@ const CartProvider = ({ children }) => {
     const totalPrecio = () => {
         let acumulador = 0;
         cart.forEach((prod) => {    
-            acumulador += prod.cantidadItem * prod.precioElegido;
+            acumulador += prod.cantidadItem * prod.precio;
         });
         return acumulador;
     };
@@ -60,7 +88,7 @@ const CartProvider = ({ children }) => {
     };
 
     const cantidadProducto = (id) => {
-        const producto = cart.find((prod) => prod.id === id);
+        const producto = cart?.find((prod) => prod.id === id);
         return producto?.cantidadItem;
     };
 
@@ -73,6 +101,7 @@ const CartProvider = ({ children }) => {
         value={{ 
             cart,
             addToCart,
+            addAdicional,
             eliminarProd,
             cantidadProducto,
             totalPrecio,

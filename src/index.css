@@ -436,6 +436,9 @@
 /* FIN PRODUCTOS */
 
 /* ADICIONALES */
+.aviso-adicional{
+  font-family: 'Lato', sans-serif;
+}
 .titulo-adicional{
   font-family: "Quintessential";
   margin-top: 10px;
@@ -466,6 +469,7 @@
 .adicionales img{
   width: 130px;
   height: 150px;
+  border-radius: 10px;
 }
 .adic-nombre{
   border-bottom: 0.5px solid black;
@@ -740,6 +744,8 @@
 }
 .icon-eliminarProd{
   font-size: 13px;
+
+
 }
 
 }
@@ -771,6 +777,38 @@
 .prodInCart{
   font-size: 50%;
 }
+.lista-de-adicionales{
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 29% 29%;
+  padding-top: 0.5%;
+  grid-column-gap: 4.5%;
+  grid-row-gap: 50px;
+  margin: 0px;
+  justify-content: space-evenly;
+}
+.adicionales img{
+  width: 130px;
+  height: 150px;
+}
+.adic-nombre{
+  border-bottom: 0.5px solid black;
+    width: 75%;
+    margin-top: 15px;
+  margin-bottom: 8px;
+}
+.lista-adicionales{
+  list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: system-ui;
+    border-left: 0.5px black solid;
+    border-right: 0.5px black solid;
+
+}
+
+
 }
 
 @media screen and ( max-width: 400px ){

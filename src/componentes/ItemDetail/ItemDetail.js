@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount'
 import estilosDetail from './ItemDetail.module.css';
 import { useContext } from 'react';
@@ -17,13 +17,39 @@ const ItemDetail = ({item}) => {
   const [cantidad, setCantidad] = useState(0);
   const [prodElegido, setProdElegido] = useState(false)
 
+  const [tamaño, setTamaño] = useState("")
+  const [precio, setPrecio] = useState("")
+
 
 
   const quantity = cantidadProducto(item.id);
   const prodOptions = item.opciones
-  const precioElegido = tamañoPrecio
+  const precioElegido = Number(tamañoPrecio)
+
   
-  console.log("tamaño precio", tamañoPrecio)
+  // console.log("PRECIO ELEGIDO", precioElegido)
+
+  
+
+  const precioTamaño = prodOptions?.find((tam)=> tam.precio === precioElegido)
+  // console.log("Precio tamaño", precioTamaño)
+
+useEffect(() => {
+  if (precioTamaño !== undefined) {
+    setTamaño(precioTamaño.tamaño)
+    setPrecio(precioTamaño.precio)
+  } 
+}, [{precio, tamaño}])
+
+
+
+  // console.log("PRECIO CORNETA", precio)
+  // console.log("TAMAÑO LPM", tamaño)
+
+
+  
+
+
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -67,7 +93,7 @@ const ItemDetail = ({item}) => {
     const onAdd = (cantidadItem) => {
 
       setCantidad(cantidadItem);
-      addToCart(item, cantidadItem, colorElegido, precioElegido);    
+      addToCart(item, cantidadItem, colorElegido, tamaño, precio);    
 
     };
 
