@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Item = ({items}) => {
     
+  // console.log("ITEMS ITEM", items)
   return (
     <div className="product-item">  
 

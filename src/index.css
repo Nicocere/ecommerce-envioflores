@@ -439,6 +439,16 @@
 .aviso-adicional{
   font-family: 'Lato', sans-serif;
 }
+.aviso-adicional-agregado{
+  font-family: "Quintessential";
+  color: #ac1060;
+  font-size: 90%;
+}
+.aviso-ad-agr{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .titulo-adicional{
   font-family: "Quintessential";
   margin-top: 10px;
@@ -592,8 +602,10 @@
   margin-bottom: 6%;
 }
 
-
-
+/* ICONOS */
+.fcApproval{
+  font-size: 20px;
+}
 
 /* VISTA TABLETS Y CELULARES --------------- */
 

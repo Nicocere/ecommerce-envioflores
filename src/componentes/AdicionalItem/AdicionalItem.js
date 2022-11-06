@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount';
-
+import { FcApproval } from "@react-icons/all-files/fc/FcApproval";
 
 const AdicionalItem = ({adicional}) => {
     
@@ -33,6 +33,9 @@ const AdicionalItem = ({adicional}) => {
         setValueAdic(positionChecked)
 
         const totalPriceAdicionales = positionChecked.reduce((sum, currentState, index) => {
+            console.log("CURRENT STATE", currentState)
+            console.log("INDEX ELEGIDO", index)
+            console.log("sum", sum)
 
         if (currentState === true) {
             const precio = adicional.opciones[index].precio
@@ -93,6 +96,7 @@ const AdicionalItem = ({adicional}) => {
                                 <input
                                     type='checkbox'
                                     id={`custom-checkbox${index}`}
+                                    name={tamaño}
                                     tamaño={tamaño}
                                     precio={precio}
                                     value={adicional.id}
@@ -118,7 +122,12 @@ const AdicionalItem = ({adicional}) => {
         : 
         (
             cantidadAdicional === 0 ?
-            <ItemCount onAdd={onAdd} stock={3} />  : <h2 className='aviso-adicional'>Adicional Agregado</h2>    
+            <ItemCount onAdd={onAdd} stock={3} />  
+            : 
+            <div className='aviso-ad-agr'>
+            <h2 className='aviso-adicional-agregado'>Adicional Agregado</h2>  
+            <FcApproval className='fcApproval'/>
+            </div>
         )
                 
             }

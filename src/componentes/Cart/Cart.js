@@ -14,10 +14,7 @@ const Cart = () => {
 
     const itemSelected = cart.map((item) => {
         console.log("ITEM", item)
-
         
-
-
         return {
         
             id: item.id,
@@ -29,7 +26,8 @@ const Cart = () => {
             color: item.colorElegido,
             tamaño: item.tamaño,
             tamañoAdicional: item.tamaño,
-            tipo: item.tipo
+            tipo: item.tipo,
+            description: item.descr
         }
 
     

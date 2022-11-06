@@ -33,10 +33,25 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
         //     createOrder(buyer)
         // }
 
+        let bodyMp = itemSelected.map((item) => {
+            let body = {
+                title: item.nombreProducto,
+                description: "Descripcion del producto",
+                picture_url: item.img,
+                category_id: item.tipo,
+                quantity: item.cantidad,
+                unit_price: item.precioUnidad
+            }
+
+            return body
+        })
+
+        console.log(bodyMp, "BODY MP")
+
         const opts = { 
             method: "POST",
             data: {
-                itemSelected,
+                bodyMp,
                 nombre,
                 apellido, 
                 phone,
@@ -50,7 +65,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
         .then(res => {
             const linkMp = res.data.init_point
             console.log("res data", res.data.init_point)
-        //   window.location.href = linkMp
+          window.location.href = linkMp
            
         })
     };

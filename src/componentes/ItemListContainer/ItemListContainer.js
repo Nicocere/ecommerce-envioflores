@@ -1,24 +1,30 @@
-import React , {useEffect, useState} from "react";
+import React , {useContext, useEffect, useState} from "react";
 import {useParams} from 'react-router-dom'
 import ItemList from "../itemList/ItemList";
 import { FadeLoader } from "react-spinners";
 import {collection, getDocs, query, where } from 'firebase/firestore'
 import { baseDeDatos } from "../../FireBaseConfig";
+import { SearchContext } from "../../context/SearchContext";
 
 
 
 const ItemListContainer = () => {
+
+    const {prodEncontrado} = useContext(SearchContext);
     const [items,  setItems] = useState ([]);
     const [isLoading, setIsLoading] = useState (true); 
     const {categoryName} = useParams()
+
+    console.log("PROD ENCONTRADO EN LIST", prodEncontrado)
 
     useEffect(() => {
         const itemCollection = collection(baseDeDatos, 'productos');
 
          const q = categoryName 
          ? query(itemCollection, where('categoria', 'array-contains', categoryName)) 
-         : itemCollection ;
+         : itemCollection  ;
 
+         
             getDocs(q)
             .then((resp) => {
 
@@ -50,7 +56,7 @@ const ItemListContainer = () => {
                     </>
                ) : ( 
                     <>
-                    <ItemList items={items}/> 
+                    <ItemList items={items} prodEncontrado={prodEncontrado}/> 
                     </>
                 )}
         </div>

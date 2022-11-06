@@ -42,14 +42,6 @@ useEffect(() => {
 }, [{precio, tamaño}])
 
 
-
-  // console.log("PRECIO CORNETA", precio)
-  // console.log("TAMAÑO LPM", tamaño)
-
-
-  
-
-
   
   const handleSubmit = (event) => {
     event.preventDefault();
