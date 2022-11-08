@@ -36,7 +36,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
         let bodyMp = itemSelected.map((item) => {
             let body = {
                 title: item.nombreProducto,
-                description: "Descripcion del producto",
+                description: item.descr,
                 picture_url: item.img,
                 category_id: item.tipo,
                 quantity: item.cantidad,
@@ -59,7 +59,11 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
                 direccion
 
             },
-            url: "http://localhost:3000/payment"
+
+        // debo ahora subir la pagina de backend a vercel y agregar el link aca, 
+
+    // paso 2,  creo ya haberlo logrado
+            url: "https://ecommerce-envioflores.vercel.app/"
         }
         axios(opts)
         .then(res => {
