@@ -9,6 +9,49 @@
   display: none;
 }
 
+.buscador-div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 15px;
+
+}
+
+.buscador-title{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  margin-top: 9px;
+  margin-bottom: 7px;
+  color: rgb(255 159 231);
+  transition: 1s;
+
+}
+.buscador-title:hover{
+  color: rgb(255, 255, 255);
+}
+
+
+
+.form-buscador{
+  display: flex;
+}
+
+.buscador-btn{
+  background: pink;
+  border-radius: 5px;
+  border: rgb(253, 65, 97);
+  padding: 3%;
+  margin-left: 10px;
+  transition: all 1.2s;
+  transition: color .7s
+  
+}
+.buscador-btn:hover{
+  background: rgb(226, 52, 81);
+  color: white;
+  box-shadow: 0px 4px 5px 1px #000000ad;
+}
+
 /* BODY */
 .cabeza{
   background-image: url(../public/assets/imagenes/rosas-banner-nav.jpg);
@@ -23,7 +66,6 @@
 }
 
 .main{
-  padding-top: 2%;
   background-size: contain;
 
 }
@@ -220,12 +262,11 @@
 /* PRODUCTOS ---------------------*/
 .productos {
   justify-items: center;
-  padding-top: 0.5%;
   padding-bottom: 0.5%;
   grid-column-gap: 2.5%;
   grid-row-gap: 50px;
   margin-bottom: 50px;
-  background: rgba(255, 192, 203, 0.336);
+  background: rgb(255 192 203 / 19%);
   border: 1px solid violet;
   border-radius: 5px;
 

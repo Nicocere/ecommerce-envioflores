@@ -5,6 +5,7 @@ import { FadeLoader } from "react-spinners";
 import {collection, getDocs, query, where } from 'firebase/firestore'
 import { baseDeDatos } from "../../FireBaseConfig";
 import { SearchContext } from "../../context/SearchContext";
+import NavBarBottom from "../NavBarBottom/NavBarBottom";
 
 
 
@@ -56,6 +57,7 @@ const ItemListContainer = () => {
                     </>
                ) : ( 
                     <>
+                    <NavBarBottom items={items} />
                     <ItemList items={items} prodEncontrado={prodEncontrado}/> 
                     </>
                 )}

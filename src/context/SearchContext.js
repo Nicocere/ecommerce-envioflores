@@ -9,9 +9,10 @@ const SearchProvider = ({ children }) => {
 
      console.log("PROD ENCONTRADO", prodEncontrado)
 
-    const changeList = (itemsFiltrados) =>{
-        // console.log("ITEM FILTRADO", itemsFiltrados)
-        setProdEncontrado([itemsFiltrados])
+    const changeList = (itemEncontrado) =>{
+       
+        console.log("ITEM ENCONTRADO CONTEXT", itemEncontrado)
+        setProdEncontrado(itemEncontrado)
     }
 
  

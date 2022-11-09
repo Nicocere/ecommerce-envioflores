@@ -4,7 +4,7 @@ import Item from '../Item/Item';
 
 const ItemList = ({items, prodEncontrado}) => {
   
-  console.log("prodencontrado", prodEncontrado)
+  console.log("prodencontrado", prodEncontrado.length)
 
   useEffect(()=>{
     
@@ -18,13 +18,15 @@ const ItemList = ({items, prodEncontrado}) => {
     <div className='listadeproductos'>
       
             {
-              prodEncontrado === undefined   ?
-              items.map((items)=>{
+              prodEncontrado.length === 23 || prodEncontrado.length === undefined || prodEncontrado.length === 0  ?
+              items?.map((items)=>{
+                console.log("LE ENVIO : item", items)
+
                 return (
                   <Item items={items} key={items.id}/>
                 )
-              }) : prodEncontrado[0].map(itemFilter=>{
-                // console.log("itemfilter", itemFilter)
+              }) : prodEncontrado?.map(itemFilter=>{
+                console.log("LE ENVIO : itemfilter", itemFilter)
                 return (
                   <Item items={itemFilter} key={itemFilter.id}/>
                 )

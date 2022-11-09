@@ -17,12 +17,11 @@ import SearchProvider from './context/SearchContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <CartProvider>
-    <SearchProvider>
-    <App />
-
+    <SearchProvider>        
+        <CartProvider>
+            <App />
+        </CartProvider>
     </SearchProvider>
-    </CartProvider>
 
 );
 
