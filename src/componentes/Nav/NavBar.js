@@ -31,7 +31,7 @@ const NavBar = () => {
           
       </div>
             <ul className={openMenu} >
-                  <NavLink className='seccionLi' to='/' onClick={()=> setShowMobileMenu(!showMobileMenu)}> Inicio </NavLink> 
+                  <NavLink className='seccionLi' to='/' onClick={()=> setShowMobileMenu(!showMobileMenu)}> Todos </NavLink> 
 
                     <NavLink className='seccionLi' to='./categoria/Rosas' onClick={()=> setShowMobileMenu(!showMobileMenu)}>Rosas</NavLink> 
                 

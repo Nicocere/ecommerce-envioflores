@@ -12,9 +12,18 @@ const Cart = () => {
 
     console.log("cart", cart)
 
+
+
     const itemSelected = cart.map((item) => {
         console.log("ITEM", item)
-        
+
+    //     const colorOption = prodOptions[0,1].color ? color : null;
+
+    //   let noColor = item.colorElegido
+      if (item.colorElegido === undefined) {
+        item.colorElegido = false
+       } 
+
         return {
         
             id: item.id,

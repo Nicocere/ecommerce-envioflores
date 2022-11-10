@@ -69,6 +69,15 @@
   background-size: contain;
 
 }
+
+.cat-selected{
+  font-family: "Quintessential";
+  color: white;
+  margin: 1px;
+  font-weight: 400;
+
+}
+
 .seccion{
   display: flex;
   flex-direction: row;
@@ -723,6 +732,9 @@
     text-decoration: none;
     transition: all .3s ease-out;
   }
+
+
+
   .boton-abrircarrito{
     float: right;
     position: fixed;

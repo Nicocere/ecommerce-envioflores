@@ -50,6 +50,11 @@ const ItemListContainer = () => {
 
     return (
         <div className="productos">
+            {
+                categoryName ?
+                <h3 className="cat-selected">Esta en la Categoria: {categoryName}</h3> : null
+
+            }
             { isLoading ? ( 
                     <>
                     <h1 className="loadProd">Cargando Productos...</h1>

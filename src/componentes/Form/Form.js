@@ -28,10 +28,10 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     const handleSubmit = (event) => {
          event.preventDefault();
   
-        // if(!validation()){
-        //     const buyer = { nombre: nombre, apellido: apellido, phone: phone, mail: mail, direccion: direccion};
-        //     createOrder(buyer)
-        // }
+        if(!validation()){
+            const buyer = { itemSelected:itemSelected,  nombre: nombre, apellido: apellido, phone: phone, mail: mail, direccion: direccion};
+            createOrder(buyer)
+        }
 
         let bodyMp = itemSelected.map((item) => {
             let body = {
@@ -57,7 +57,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
                 phone,
                 mail, 
                 direccion
-
+                
             },
 
         // debo ahora subir la pagina de backend a vercel y agregar el link aca
@@ -124,6 +124,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     return state;
     }
 
+    console.log("itemSelected", itemSelected)
 
 
     const createOrder = (buyer) => {
@@ -135,8 +136,6 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
         };
 
     const ordersCollection = collection(baseDeDatos, 'orders');
-
-
 
     addDoc(ordersCollection, order).then((res) => {
             handleId(res.id);
