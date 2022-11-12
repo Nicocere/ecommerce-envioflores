@@ -4,7 +4,7 @@ import Item from '../Item/Item';
 
 const ItemList = ({items, prodEncontrado}) => {
   
-  console.log("prodencontrado", prodEncontrado.length)
+
 
   useEffect(()=>{
     

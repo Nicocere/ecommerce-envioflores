@@ -5,6 +5,11 @@ import {FaTrashAlt} from '@react-icons/all-files/fa/FaTrashAlt';
 import Form from '../Form/Form';
 
 
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { clear } from '@testing-library/user-event/dist/clear';
+
+
 const Cart = () => {
     const { cart, clearCart, eliminarProd, totalPrecio} = useContext(CartContext);
     const [idCompra, setIdCompra] = useState('');
@@ -12,7 +17,22 @@ const Cart = () => {
 
     console.log("cart", cart)
 
+    
+    // PRUEBA SWEET ALERT
+    const MySwal = withReactContent(Swal);
 
+    const deleteAll = () => {
+       return (
+       
+        clearCart(), 
+        MySwal.fire({
+            title: <strong>Eliminaste todos los Productos</strong>,
+            icon: 'success'
+        }) 
+
+       
+      )
+    }
 
     const itemSelected = cart.map((item) => {
         console.log("ITEM", item)
@@ -106,7 +126,8 @@ const Cart = () => {
                 
             }
 
-            <button className='btn-clear' onClick={clearCart}>Eliminar Todo</button>
+            <button className='btn-clear' onClick={deleteAll}>Eliminar Todo</button>
+          
          
             <h2 className='totalPrecio'>Total: $ {total}</h2>
 

@@ -4,34 +4,47 @@ import { CartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount';
 import { FcApproval } from "@react-icons/all-files/fc/FcApproval";
 
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+
+
 const AdicionalItem = ({adicional}) => {
     
-   
-
-
-    const { cart, addAdicional } = useContext(CartContext);
-    
-        
+    const { cart, addAdicional } = useContext(CartContext);     
     const [valueAdic, setValueAdic] = useState(new Array(adicional.opciones.length).fill(false))
+    
     const [totalAdicionales, setTotalAdicionales] = useState(0)
 
     const [cantidadAdicional, setCantidadAdicional] = useState(0)
     const [idAdicional, setIdAdicional] = useState({})
-    
     const [tamaño , setTamaño] = useState([])
     const [precio, setPrecio] = useState([])
-
-
     const itemAdicional = adicional
-
-
     
     
+        // PRUEBA SWEET ALERT
+
+    const MySwal = withReactContent(Swal);
+
+    const showSwal = () => {
+       return (
+        
+        MySwal.fire({
+            title: <strong>Agregaste un adicional!</strong>,
+            html: <i>Hiciste click en agregar</i>,
+            icon: 'success'
+        })
+        
+        )
+    }
+
+
     const handleChange = (position) =>{
         const positionChecked = valueAdic.map((item, index) => index === position ? !item : item );
-
+        
         setValueAdic(positionChecked)
-
+        
         const totalPriceAdicionales = positionChecked.reduce((sum, currentState, index) => {
             console.log("CURRENT STATE", currentState)
             console.log("INDEX ELEGIDO", index)
@@ -68,10 +81,6 @@ const AdicionalItem = ({adicional}) => {
             setIdAdicional("")
         }
     }
-
-
- 
-
 
     const onAdd = (cantidadItem) =>{
 
@@ -122,9 +131,13 @@ const AdicionalItem = ({adicional}) => {
         : 
         (
             cantidadAdicional === 0 ?
-            <ItemCount onAdd={onAdd} stock={3} />  
+            <button onClick={showSwal} >
+                 
+
+            </button>
             : 
             <div className='aviso-ad-agr'>
+            
             <h2 className='aviso-adicional-agregado'>Adicional Agregado</h2>  
             <FcApproval className='fcApproval'/>
             </div>

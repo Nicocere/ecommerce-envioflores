@@ -6,6 +6,8 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext'
 import AdicionalListContainer from '../AdicionalListContainer/AdicionalListContainer';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 
@@ -20,6 +22,8 @@ const ItemDetail = ({item}) => {
   const [tamaño, setTamaño] = useState("")
   const [precio, setPrecio] = useState("")
 
+
+  const MySwal = withReactContent(Swal)
 
 
   const quantity = cantidadProducto(item.id);
@@ -142,17 +146,19 @@ useEffect(() => {
             <>
               <ItemCount item={item} stock={5} initial={quantity} onAdd={onAdd} />  
               <AdicionalListContainer /> 
+    
             </>     
-              ) : (
+          ) : (
 
             <div className={estilosDetail.divBtn}>
             <Link to="/"> 
             <button className={estilosDetail.btnSeguir} >Seguir Comprando</button>
             </Link>
 
-            <Link to="/Carrito" >
+             <Link to="/Carrito" >
             <button className={estilosDetail.btnIrCarrito} >Ir al Carrito</button>
-            </Link>
+            </Link> 
+            
 
             </div>
               )       
