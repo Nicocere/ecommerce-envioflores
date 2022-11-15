@@ -62,7 +62,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             
             
             // debo ahora subir la pagina de backend a vercel y agregar el link aca
-            url: "https://app-mercado-pago.vercel.app/payment"
+            url: "https://app-mercado-pago.vercel.app/"
         }
         console.log("OPTS", opts)
 
