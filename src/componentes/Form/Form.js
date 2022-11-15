@@ -28,12 +28,12 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
     const handleSubmit = (event) => {
          event.preventDefault();
   
-        if(!validation()){
-            const buyer = { itemSelected:itemSelected,  nombre: nombre, apellido: apellido, phone: phone, mail: mail, direccion: direccion};
-            createOrder(buyer)
-        }
+        // if(!validation()){
+        //     const buyer = { itemSelected:itemSelected,  nombre: nombre, apellido: apellido, phone: phone, mail: mail, direccion: direccion};
+        //     createOrder(buyer)
+        // }
 
-        let bodyMp = itemSelected.map((item) => {
+    let bodyMp = itemSelected.map((item) => {
             let body = {
                 title: item.nombreProducto,
                 description: item.descr,
@@ -44,10 +44,10 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
             }
 
             return body
-        })
+    })
 
         console.log(bodyMp, "BODY MP")
-
+        
         const opts = { 
             method: "POST",
             data: {
@@ -59,10 +59,13 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
                 direccion
                 
             },
-
-        // debo ahora subir la pagina de backend a vercel y agregar el link aca
-            url: "https://app-mercado-pago-envio-flores-pe6rmjhl3-nicocere.vercel.app/"
+            
+            
+            // debo ahora subir la pagina de backend a vercel y agregar el link aca
+            url: "http://localhost:3000/payment"
         }
+        console.log("OPTS", opts)
+
         axios(opts)
         .then(res => {
             const linkMp = res.data.init_point
