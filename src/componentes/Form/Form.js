@@ -66,6 +66,7 @@ const Form = ({ itemSelected, cart, total, clearCart, handleId }) => {
         }
         console.log("OPTS", opts)
 
+    
         axios(opts)
         .then(res => {
             const linkMp = res.data.init_point
