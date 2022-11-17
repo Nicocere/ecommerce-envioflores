@@ -6,9 +6,9 @@ export const CartContext = createContext();
 
 
 const CartProvider = ({ children }) => {
+
     const [cart, setCart] = useState([]);
 
-    console.log("CART en el CARTCONTEX", cart)
 
     // AÑADIR ITEM
     const addToCart = (item, cantidadItem, colorElegido,  tamaño, precio) => {
@@ -68,6 +68,7 @@ const CartProvider = ({ children }) => {
         return acumulador;
     };
 
+
     const sumarCantidad = (item, cantidadItem) => {
         const carritoActualizado = cart.map((prod)=> {
             if(prod.id === item.id){ 
@@ -94,10 +95,25 @@ const CartProvider = ({ children }) => {
         return producto?.cantidadItem;
     };
 
+
     const clearCart = () => {
         setCart([]);
     };
 
+
+    // LOGRE VINCULAR EL CONTECX CON EL DIRECTIONS PERO NO SE COMO PLASMARLO EN EL FORM.
+
+    const [ finalPrice, setFinalPrice ] = useState(0)
+
+    const totalPriceLocation = (priceAllInclusive) => {
+        setFinalPrice (priceAllInclusive)
+
+    }
+
+    console.log("final PRICE", finalPrice)
+    
+
+    
     return (
         <CartContext.Provider
         value={{ 
@@ -108,6 +124,8 @@ const CartProvider = ({ children }) => {
             cantidadProducto,
             totalPrecio,
             clearCart, 
+            totalPriceLocation,
+            finalPrice
              }}>  
                 
                  {children}

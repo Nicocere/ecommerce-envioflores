@@ -129,14 +129,14 @@ const Cart = () => {
             <button className='btn-clear' onClick={deleteAll}>Eliminar Todo</button>
           
          
-            <h2 className='totalPrecio'>Total: $ {total}</h2>
+            <h3 className='totalPrecio'> ${total}</h3>
 
             <div className='formulario'>
             <h3 className='form-title'>Ingrese los datos de envío para confirmar la entrega.</h3>
             <Form  
                 itemSelected={itemSelected}       
                 cart={cart}
-                total={total}
+                // total={total}
                 clearCart={clearCart}
                 handleId={handleId}
                 // preferenceId={preferenceId}
