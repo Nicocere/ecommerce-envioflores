@@ -8,8 +8,7 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
 
 
           // PRUEBA SWEET ALERT
-
-          const MySwal = withReactContent(Swal);
+  const MySwal = withReactContent(Swal);
 
      
     
@@ -24,14 +23,9 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
       onAdd(count)
       
          MySwal.fire({
-             title: <strong>Agregaste un adicional!</strong>,
-             html: <i>Hiciste click en agregar</i>,
+             title: <strong>Agregaste el producto !</strong>,
              icon: 'success'
          })
-         
-         
-     
-  
     }
   
   useEffect(() => {
