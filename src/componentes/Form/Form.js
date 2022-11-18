@@ -98,7 +98,8 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
             
             // debo ahora subir la pagina de backend a vercel y agregar el link aca
             url: "https://app-payments-envioflores.herokuapp.com/payment"
-            
+            // url: "http://localhost:3000/payment"
+            // url: "https://app-mercado-pago.vercel.app/"
         }
         console.log("OPTS", opts)
 
