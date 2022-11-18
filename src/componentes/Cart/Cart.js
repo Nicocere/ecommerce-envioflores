@@ -7,7 +7,6 @@ import Form from '../Form/Form';
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { clear } from '@testing-library/user-event/dist/clear';
 
 
 const Cart = () => {
@@ -24,16 +23,33 @@ const Cart = () => {
     const deleteAll = () => {
        return (
        
-        clearCart(), 
+       
         MySwal.fire({
-            title: <strong>Eliminaste todos los Productos</strong>,
-            icon: 'success'
+            title: 'Quieres eliminar todos los productos?',
+            text: "Vaciaras el carrito",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar',
+            cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Carrito Vacio!',
+                clearCart(), 
+              )
+            }
         }) 
 
        
       )
     }
 
+    
+
+
+    
     const itemSelected = cart.map((item) => {
         console.log("ITEM", item)
 

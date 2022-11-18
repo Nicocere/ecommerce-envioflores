@@ -24,7 +24,10 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
       
          MySwal.fire({
              title: <strong>Agregaste el producto !</strong>,
-             icon: 'success'
+             icon: 'success',
+             showConfirmButton: false,
+             timer: 900,
+             position: 'top-end'
          })
     }
   

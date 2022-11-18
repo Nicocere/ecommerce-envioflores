@@ -17,7 +17,7 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
     const [apellido, setApellido] = useState('');
     const [phone, setPhone] = useState('');
     const [mailComprador, setMailComprador] = useState('');
-    const [validateMail, setValidateMail] = useState('');
+    
     const [calle, setCalle] = useState('');
     const [altura, setAltura] = useState('');
     const [piso, setPiso] = useState('');
@@ -34,37 +34,40 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
     const[apellidoComprador, setApellidoComprador] = useState('')
     const [errorNombreComprador, setErrorNombreComprador] = useState(false)
     const [errorApellidoComprador, setErrorApellidoComprador] = useState(false)
-
+    const [validateMail, setValidateMail] = useState('');
     const [errorEmail, setErrorEmail] = useState(false);
     const [error, setError] = useState(false);
+
+    const [errorLocation, setErrorLocation] = useState(false)
 
 
 
     
     const handleSubmit = (event) => {
          event.preventDefault();
-
+    
     
     
   
-        // if(!validation()){
-        //     const buyer = { itemSelected:itemSelected,  
-                                // nombre: nombre, 
-                                // apellido: apellido, 
-                                // phone: phone,
-                                // mailComprador: mailComprador, 
-                                // calle: calle,
-                                // altura: altura,
-                                // piso: piso, 
-                                // dedicatoria: saveDedicatoria,
-                                // nombreComprador: nombreComprador,
-                                // apellidoComprador:apellidoComprador
+        if(!validation()){
+            const buyer = { itemSelected:itemSelected,  
+                                nombre: nombre, 
+                                apellido: apellido, 
+                                phone: phone,
+                                mailComprador: mailComprador, 
+                                calle: calle,
+                                altura: altura,
+                                piso: piso, 
+                                dedicatoria: saveDedicatoria,
+                                nombreComprador: nombreComprador,
+                                apellidoComprador:apellidoComprador,
+                                finalPrice: finalPrice
 
 
 
-                         // };
-        //     createOrder(buyer)
-        // }
+                         };
+            createOrder(buyer)
+        }
 
     let bodyMp = itemSelected.map((item) => {
             let body = {
@@ -92,7 +95,8 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
                 calle,
                 altura,
                 piso,
-                saveDedicatoria
+                saveDedicatoria,
+                finalPrice
             },
             
             
@@ -115,6 +119,8 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
 
     const validation = () => {
         let state;
+
+    
      
     if(nombre  === ""){
             setErrorNombre(true)
@@ -185,9 +191,18 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
             state = true
         } else if ((nombre ==="" || apellido ==="" || phone ==="" || mailComprador  === "" || calle === "")  || validateMail !== mailComprador){
             state = true
-        }  else {
+        } else if(finalPrice === 0){
+            state = true
+        }
+         else {
             setError(false)
             state = false
+        }
+    if(finalPrice === 0){
+            setErrorLocation(true)
+            state = true
+        }else{
+            setErrorLocation(false)
         }
 
     return state;
@@ -315,8 +330,9 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
                 />
         {errorTel && <p className='message-error' >El numero de Telefono no es valido</p>} 
 
-
-            <Directions />    
+           
+            <Directions className={finalPrice === 0 ? 'input-error' : ""}/>
+            {errorLocation && <p className='message-error' >Tiene que elegir una LOCALIDAD</p>} 
                 
         <input
                 type="text"
@@ -351,27 +367,19 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
     <div className='div-dedicatoria' >
 
         
-    <h4 className='dedic-text'>Aqui puede agregar una dedicatoria:</h4>
+            <h4 className='dedic-text'>Aqui puede agregar una dedicatoria:</h4>
+                <textarea className='dedicatoria' onChange={handleChangeDedicatoria} value={dedicatoria}/> 
+                    <button className='btn-dedicatoria'  onClick={handleChangeBtn}>Guardar Dedicatoria</button>
 
-        <textarea className='dedicatoria' onChange={handleChangeDedicatoria} value={dedicatoria}/> 
-
-     
-         <button className='btn-dedicatoria'  onClick={handleChangeBtn}>Guardar Dedicatoria</button>
-
-       {
-            saveDedicatoria ? (
-                <>
-                 <h4 className='dedic-titulo'>Usted escribió:</h4>
-                    <h3 className='dedic-save'>{saveDedicatoria}</h3>
-                  
-                </>
-            ) : saveDedicatoria === ""
-
-
-       }
-       
-           
-        
+            {
+                    saveDedicatoria ? (
+                        <>
+                        <h4 className='dedic-titulo'>Usted escribió:</h4>
+                            <h3 className='dedic-save'>{saveDedicatoria}</h3>
+                        
+                        </>
+                    ) : saveDedicatoria === ""
+            }  
     </div>
         
         
