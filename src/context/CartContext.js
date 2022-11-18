@@ -8,7 +8,20 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([]);
+    // const cartLocalStorage = localStorage.getItem('carrito')
 
+
+    // useEffect(()=>{
+    //     console.log("CART STORAGE", 
+    //     cartLocalStorage)
+    //   setCart(JSON.parse(cartLocalStorage))
+    // },[])
+
+    
+
+
+
+    // console.log(JSON.parse(cartLocalStorage))
 
     // AÑADIR ITEM
     const addToCart = (item, cantidadItem, colorElegido,  tamaño, precio) => {
@@ -16,6 +29,7 @@ const CartProvider = ({ children }) => {
             sumarCantidad(item, cantidadItem,  tamaño, precio);
         } else {
             setCart([...cart, { ...item, cantidadItem, colorElegido, tamaño, precio}]);
+            // localStorage.setItem('carrito', JSON.stringify([...cart, { ...item, cantidadItem, colorElegido, tamaño, precio}]))
         }   
     };
 
@@ -29,7 +43,8 @@ const CartProvider = ({ children }) => {
             sumarAdicional(itemAdicional, totalAdicionales, cantidadItem)
         }else{
 
-            setCart ([...cart, {...itemAdicional,totalAdicionales, cantidadItem, tamaño, precio}])        
+            setCart ([...cart, {...itemAdicional,totalAdicionales, cantidadItem, tamaño, precio}])     
+            // localStorage.setItem('carrito', JSON.stringify([...cart, {...itemAdicional,totalAdicionales, cantidadItem, tamaño, precio}]))   
         }
     }
 
@@ -53,6 +68,7 @@ const CartProvider = ({ children }) => {
             }
          });
         setCart(adicionalActualizado);
+        // localStorage.setItem('carrito', JSON.stringify(adicionalActualizado)) 
     };
     
 
@@ -83,11 +99,13 @@ const CartProvider = ({ children }) => {
             }
         });
         setCart(carritoActualizado);
+        // localStorage.setItem('carrito', JSON.stringify(carritoActualizado)) 
     };
 
     const eliminarProd = (id) => {
         const carritoFiltrado = cart.filter((prod) => prod.id !== id);
         setCart(carritoFiltrado);
+        // localStorage.setItem('carrito', JSON.stringify(carritoFiltrado)) 
     };
 
     const cantidadProducto = (id) => {
@@ -98,6 +116,7 @@ const CartProvider = ({ children }) => {
 
     const clearCart = () => {
         setCart([]);
+        // localStorage.setItem('carrito', [])
     };
 
 
