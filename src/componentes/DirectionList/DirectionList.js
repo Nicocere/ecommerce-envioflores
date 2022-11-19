@@ -2,7 +2,6 @@ export const directionList = [
 
 { value:'1.00', label: '0PRUEBA $ 1.00'},
 { value:'899.00', label: 'CAPITAL FEDERAL $ 899.00'},
-
 { value:'1290.00', label: 'Acassuso $ 1290.00'},
 { value:'2790.00', label: 'Adrogue $ 2790.00'},
 { value:'1990.00', label: 'Aldo Bonzi $ 1990.00'},
