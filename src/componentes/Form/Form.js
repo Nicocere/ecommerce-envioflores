@@ -436,14 +436,26 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
 
     <h2 className='totalPrecio'>Total final: ${finalPrice}</h2>
 
-        <div className='payments-btn-container'>
-            <button className='btn-enviarform' onClick={handleSubmit}>Pagar con Mercado pago</button>
+    {
+        finalPrice !== 0 ? (
+
+            <div className='payments-btn-container'>
+
+            <h3 className='metodo-pago-title'>Seleccione un metodo de pago</h3>
+
+        <div className='mercadopago-div'>
+            <p className='tarjetas'>Tarjeta Nacionales</p>
+                <button className='btn-enviarform' onClick={handleSubmit}>Pagar con Mercado pago</button>
+        </div>
             
-            <div>
+            <div className='paypal-div'>
+                <p className='tarjetas'>Tarjetas Internacionales</p>
             <PayPalCheckoutButton itemSelected={itemSelected} finalPrice={finalPrice}/>
             </div>
         
         </div>
+            ) : <h1 className='alert-finalprice'> Antes de Finalizar la compra, debe elegir una Localidad de envio.</h1>
+    }   
 
             </form>
         </div>
