@@ -4,6 +4,7 @@ import { baseDeDatos } from '../../FireBaseConfig';
 import axios from 'axios'
 import Directions from '../Directions/Directions';
 import { CartContext } from '../../context/CartContext';
+import PayPalCheckoutButton from '../PaypalCheckoutButton/PayPalCheckoutButton';
 
 const Form = ({ itemSelected, cart, clearCart, handleId }) => {
     
@@ -433,10 +434,17 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
     
     </div>
 
-     
-        <h2 className='totalPrecio'>Total final: ${finalPrice}</h2>
+    <h2 className='totalPrecio'>Total final: ${finalPrice}</h2>
 
-                <button className='btn-enviarform' onClick={handleSubmit}>Pagar con Mercado pago</button>
+        <div className='payments-btn-container'>
+            <button className='btn-enviarform' onClick={handleSubmit}>Pagar con Mercado pago</button>
+            
+            <div>
+            <PayPalCheckoutButton itemSelected={itemSelected} finalPrice={finalPrice}/>
+            </div>
+        
+        </div>
+
             </form>
         </div>
     );

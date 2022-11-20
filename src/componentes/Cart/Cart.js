@@ -59,9 +59,7 @@ const Cart = () => {
       if (item.colorElegido === undefined) {
         item.colorElegido = false
        } 
-
         return {
-        
             id: item.id,
             img: item.img,
             cantidad: item.cantidadItem,
@@ -74,9 +72,6 @@ const Cart = () => {
             tipo: item.tipo,
             description: item.descr
         }
-
-    
-    
     })
 
     console.log("item selected", itemSelected)

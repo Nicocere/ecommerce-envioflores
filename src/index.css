@@ -670,10 +670,6 @@ width: 60%;
   width: 55%;
 }
 
-.direction-choose{
-
-}
-
 .input-error{
   border: 2px red solid;
   width: 55%;
@@ -743,6 +739,13 @@ width: 60%;
 /* ICONOS */
 .fcApproval{
   font-size: 20px;
+}
+
+/* PAYPAL */
+
+.payments-btn-container{
+  display: flex;
+  flex-direction: column;
 }
 
 /* VISTA TABLETS Y CELULARES --------------- */
