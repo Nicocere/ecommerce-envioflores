@@ -6,14 +6,14 @@ import Directions from '../Directions/Directions';
 import { CartContext } from '../../context/CartContext';
 import PayPalCheckoutButton from '../PaypalCheckoutButton/PayPalCheckoutButton';
 
-const Form = ({ itemSelected, cart, clearCart, handleId }) => {
+const Form = ({ itemSelected, idCompra, clearCart, handleId }) => {
     
     const {finalPrice} = useContext(CartContext)
     const [dedicatoria, setDedicatoria] = useState('')
     const [saveDedicatoria, setSaveDedicatoria] = useState('')
     
 //    datos de quien recibe 
-    const [value, setValue] = useState(false);
+    // const [value, setValue] = useState(false);
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [phone, setPhone] = useState('');
@@ -63,9 +63,6 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
                                 nombreComprador: nombreComprador,
                                 apellidoComprador:apellidoComprador,
                                 finalPrice: finalPrice
-
-
-
                          };
             createOrder(buyer)
         }
@@ -121,8 +118,6 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
     const validation = () => {
         let state;
 
-    
-     
     if(nombre  === ""){
             setErrorNombre(true)
             state = true
@@ -192,13 +187,12 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
             state = true
         } else if ((nombre ==="" || apellido ==="" || phone ==="" || mailComprador  === "" || calle === "")  || validateMail !== mailComprador){
             state = true
-        } else if(finalPrice === 0){
-            state = true
-        }
+        } 
          else {
             setError(false)
             state = false
         }
+        
     if(finalPrice === 0){
             setErrorLocation(true)
             state = true
@@ -450,7 +444,12 @@ const Form = ({ itemSelected, cart, clearCart, handleId }) => {
             
             <div className='paypal-div'>
                 <p className='tarjetas'>Tarjetas Internacionales</p>
-            <PayPalCheckoutButton itemSelected={itemSelected} finalPrice={finalPrice}/>
+            <PayPalCheckoutButton 
+            itemSelected={itemSelected} 
+            finalPrice={finalPrice}
+            idCompra={idCompra}
+            onClick={handleSubmit}
+            />
             </div>
         
         </div>

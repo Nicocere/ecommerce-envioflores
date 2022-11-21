@@ -147,7 +147,7 @@ const Cart = () => {
             <Form  
                 itemSelected={itemSelected}       
                 cart={cart}
-                // total={total}
+                idCompra= {idCompra}
                 clearCart={clearCart}
                 handleId={handleId}
                 // preferenceId={preferenceId}

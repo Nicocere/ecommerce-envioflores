@@ -1,14 +1,21 @@
 import React, { useState } from 'react'
 import { PayPalButtons } from '@paypal/react-paypal-js'
 
-const PayPalCheckoutButton = ( { itemSelected, finalPrice }) => {
-
-    // LLAMAR A const {finalPrice} = useContext(CartContext) Y IMPORTARLO
+const PayPalCheckoutButton = ( { itemSelected, finalPrice, idCompra }) => {
     
-//     const [paidFor, setPaidFor] = useState(false);
-//     const [error, setError] = useState(null);
+    const [paidFor, setPaidFor] = useState(false);
+    const [error, setError] = useState(null);
 
-//     const handleApprove = (orderId) => {
+    
+    const dolarPrice = 163.18
+    const conversionToDolar = finalPrice / dolarPrice
+    console.log("PRECIO FINAL EN DOLARES", conversionToDolar)
+    console.log("PRECIO FINAL EN DOLARES", conversionToDolar.toFixed())
+
+    const priceFinalDolar = conversionToDolar.toFixed()
+    console.log("FINAL PRICE DOLAR", priceFinalDolar)
+
+    const handleApprove = (idCompra) => {
 //       // Call backend function to fulfill order
   
 //       // if response is success
@@ -17,12 +24,12 @@ const PayPalCheckoutButton = ( { itemSelected, finalPrice }) => {
   
 //       // if response is error
 //       // alert("Your payment was processed successfully. However, we are unable to fulfill your purchase. Please contact us at support@designcode.io for assistance.");
-//     };
+    };
   
-//     if (paidFor) {
-//       // Display success message, modal or redirect user to success page
-//       alert("Thank you for your purchase!");
-//     }
+    if (paidFor) {
+      // Display success message, modal or redirect user to success page
+      alert("Thank you for your purchase!");
+    }
 
    
 // if (error) {
@@ -39,34 +46,35 @@ const PayPalCheckoutButton = ( { itemSelected, finalPrice }) => {
         layout: "vertical",
         shape: "pill",
     }}
-    //  createOrder={(data, actions) => {
+     createOrder={(data, actions) => {
 
-    //     console.log("data", data)
-    //     console.log("order", actions)
-    //     return actions.order.create({
-    //         purchase_units: [
-    //             {
-                    
-    //             description: itemSelected.description,
-    //             amount: {
-    //                 value: finalPrice
-    //             }
+        console.log("data", data)
+        console.log("order", actions.order)
+        return actions.order.create({
+            purchase_units: [
+                    {
                         
-                                
-    //         }]
-
-    //         });
-    //     }}
-    //     onApprove={async (data, actions) => {
-    //         const order = await actions.order.capture(); 
-    //         console.log("order", order);
+                    description: itemSelected.description,
+                    amount: {
+                        value: priceFinalDolar
+                    },    
+                    item_total: {     
+                        itemSelected
+                    }       
+                }
+            ]
+        });
+    }}
+        onApprove={async (data, actions) => {
+            const order = await actions.order.capture(); 
+            console.log("order", order);
           
-    //         handleApprove(data.orderID);
-    //       }}
-    //       onError={(err) => {
-    //         setError(err);
-    //         console.error("PayPal Checkout onError", err);
-    //       }}
+            handleApprove(data.idCompra);
+          }}
+          onError={(err) => {
+            setError(err);
+            console.error("PayPal Checkout onError", err);
+          }}
     />
 );
 };
