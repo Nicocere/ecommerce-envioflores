@@ -1,27 +1,42 @@
-import React from 'react';
+import React, {useCallback, useEffect} from 'react';
 import { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 
-
-
 const CartProvider = ({ children }) => {
-
+    
     const [cart, setCart] = useState([]);
-    // const cartLocalStorage = localStorage.getItem('carrito')
+    const [cartStorage, setCartStorage] = useState([])
+    const [ finalPrice, setFinalPrice ] = useState(0)
 
+    console.log("cartStorage",cartStorage)
 
-    // useEffect(()=>{
-    //     console.log("CART STORAGE", 
-    //     cartLocalStorage)
-    //   setCart(JSON.parse(cartLocalStorage))
-    // },[])
+    const cartLocalStorage = localStorage.getItem('carrito');
+
+    const cartParse =  JSON.parse(cartLocalStorage)
+    // console.log("cartLocalStorage",cartLocalStorage)
+    // console.log("cartParse", cartParse)
 
     
+    
+    // LOCALSTORAGE
+    
+    const initLocalStorage = () =>{
+        !cartLocalStorage && localStorage.setItem('carrito', JSON.stringify(cart))
+    }
+    
+useEffect(() => {
+    initLocalStorage()
+            
+        if(cart.length !== 0){
+                setCartStorage(JSON.parse(cartLocalStorage))
+            }
 
+        if (cart.length === 0) {
+                localStorage.setItem('carrito', null)
+            }   
+    }, [ cartLocalStorage])
 
-
-    // console.log(JSON.parse(cartLocalStorage))
 
     // AÑADIR ITEM
     const addToCart = (item, cantidadItem, colorElegido,  tamaño, precio) => {
@@ -29,8 +44,8 @@ const CartProvider = ({ children }) => {
             sumarCantidad(item, cantidadItem,  tamaño, precio);
         } else {
             setCart([...cart, { ...item, cantidadItem, colorElegido, tamaño, precio}]);
-            // localStorage.setItem('carrito', JSON.stringify([...cart, { ...item, cantidadItem, colorElegido, tamaño, precio}]))
-        }   
+            localStorage.setItem('carrito', JSON.stringify([...cart, { ...item, cantidadItem, colorElegido, tamaño, precio}]))
+        }
     };
 
     // AÑADIR ADICIONAL
@@ -43,8 +58,8 @@ const CartProvider = ({ children }) => {
             sumarAdicional(itemAdicional, totalAdicionales, cantidadItem)
         }else{
 
-            setCart ([...cart, {...itemAdicional,totalAdicionales, cantidadItem, tamaño, precio}])     
-            // localStorage.setItem('carrito', JSON.stringify([...cart, {...itemAdicional,totalAdicionales, cantidadItem, tamaño, precio}]))   
+            setCart ([...cart, {...itemAdicional,totalAdicionales, cantidadItem, tamaño, precio}])
+            // localStorage.setItem('carrito', JSON.stringify([...cart, {...itemAdicional,totalAdicionales, cantidadItem, tamaño, precio}]))
         }
     }
 
@@ -56,10 +71,10 @@ const CartProvider = ({ children }) => {
     const sumarAdicional = (itemAdicional, cantidadItem) => {
 
        const adicionalActualizado = cart.map((adic)=> {
-            if(adic.id === itemAdicional.id){ 
+            if(adic.id === itemAdicional.id){
                 const adicActualizado = {
                     ...itemAdicional,
-                    cantidadItem: adic.cantidadItem + cantidadItem  
+                    cantidadItem: adic.cantidadItem + cantidadItem
                 };
                 return adicActualizado;
 
@@ -68,9 +83,9 @@ const CartProvider = ({ children }) => {
             }
          });
         setCart(adicionalActualizado);
-        // localStorage.setItem('carrito', JSON.stringify(adicionalActualizado)) 
+        // localStorage.setItem('carrito', JSON.stringify(adicionalActualizado))
     };
-    
+
 
     const isInCart = (id) =>{
         return cart.some((prod) => prod.id === id);
@@ -78,7 +93,7 @@ const CartProvider = ({ children }) => {
 
     const totalPrecio = () => {
         let acumulador = 0;
-        cart.forEach((prod) => {    
+        cart.forEach((prod) => {
             acumulador += prod.cantidadItem * prod.precio;
         });
         return acumulador;
@@ -87,7 +102,7 @@ const CartProvider = ({ children }) => {
 
     const sumarCantidad = (item, cantidadItem) => {
         const carritoActualizado = cart.map((prod)=> {
-            if(prod.id === item.id){ 
+            if(prod.id === item.id){
                 const prodActualizado = {
                     ...prod,
                     cantidadItem: prod.cantidadItem + cantidadItem
@@ -99,13 +114,13 @@ const CartProvider = ({ children }) => {
             }
         });
         setCart(carritoActualizado);
-        // localStorage.setItem('carrito', JSON.stringify(carritoActualizado)) 
+        // localStorage.setItem('carrito', JSON.stringify(carritoActualizado))
     };
 
     const eliminarProd = (id) => {
         const carritoFiltrado = cart.filter((prod) => prod.id !== id);
         setCart(carritoFiltrado);
-        // localStorage.setItem('carrito', JSON.stringify(carritoFiltrado)) 
+        // localStorage.setItem('carrito', JSON.stringify(carritoFiltrado))
     };
 
     const cantidadProducto = (id) => {
@@ -116,37 +131,31 @@ const CartProvider = ({ children }) => {
 
     const clearCart = () => {
         setCart([]);
-        // localStorage.setItem('carrito', [])
+        setCartStorage([])
+    
     };
 
-
-    // LOGRE VINCULAR EL CONTECX CON EL DIRECTIONS PERO NO SE COMO PLASMARLO EN EL FORM.
-
-    const [ finalPrice, setFinalPrice ] = useState(0)
-
+    // PRECIO FINAL 
     const totalPriceLocation = (priceAllInclusive) => {
         setFinalPrice (priceAllInclusive)
 
     }
 
-    console.log("final PRICE", finalPrice)
-    
-
-    
     return (
         <CartContext.Provider
-        value={{ 
+        value={{
             cart,
+            cartStorage,
             addToCart,
             addAdicional,
             eliminarProd,
             cantidadProducto,
             totalPrecio,
-            clearCart, 
+            clearCart,
             totalPriceLocation,
             finalPrice
-             }}>  
-                
+             }}>
+
                  {children}
         </CartContext.Provider>
     );

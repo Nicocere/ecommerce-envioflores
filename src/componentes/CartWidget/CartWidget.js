@@ -4,12 +4,13 @@ import { CartContext } from '../../context/CartContext';
 
 const CartWidget = () => {
   
-  const { cart } = useContext(CartContext);
-
+  const { cart, cartStorage } = useContext(CartContext);
+  console.log("CART N°", cart)
+  console.log("cartStorageS N°", cartStorage)
   return (
     <button className="boton-abrircarrito">
       <span ><HiOutlineShoppingBag/></span>
-      <span className="contadorCarrito"> {cart.length} </span>     
+      <span className="contadorCarrito"> {cartStorage ? cartStorage.length : cart.length} </span>     
     </button>
   )
 }

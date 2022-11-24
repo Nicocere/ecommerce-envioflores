@@ -10,11 +10,12 @@ import withReactContent from 'sweetalert2-react-content';
 
 
 const Cart = () => {
-    const { cart, clearCart, eliminarProd, totalPrecio} = useContext(CartContext);
+    const { cart, cartStorage, clearCart, eliminarProd, totalPrecio} = useContext(CartContext);
     const [idCompra, setIdCompra] = useState('');
     const total = totalPrecio();
 
     console.log("cart", cart)
+    console.log("cartStoragecartStorage", cartStorage)
 
     
     // PRUEBA SWEET ALERT
@@ -50,7 +51,7 @@ const Cart = () => {
 
 
     
-    const itemSelected = cart.map((item) => {
+    const itemSelected = cartStorage.map((item) => {
         console.log("ITEM", item)
 
     //     const colorOption = prodOptions[0,1].color ? color : null;
@@ -90,52 +91,70 @@ const Cart = () => {
         )
     }
 
-    if (cart.length === 0) {
-        return (
-            <h1 className='cartVacio'>
-                El Carrito esta vacío... 
-                Puedes ir al <Link to="/" className='cart-home'>Inicio</Link>{' '}
-                para buscar y agregar algún producto
-            </h1>
-        );
-    }
+ 
+//   if ( cart.length === 0){
+//         return (
+//             <h1 className='cartVacio'>
+//                 El Carrito esta vacío... 
+//                 Puedes ir al <Link to="/" className='cart-home'>Inicio</Link>{' '}
+//                 para buscar y agregar algún producto
+//             </h1>
+//         );
+
+//     }
 
     return (
         <div className='cart'> 
-        <h2 className='tituloProducto'>ESTOS SON LOS PRODUCTOS QUE SELECCIONO</h2>
-            { 
-                itemSelected.map((prod)=> (
-                    <div  className='prodInCart' key={prod.id}>
-                        
-                    <img className='imgInCart' src={prod.img} alt="imagen producto en carrito"/>
-                        
-                    <div  className='divCart'>   
-                        <h4 className='detailsInCart'> {prod.nombreProducto}</h4>
-                    </div>
-
-                    <div className='divCart'>
-                         <p className='detailsInCart'>Cantidad:{prod.cantidad}</p>
+        
+        { cart.length === 0  && cartStorage.length === 0 ?  
+        
+            (
+            <>
+        <h1 className='cartVacio'>
+                El Carrito esta vacío... 
+                Puedes ir al <Link to="/" className='cart-home'>Inicio</Link>{' '}
+                para buscar y agregar algún producto
+            </h1> 
+             </>
+           )  : (
+            <>
+               <h2 className='tituloProducto'>ESTOS SON LOS PRODUCTOS QUE SELECCIONO</h2>
+                {
+                    itemSelected.map((prod)=> (
+                        <div  className='prodInCart' key={prod.id}>
                             
-                    </div>
-                    <div className='divCart'>
-                        <p className='detailsInCart'>Color: {prod.color}</p>
+                        <img className='imgInCart' src={prod.img} alt="imagen producto en carrito"/>
                             
-                    </div>
-
-                    <div className='divCart'>
-                        <p className='detailsInCart'>Tamaño: {prod.tamaño}</p>
-                    </div>
-                    <div className='divCart'>
-                        <p className='detailsInCart'>Precio: ${prod.precioUnidad}</p>
-                    </div>
-
-                        <button  className='btn-eliminarProd' onClick={() => eliminarProd(prod.id)}>
-                            <FaTrashAlt className='icon-eliminarProd'/> Eliminar
-                        </button>
-                    </div>
-                ))
-                
-            }
+                        <div  className='divCart'>   
+                            <h4 className='detailsInCart'> {prod.nombreProducto}</h4>
+                        </div>
+        
+                        <div className='divCart'>
+                             <p className='detailsInCart'>Cantidad:{prod.cantidad}</p>
+                                
+                        </div>
+                        <div className='divCart'>
+                            <p className='detailsInCart'>Color: {prod.color}</p>
+                                
+                        </div>
+        
+                        <div className='divCart'>
+                            <p className='detailsInCart'>Tamaño: {prod.tamaño}</p>
+                        </div>
+                        <div className='divCart'>
+                            <p className='detailsInCart'>Precio: ${prod.precioUnidad}</p>
+                        </div>
+        
+                            <button  className='btn-eliminarProd' onClick={() => eliminarProd(prod.id)}>
+                                <FaTrashAlt className='icon-eliminarProd'/> Eliminar
+                            </button>
+                            </div>
+                            ))
+                }
+       
+      
+                          
+        
 
             <button className='btn-clear' onClick={deleteAll}>Eliminar Todo</button>
           
@@ -153,10 +172,12 @@ const Cart = () => {
                 // preferenceId={preferenceId}
                 />
             
-            
 
             </div>
-           
+            </>
+           )
+        
+        }
         </div>
     );
 };

@@ -439,7 +439,11 @@ const Form = ({ itemSelected, idCompra, clearCart, handleId }) => {
 
         <div className='mercadopago-div'>
             <p className='tarjetas'>Tarjeta Nacionales</p>
-                <button className='btn-enviarform' onClick={handleSubmit}>Pagar con Mercado pago</button>
+                <button className='btn-mercadopago' onClick={handleSubmit}>Pagar con Mercado pago
+                <img src= {'../assets/mp-icon.png'} className="mp-icon"  alt=""/>
+
+                
+                </button>
         </div>
             
             <div className='paypal-div'>
