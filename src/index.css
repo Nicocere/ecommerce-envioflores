@@ -935,7 +935,7 @@ width: 60%;
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 615px) {
 
   .listadeproductos{
     grid-template-columns: 48% 48% ;
@@ -999,6 +999,11 @@ width: 60%;
 .dedicatoria{
   width: 80%;
   height: 70px;
+}
+
+.tarjetaFoot {
+  margin-right: 7%;
+  width: 5%;
 }
 
 }

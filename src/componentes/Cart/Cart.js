@@ -91,18 +91,6 @@ const Cart = () => {
         )
     }
 
- 
-//   if ( cart.length === 0){
-//         return (
-//             <h1 className='cartVacio'>
-//                 El Carrito esta vacío... 
-//                 Puedes ir al <Link to="/" className='cart-home'>Inicio</Link>{' '}
-//                 para buscar y agregar algún producto
-//             </h1>
-//         );
-
-//     }
-
     return (
         <div className='cart'> 
         

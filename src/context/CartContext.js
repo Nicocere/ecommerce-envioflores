@@ -22,20 +22,23 @@ const CartProvider = ({ children }) => {
     // LOCALSTORAGE
     
     const initLocalStorage = () =>{
+        console.log("INITIAL LOCAL STORAGE")
         !cartLocalStorage && localStorage.setItem('carrito', JSON.stringify(cart))
     }
     
 useEffect(() => {
+
     initLocalStorage()
             
         if(cart.length !== 0){
+            console.log("EL CART ESTA VACIO")
                 setCartStorage(JSON.parse(cartLocalStorage))
-            }
+            } else {
+                console.log("ESTO PASA")
+                          localStorage.setItem('carrito', null)
+                      }   
+        }, [ cartLocalStorage, cart])
 
-        if (cart.length === 0) {
-                localStorage.setItem('carrito', null)
-            }   
-    }, [ cartLocalStorage])
 
 
     // AÑADIR ITEM
@@ -120,6 +123,7 @@ useEffect(() => {
     const eliminarProd = (id) => {
         const carritoFiltrado = cart.filter((prod) => prod.id !== id);
         setCart(carritoFiltrado);
+        setCartStorage(carritoFiltrado)
         // localStorage.setItem('carrito', JSON.stringify(carritoFiltrado))
     };
 

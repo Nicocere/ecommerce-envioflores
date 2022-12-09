@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Select from 'react-select'
 import { CartContext } from '../../context/CartContext';
 import { directionList } from '../DirectionList/DirectionList'
 
 
- const Directions = ({priceAllInclusive}) => {
+ const Directions = ({priceAllInclusive, setLocationSelect}) => {
 
     const { totalPrecio, totalPriceLocation, } = useContext(CartContext);
 
@@ -15,10 +15,13 @@ import { directionList } from '../DirectionList/DirectionList'
     console.log("location price", priceLocation)
     
    priceAllInclusive = totalPrecio() + priceLocation
+
+   useEffect(()=>{
+      if (priceLocation !== 0){
+          totalPriceLocation( priceAllInclusive)
+      }
+   },[priceAllInclusive])
  
-    if (priceLocation !== 0){
-        totalPriceLocation( priceAllInclusive)
-    }
 
     console.log("priceAllInclusive  ", priceAllInclusive)
 
@@ -28,10 +31,12 @@ import { directionList } from '../DirectionList/DirectionList'
   
     setLocation(event.label)
     setLocationPrice(event.value)
-
+    
  
   }
- 
+  
+  setLocationSelect(location)
+
     return (
     <div className='select-directions'>
 

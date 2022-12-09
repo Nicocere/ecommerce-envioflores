@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PayPalButtons } from '@paypal/react-paypal-js'
 
-const PayPalCheckoutButton = ( { itemSelected, finalPrice, idCompra }) => {
+const PayPalCheckoutButton = ( { itemSelected, finalPrice, handleSubmit, handleId, createOrder, validation, clearCart }) => {
     
     const [paidFor, setPaidFor] = useState(false);
+
+    const [orderId, setOrderId] = useState()
     const [error, setError] = useState(null);
 
     
@@ -15,21 +17,32 @@ const PayPalCheckoutButton = ( { itemSelected, finalPrice, idCompra }) => {
     const priceFinalDolar = conversionToDolar.toFixed()
     console.log("FINAL PRICE DOLAR", priceFinalDolar)
 
-    const handleApprove = (idCompra) => {
+    const handleApprove = (orderID) => {
 //       // Call backend function to fulfill order
   
 //       // if response is success
-//       setPaidFor(true);
+      setPaidFor(true);
+      setOrderId(orderID)
 //       // Refresh user's account or subscription status
   
 //       // if response is error
 //       // alert("Your payment was processed successfully. However, we are unable to fulfill your purchase. Please contact us at support@designcode.io for assistance.");
     };
+    console.log("Paid", paidFor)
+    console.log("ORDER ID", orderId)
   
-    if (paidFor) {
-      // Display success message, modal or redirect user to success page
-      alert("Thank you for your purchase!");
-    }
+    useEffect(()=>{
+        
+        if (paidFor) {
+          // Display success message, modal or redirect user to success page
+        handleId(orderId)
+        // handleSubmit()
+        // createOrder()
+        validation()
+        clearCart()  
+        }
+
+    },[paidFor])
 
    
 // if (error) {
@@ -49,17 +62,18 @@ const PayPalCheckoutButton = ( { itemSelected, finalPrice, idCompra }) => {
      createOrder={(data, actions) => {
 
         console.log("data", data)
-        console.log("order", actions.order)
+        console.log(" create order", actions.order)
         return actions.order.create({
             purchase_units: [
                     {
                         
+                        
                     description: itemSelected.description,
                     amount: {
-                        value: priceFinalDolar
-                    },    
-                    item_total: {     
-                        itemSelected
+                        value: priceFinalDolar ,    
+                            item_total: {     
+                                itemSelected
+                        }
                     }       
                 }
             ]
@@ -67,9 +81,12 @@ const PayPalCheckoutButton = ( { itemSelected, finalPrice, idCompra }) => {
     }}
         onApprove={async (data, actions) => {
             const order = await actions.order.capture(); 
-            console.log("order", order);
+            console.log("order onApprove", order);
+            console.log("AWAIT", actions.order)
+            console.log("data approve", data)
+
           
-            handleApprove(data.idCompra);
+            handleApprove(data.orderID);
           }}
           onError={(err) => {
             setError(err);

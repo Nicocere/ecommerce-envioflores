@@ -1,14 +1,11 @@
-import React , { useContext, useState} from "react";
-
+import React , { useContext, useEffect,useState} from "react";
 import { SearchContext } from "../../context/SearchContext";
 
-
-
-const NavBarBottom = ({items}) => {
+const Searcher = ({items}) => {
 
   console.log("ITEMS NAV BAR BOTON", items)
 
-    const { prodEncontrado, changeList} = useContext(SearchContext)
+  const { prodEncontrado, changeList} = useContext(SearchContext)
 
   let [itemEncontrado, setItemEncontrado] = useState([])
 
@@ -23,15 +20,20 @@ const NavBarBottom = ({items}) => {
   const filtrado = (prodBuscado) =>{
     console.log("BUSCADO PRODUCTO", prodBuscado)  
 
-    const restultadoBusqueda = items.filter((prod)=>{
+    const restultadoBusqueda = items.filter((prod) =>{
       if(prod.nombre.toString().toLowerCase().includes(prodBuscado.toLowerCase())){
         return prod;
       }
     })
-    setItemEncontrado(restultadoBusqueda)
+     setItemEncontrado(restultadoBusqueda)
   }
   // console.log("ITEM ENCONTRADO", itemEncontrado)
-  changeList(itemEncontrado)
+
+  useEffect(()=>{
+         
+    changeList(itemEncontrado)
+
+  },[itemEncontrado])
   return (
 
 
@@ -55,4 +57,4 @@ const NavBarBottom = ({items}) => {
   )
 }
 
-export default NavBarBottom
+export default Searcher
