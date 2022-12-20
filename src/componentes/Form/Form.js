@@ -143,11 +143,12 @@ const Form = ({ itemSelected, cart, idCompra, clearCart, handleId }) => {
             
 
             // debo ahora subir la pagina de backend a vercel y agregar el link aca
-            url: "https://mp-envioflores.vercel.app/"
+            url: "https://mp-envioflores.vercel.app"
             // url: "http://localhost:3000/payment"
             // url: "https://app-mercado-pago.vercel.app/"
         }
-        console.log("OPTS", opts)
+
+        console.log( "OPTS", opts)
 
 
         axios(opts)
