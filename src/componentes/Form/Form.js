@@ -10,6 +10,9 @@ import emailjs from 'emailjs-com';
 import { directionList } from '../DirectionList/DirectionList';
 
 
+
+// ANTES DE FINALIZAR CON EL FORM TENGO QUE ELEGIR ENTRE DOS LIBRERIAS DE EMAIL 
+// ESTOY ENTRE NODEMAILER Y EMAIL JSON, DESINSTALAR ALGUNA 
 const Form = ({ itemSelected, cart, idCompra, clearCart, handleId }) => {
 
     const form = useRef();
@@ -47,38 +50,60 @@ const Form = ({ itemSelected, cart, idCompra, clearCart, handleId }) => {
     // DATO DE LA LOCACION
     const [errorLocation, setErrorLocation] = useState(false)
     const [locationSelect, setLocationSelect] = useState({})
-
     console.log("LOCATION SELECTED, ", locationSelect)
 
+
+    // ITEM PARA EL EMAIL 
+    console.log("itemSelected",  itemSelected)
+
+
+    let newItemForEmail = itemSelected.reduce(function(a,b){
+        return `${a} ID: ${b.id}` + 
+        ` CANTIDAD: ${b.cantidad} ` + 
+        ` PRECIO: $${b.precioUnidad},` + 
+        ` TAMAÑO: ${b.tamaño} ` + 
+        ` NOMBRE PRODUCTO: ${b.description}, ` +  
+        ` ESTILO: ${b.tipo}`
     
+    }, "")
+    console.log("newItemForEmail", newItemForEmail)
+
+
+    const itemToEmail = Object.assign({}, itemSelected)
+    console.log("itemToEmail",itemToEmail)
+
+
+   const itemsInString = JSON.stringify(newItemForEmail)
+    console.log("itemsInString",  itemsInString)
+    
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-
-
         if (!validation()) {
-            const buyer = {
-                itemSelected: itemSelected,
-                nombre: nombre,
-                apellido: apellido,
-                phone: phone,
-                mailComprador: mailComprador,
-                // localidad: ,
-                calle: calle,
-                altura: altura,
-                piso: piso,
-                dedicatoria: saveDedicatoria,
-                nombreComprador: nombreComprador,
-                apellidoComprador: apellidoComprador,
-                finalPrice: finalPrice,
-                
+                const buyer = {
+                    itemsInString: itemsInString,
+                    nombre: nombre,
+                    apellido: apellido,
+                    phone: phone,
+                    mailComprador: mailComprador,
+                    localidad: locationSelect,
+                    calle: calle,
+                    altura: altura,
+                    piso: piso,
+                    dedicatoria: saveDedicatoria,
+                    nombreComprador: nombreComprador,
+                    apellidoComprador: apellidoComprador,
+                    finalPrice: finalPrice,
+                    
 
-            };
+                };
             createOrder(buyer)
 
-            emailjs.send('service_8spcdzk', 'template_xz119jg', buyer,  'ngfwjTyhJoJB1D_eY')
-                .then((result) => {
+        emailjs.send('service_8spcdzk', 'template_xz119jg', buyer,  'ngfwjTyhJoJB1D_eY')
+            .then((result) => {
                     console.log("FUNCIONO LO DE EMAIL", result.text);
                 }, (error) => {
                     console.log("NO FUNCIONO", error.text);
@@ -115,10 +140,10 @@ const Form = ({ itemSelected, cart, idCompra, clearCart, handleId }) => {
                 saveDedicatoria,
                 finalPrice
             },
-
+            
 
             // debo ahora subir la pagina de backend a vercel y agregar el link aca
-            url: "https://app-payments-envioflores.herokuapp.com/payment"
+            url: "https://mp-envioflores.vercel.app"
             // url: "http://localhost:3000/payment"
             // url: "https://app-mercado-pago.vercel.app/"
         }
@@ -137,35 +162,35 @@ const Form = ({ itemSelected, cart, idCompra, clearCart, handleId }) => {
     const validation = () => {
         let state;
 
-        if (nombre === "") {
+    if (nombre === "") {
             setErrorNombre(true)
             state = true
         } else {
             setErrorNombre(false)
         }
 
-        if (apellido === "") {
+    if (apellido === "") {
             setErrorApellido(true)
             state = true
         } else {
             setErrorApellido(false)
         }
 
-        if (calle === "") {
+    if (calle === "") {
             setErrorCalle(true)
             state = true
         } else {
             setErrorCalle(false)
         }
 
-        if (piso === "") {
+    if (piso === "") {
             setErrorPiso(true)
             state = true
         } else {
             setErrorPiso(false)
         }
 
-        if (altura === "") {
+    if (altura === "") {
             setErrorAltura(true)
             state = true
         } else {
@@ -173,34 +198,34 @@ const Form = ({ itemSelected, cart, idCompra, clearCart, handleId }) => {
         }
 
 
-        if (phone === "" || phone.length <= 4) {
+    if (phone === "" || phone.length <= 4) {
             setErrorTel(true)
             state = true
         } else {
             setErrorTel(false)
         }
 
-        if (mailComprador === "") {
+    if (mailComprador === "") {
             setErrorEmail(true)
             state = true
         } else {
             setErrorEmail(false)
         }
 
-        if (nombreComprador === "") {
+    if (nombreComprador === "") {
             setErrorNombreComprador(true)
             state = true
         } else {
             setErrorNombreComprador(false)
         }
-        if (apellidoComprador === "") {
+    if (apellidoComprador === "") {
             setErrorApellidoComprador(true)
             state = true
         } else {
             setErrorApellidoComprador(false)
         }
 
-        if (mailComprador !== validateMail || validateMail === "") {
+    if (mailComprador !== validateMail || validateMail === "") {
             setError(true)
             setValidateMail("")
             state = true
@@ -212,19 +237,15 @@ const Form = ({ itemSelected, cart, idCompra, clearCart, handleId }) => {
             state = false
         }
 
-        if (finalPrice === 0) {
+    if (finalPrice === 0) {
             setErrorLocation(true)
             state = true
         } else {
             setErrorLocation(false)
-        
         }
 
         return state;
     }
-
-    console.log("itemSelected", itemSelected)
-
 
     const createOrder = (buyer) => {
         const order = {

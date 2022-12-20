@@ -58,7 +58,7 @@ const Cart = () => {
 
     //   let noColor = item.colorElegido
       if (item.colorElegido === undefined) {
-        item.colorElegido = false
+        item.colorElegido = null
        } 
         return {
             id: item.id,
