@@ -143,7 +143,7 @@ const Form = ({ itemSelected, cart, idCompra, clearCart, handleId }) => {
             
 
             // debo ahora subir la pagina de backend a vercel y agregar el link aca
-            url: "https://mp-envioflores.vercel.app/payment"
+            url: "https://mp-envioflores.cyclic.app/payment"
             // url: "http://localhost:4000/payment"
         }
 
